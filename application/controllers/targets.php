@@ -25,10 +25,16 @@ class Targets extends CI_Controller {
 	{
 		$this->data['title'] = "Targets";
 		
-		dropdown_microRNAs;
-		dropdown_num_species;
-		mismatch_targets;
-		dropdown_energy;
+		$mirna_name  = $this->input->post('dropdown_microRNAs');
+		$species_num = $this->input->post('dropdown_num_species');
+		$mismatch    = $this->input->post('mismatch_targets');
+		$energy      = $this->input->post('dropdown_energy');
+		
+		echo $mirna_name . "<br>";
+		echo $species_num . "<br>";
+		echo $mismatch . "<br>";
+		echo $energy . "<br>";
+		
 		$this->data['main_content'] = 'targets_result_view';
 		$this->load->view('temp/template', $this->data);
 	}
