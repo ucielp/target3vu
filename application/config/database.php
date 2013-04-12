@@ -49,7 +49,7 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
+$db['default']['username'] = 'uciel';
 $db['default']['password'] = 'ucieluciel';
 $db['default']['database'] = 'target3vu';
 $db['default']['dbdriver'] = 'mysql';
