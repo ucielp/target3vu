@@ -4,7 +4,7 @@
 
 
 <div id='content'>
-<span class="class1">
+<div id="home">
 <table>
 
 <tr>
@@ -15,13 +15,13 @@
     
     <td > 
 	<b><br>Species (min)</b> <br><br>
-      <?php echo form_dropdown('dropdown_num_species', $nroSpecies);?>
+      <?php echo form_dropdown('dropdown_num_species', $nroSpecies, 3);?>
 	</td>
 </tr>
 <td><b>Filters<br><br></b> 
 	 <b> Mismatch<?php echo form_checkbox('mismatch_targets', 'accept', TRUE);?></b>
      <br><br>
-      <b>MFE:  <?php echo form_dropdown('dropdown_energy', $energies);?> </b>
+      <b>MFE:  <?php echo form_dropdown('dropdown_energy', $energies, PE);?> </b>
 	
 </td><td>  
 	<p><small><b><big>

@@ -46,11 +46,16 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 |
 */
 
-define('MIN_SPECIES',  3);
+define('MIN_SPECIES',   1);
 define('MAX_SPECIES',  10);
 define('ENERGY_FROM',  24);
 define('ENERGY_TO',    35);
+define('PE',       '72PE');
+define('PE_VAL',       72);
+define('SPECIES_SEPARATOR', '<br>');
 
+#define tabs
+define('tabEnergy', 'hyb_perf');
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

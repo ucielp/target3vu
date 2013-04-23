@@ -24,35 +24,9 @@ p2{
 img {
 	border: 0;
 }
-/* Esto lo agregue yo*/
-#.class1 td{text-align:center}
-
-.class1 td {
-
-	width:50%;
-	text-align: center;
-	vertical-align: bottom;
-	
-	}    
-.class1 table{
-	width: 100%;
-
-}	
-
-th	 {
-	text-transform: uppercase;
-	border-top: 1px dotted grey ;
-	border-right: 1px dotted grey;
-	border-left: 1px dotted grey;
-	border-bottom: 1px dotted grey	;
-	background-color: #d9ebff;
-	}      
 
 
-a {
-	color: #cf6914;
-	text-decoration: none;
-}
+
 
 #container{
 
@@ -657,4 +631,84 @@ h2 {
     background-color: #FFF;
   }
 
+/* Added by me */
+
+/* HOME */
+#home td {
+
+	width:50%;
+	text-align: center;
+	vertical-align: bottom;
+	
+	}    
+#home table{
+	width: 100%;
+
+}	
+
+/* TARGETS */
+
+#targets
+{
+	font-size: 10px;
+	background: #fff;
+	margin: 45px;
+	width: 480px;
+	border-collapse: collapse;
+	text-align: left;
+}
+#targets th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+#targets td
+{
+	color: #669;
+	padding: 9px 8px 0px 8px;
+	
+}
+#targets tbody tr:hover td
+{
+	color: #009;
+}
+
+/* DEFAULT */
+
+
+a {
+	color: #cf6914;
+	text-decoration: none;
+}
+ th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+/*
+	border-top: 1px dotted grey ;
+	border-right: 1px dotted grey;
+	border-left: 1px dotted grey;
+	border-bottom: 1px dotted grey	;
+	background-color: #d9ebff;
+*/
+}
+
+td
+{
+	font-size: 12px;
+	padding: 9px 8px 0px 8px;
+	/*
+	border-top: 1px dotted grey ;
+	border-right: 1px dotted grey;
+	border-left: 1px dotted grey;
+	border-bottom: 1px dotted grey	;
+	background-color: white;
+*/	
+}
 

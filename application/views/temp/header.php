@@ -5,6 +5,10 @@
   <title>Especies</title>
   <style type="text/css">
 @import "css/base.css";
+@import "../css/base.css";
+@import "../../css/base.css";
+@import "../../../css/base.css";
+
   </style>
   </head>
 <body>
