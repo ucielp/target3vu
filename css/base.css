@@ -1,9 +1,13 @@
-/***********************GLOBAL SETTINGS***********************/
-/* Changes within this document will apply to the whole site */
-/*************************************************************/
-
+/* Colours
+ * #444444 Gris letra general
+ * #D0D0D0 Gris borde container y sombra
+ * #30787e Verde de los links y punteado del menu y del header esa barra del titulo
+ * #e78e35 Naranja del menu hover y link
+ * 
+ * 
+*/
 body {
-        /*background: #e7e7e2;*/
+	/*background: #e7e7e2;*/
 	padding: 0; 
 	margin: 0;
 	text-align: center; /*part 1 of centering hack*/
@@ -25,13 +29,6 @@ img {
 	border: 0;
 }
 
-
-
-
-#container{
-
-	}
-	
 #container {
 /*		margin: 10px;
 */		
@@ -39,7 +36,7 @@ img {
 	-webkit-box-shadow: 0 0 8px #D0D0D0;
 	width: 900px;
 	text-align: left; /*part 2 of centering hack*/
-    	font-family : Lucida Grande, Tahoma, Arial, Helvetica, sans-serif;
+    font-family : Lucida Grande, Tahoma, Arial, Helvetica, sans-serif;
 	margin: 20px auto;
 	padding:  6px;
 	/*position: relative;*/
@@ -49,302 +46,12 @@ img {
     voice-family: inherit;
     height: auto;
 }
-html>body #container {
-	#height: auto;
-}
-
-.mainheader { 
-	font-size: 12pt; font-weight: bold; color: #930; 
-	}
-
-/*//////////////////////SETTINGS FOR NAV//////////////////////*/
-#nav {
-	background: #fff url(../i/img01.gif) repeat-x;
-	/*background: #fff url(../i/img01.gif) no-repeat -2px -2px;*/
-	/*background: #DDDCD2 url(../i/menu_shadow_3.gif) repeat-x bottom;*/
-	margin: 10;
-	padding: 0;
-	width: 100%;
-	height: 50px;
-	position: relative;
-	z-index: 10;
-}
-html > body #nav {
-	position: static;
-}
-
-#nav div#logo {
-	height: 61px;
-	float: left;
-	display: inline;
-	position: relative;
-	left: -14px;
-	top: 6px;
-}
-
-
-/*settings for all lists(menus) in nav*/
-#nav ul {
-	display: block;
-	width: 759px;
-	border: 0px;
-	margin: 0px;
-	padding: 0px;
-	list-style-type: none;
-}
-
-/*settings for all list(menu) items in nav*/
-#nav li {
-	display: block;
-	float: left;
-	margin: 0px;
-	width: auto;
-	font-weight: bold;
-}
-
-/*settings for all links in nav w/ important boxmodel hack*/
-#nav ul li a, #nav ul li a:visited {
-	display: block;
-	padding: 8px 0 0 10px;
-	width: 93px;
-	height: 30px;
-	voice-family: "\"}\""; 
-	voice-family:inherit;
-	width: 82px;
-	height: 22px;
-}
-
-/*settings for topnav in nav w/ important boxmodel hack*/
-#nav #topnav {
-	font-size: 10px;
-	height: 31px;
-	width: 680px;
-	float: right;
-	display: inline;
-	padding-top: 37px;
-	margin-left: -14px;
-	/*overflow: hidden;*/
-	voice-family: "\"}\""; 
-	voice-family: inherit;
-	height: 30px;
-}
-
-/*settings for topnav links in nav*/
-#nav #topnav li a, #nav #topnav li a:visited {
-        color: #444444;
-        margin: 0 0 0 6px;
-	width: auto; /*45px; originally 78px; added another link*/
-        float: left;
-}
-
-#nav #topnav li a:hover, #nav #topnav li a:active {
-	color: #222222;
-}
-
-/*settings for second nav in nav*/
-#nav #secondnav {
-	display: block;
-	height: 30px;
-	border-top: 1px solid #97aeb7;
-	clear: right;
-}
-
-#nav #secondnav li {
-	position: relative;
-}
-
-#nav #secondnav li a {
-	border-right: 1px solid #bdb9ae;
-}
-#nav #secondnav li a:hover {
-	background: #cdcbc0;
-}
-
-#nav #secondnav li.selected, #nav #secondnav li.selected:visited {
-	color: #444;
-	background: #cdcbc0;
-}
-
-/*settings for first link in second nav w/ important boxmodel hack*/
-#nav #secondnav li a.firstlink {
-	width: 86px;
-	voice-family: "\"}\""; 
-	voice-family: inherit;
-	width: 75px;
-}
-
-/*settings for last link (nr #8) in second nav w/ important boxmodel hack*/
-#nav #secondnav li a.lastlink {
-	width: 85px;
-	border-right: 0;
-	voice-family: "\"}\""; 
-	voice-family: inherit;
-	width: 75px;
-}
-#nav #secondnav li a.lastlink:hover {
-	border-right: 1px solid #bdb9ae;
-}
-
-/*settings for dropdown navigation lists*/
-#nav #secondnav li ul {
-	display: none;
-	position: absolute;
-	top: 30px;
-	left: -1px;
-	width: 188px;
-}
-/*settings for last link (nr #8) in second nav w/ important boxmodel hack*/
-#nav #secondnav li ul.short {
-        width: 115px;
-        border-right: 0;
-        voice-family: "\"}\"";
-        voice-family: inherit;
-        width: 105px;
-}
-#nav #secondnav li ul.lesswidth {
-	left: 0;
-}
-/*#nav #secondnav li ul.lesswidth2 {
-	left: -1px;
-}*/
-/*#nav #secondnav li ul li {
-	float: none;
-	height: auto;
-	padding: 0;
-}*/
-#nav #secondnav li>ul { /* to override top and left in browsers other than IE, which will position to the top right of the containing li, rather than bottom left */
-	top: auto;
-	left: -1px;
-}
-#nav #secondnav li a:hover, #nav #secondnav li:hover ul, #nav #secondnav li.over ul {
-	display: block; /* lists nested under hovered list items */
-	z-index: 20;
-}
-
-#nav #secondnav li ul li a {
-	border-top: 1px solid #97aeb7;
-	color: #666666;
-	background: #c6d3d8;
-	display: block;
-	width: 174px;
-	padding: 3px 3px 3px 10px;
-	height: auto;
-	border-right: 0;
-}
-#nav #secondnav li ul.short li a {
-        border-top: 1px solid #97aeb7;
-        color: #666666;
-        background: #c6d3d8;
-        display: block;
-        width: 105px;
-        padding: 3px 3px 3px 10px;
-        height: auto;
-        border-right: 0;
-}
-/*settings for dropdown hover*/
-#nav #secondnav li ul li a:hover, #nav #secondnav li ul li a:active {
-	background: #dae3e7;
-}
-
-#nav #secondnav li ul.lesswidth, #nav #secondnav li ul.lesswidth li a, #nav #secondnav li ul.lesswidth2 li a {
-	width: 166px;
-}
-
-#nav #secondnav li ul.short, #nav #secondnav li ul.short li a {
-        width: 105px;
-}
-
-
-/*settings for the title box in nav w/ important boxmodel hack*/
-#nav #title {
-	padding-top: 5px;
-	padding-left: 8px;
-	padding-right: 2px;
-	/*width: 179px;*/
-	width: 60px;
-	voice-family: "\"}\""; 
-	voice-family: inherit;
-	/*width: 169px;*/
-	width: 50px;
-}
-
-#nav #title a, #nav #title a:visited {
-	width: 40px;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-
-/*Settings for the search box in nav*/
-#nav form {
-	float: right;
-	padding: 0;
-	margin: 0;
-	height: 15px;
-	margin-top: 5px;
-}
-
-/*Settings for the searchcontainer in nav*/
-#nav #search{
-	/*width: 170px;*/
-	width: 325px;
-	float: right;
-}
-/*Settings for the searchfield in nav*/
-#nav #searchfield {
-	width: 104px;
-	font-size: 10px;
-	background: #f6f5f3; //#e9e8e3;
-	border: 1px solid #bdb9ae;
-	padding: 2px 3px;
-	margin-bottom: 5px;
-}
-/*Settings for the select box in nav*/
-#nav #search select {
-	font-size: 10px;
-	/*background: #c9d6db;
-	border: 1px solid #97aeb7;*/
-	background: #f6f5f3; //#e9e8e3;
-	border: 1px solid #bdb9ae;
-	margin-bottom: 5px;
-}
-/*Settings for the searchbutton in nav*/
-#searchbutton {
-	/*position: absolute;
-	top: 5px;
-	left: 655px;*/
-	width: 64px;
-	height: 20px;
-	line-height: 0;
-}
-/*//////////////////////END SETTINGS FOR NAV//////////////////////*/
-
-/*//////////////////////SETTINGS FOR HEADER//////////////////////*/
-
-#breadcrumbs {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 10px;
-	font-weight: bold;
-	padding: 20px 0;
-	margin-left: 196px;
-
-}
-#breadcrumbs a {
-	color: #666;
-	margin: 0 2px;
-}
-#breadcrumbs a.selected {
-	color: #930;
-}
-
-/*//////////////////////END SETTINGS FOR HEADER//////////////////////*/
 
 /* CONTENT ELEMENTS */
 
 		
 #content {
 	width: 620px;
-
     /*width: 827px; para cdo navigation 1000px*/
     margin-left: 175px;
     margin-right: 210px;
@@ -353,51 +60,14 @@ html > body #nav {
 
 #content p {
     padding-bottom: 5px;
-padding-top: 5px;
+	padding-top: 5px;
     /*saco esto para q no me haga una linea
     border-bottom: 1px solid #535523;*/
     /* A faint grey line below the text */;
   }
 
-#content p2 {
-    padding-bottom: 5px;
-    padding-top: 5px;
-  }
-
-
-/*//////////////////////SETTINGS FOR PRINTER FRIENDLY LINK//////////////////////*/
-#printer_friendly {
-	padding: 0 10px;
-	margin: 15px 0;
-}
-#printer_friendly img {
-	padding-right: 8px;
-	position: relative;
-	top: 3px;
-}
-/*//////////////////////END SETTINGS FOR PRINTER FRIENDLY LINK//////////////////////*/
-
 
 /*//////////////////////SETTINGS FOR FOOTER//////////////////////*/
-/*#footer{
-	clear: both;
-	margin: 15px 0 0 0;
-	padding: 10px;
-	color: #666;
-	background: #f7f6f3;
-	font-size: 11px;
-	border-top: 1px solid #e1e1d8;
-	width: 739px;
-	position: relative;
-}
-.footerText {
-	width: 739px;
-	}
-.logos {
-	width: 275px;
-	float: right;
-	height: 24px;
-}*/
 
 #footer {
 margin-top: 10px;
@@ -407,7 +77,7 @@ font-size: 11px;
 border: 5px solid #ddd;
 padding: 10px;
 }
-/*//////////////////////END SETTINGS FOR FOOTER//////////////////////*/
+/*//////////////////////END SETTINGS FOR FOOTER//////////////////*/
 
 /*clearer hack*/
 .clearfix:after {
@@ -423,113 +93,9 @@ padding: 10px;
 /* End hide from IE-mac */
 
 
-/***********************TWO COLUMN SETTINGS***********************/
-/*Changes within this document will apply to the whole site  */
-/*************************************************************/
-
-/*settings for leftcolumn*/
-#content #leftcolumn{
-	margin: 0;
-	margin-top: 20px;
-	margin-right: 25px;
-	padding: 0;
-	width: 171px;
-}
-#content #leftcolumn img{
-	max-width: 171px; /*protection from having to wide imgs*/
-}
-
-/*settings for the right column*/
-#content #rightcolumn, #content #maincolumn{
-	padding: 0 15px 0 0;
-	margin: 0;
-	width: 548px;
-}
-#content #rightcolumn img, #content #maincolumn img{
-	max-width: 533px; /*protection from having too wide imgs*/
-}
-
-
-
-
-
-
-/***********************SPECIFIC PAGE  CONTENT SETTINGS***********************/
-/*Changes within this document will apply to the whole site  */
-/*************************************************************/
-
-/*SETTINGS FOR CONTENT*/
-#content div.event {
-	background: #f7f6f3;
-	border-top: 1px solid #e1e1d8;
-	border-bottom: 1px solid #e1e1d8;
-	padding: 15px 10px;
-	margin: 0 0 10px 0;
-}
-
-#content div.event img.noborder {
-	display: inline;
-	padding: 0px;
-	border: none;
-	float: none;
-}
-
-#content div.event img {
-	display: block;
-	padding: 4px;
-	background: #fff;
-	border: 1px solid #e1e1d8;
-	float: left;
-}
-
-#content div.event div {
-	padding: 0;
-	margin-left: 80px;
-	padding-bottom: 10px;
-}
-#content #rightcolumn div.event h2 {
-	margin: 0;
-	padding: 0;
-}
-/*END SETTINGS FOR CONTENT*/
-
 /***********************COLOR SETTINGS***********************/
 /*To change the colors of the site or scheme, this is the place  */
 /*************************************************************/
-
-.red {
-	color: #f00;
-}
-.blue {
-	color: #00f;
-}
-.purple {
-	color: #c0f;
-}
-
-/*color of second nav links*/
-#nav #secondnav li a, #nav #secondnav li a:visited, #squarenavs .square h1 a,#squarenavs .square h1 a:visited  {
-	/*color: #639916;*/
-	color: #666666;
-}
-#nav #secondnav li a:hover,#nav #secondnav li a:active, #squarenavs .square h1 a:hover,#squarenavs .square h1 a:active {
-	color: #222222;
-}
-
-/*the nu main color is #003B78 */
-/*#header h1.inst, #header h1.inst a, #header h1.inst a:visited, #header a, #header a:visited, #content a:hover, #content a:active, #content #maincolumn h1, #content p.h1sub, #squarenavs .square a:hover, #squarenavs .square a:active, #content th.sectiontitle, #maincolumn p.color, #rightcolumn h1, #content p.quote {
-	color: #003B78;
-}*/
-#nav #secondnav li ul li a:hover, #nav #secondnav li ul li a:active {
-	color: #444;
-}
-#nav #secondnav, #content #articlenav li.title, #squarenavs .square h1 {
-	/*background: #dddccf;*/
-	background: #dddcd2;
-}
-#content th.sectiontitle {
-	border-top: 1px solid #003B78;
-}
 
 A:link {text-decoration: none; color: #30787e}
 A:visited {text-decoration: none; color: #30787e}
@@ -551,7 +117,6 @@ input {
 
 /* NAVIGATION ELEMENTS */
 	
-		 
 #navigation ul {
     margin-top: 20;
     margin-left: 0;
@@ -562,12 +127,11 @@ input {
     font-size: 12px;
   }
 
-
 #navigation a {
     display: block;
     padding: 5px;
     width: 140px;
-border-bottom:1px dashed #30787e;
+	border-bottom:1px dashed #30787e;
     /*border-bottom: 1px solid #535523;*/
   }
 
@@ -577,36 +141,12 @@ border-bottom:1px dashed #30787e;
     text-decoration: none;
   }
 
-
 #navigation a:hover {
     background: #000000 url(../i/arrow.gif) 96% 50% no-repeat;
     background-color: #F5F5F5;
     color:#e78e35;
   }
-
-/* THE SMALL BOX BELOW NAV */
-
-		
-#navigation p {
-    margin-top: 40px;
-    padding: 5px;
-    border-bottom: 1px dotted #CCC;
-    border-top: 1px dotted #CCC;
-  }
-
-#navigation.submenu {
-margin-right: 0;
-}
-
-#navigation.submenu a{
-margin-right: 0;
-}
-#navigation.submenu a:hover {
-background: #000000 url(../i/arrow.gif) 96% 50% no-repeat;
-background-color: #F5F5F5;
-    color:#CC6714;
-  }
-
+	 
 /* HEADER ELEMENTS berni*/ 
 		
 #header {
@@ -617,23 +157,49 @@ background-color: #F5F5F5;
     
   }
 
-/* the slogan */
-		
-#header p {
-    margin-top: -20px;
-    margin-left: 30px;
-    color: #999999;
-  }
-h2 {
-    color: #666666;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #FFF;
-  }
-
 /* Added by me */
+/*
+	TABLES
+*/
 
-/* HOME */
+/* DEFAULT */
+
+ th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+/*
+	border-top: 1px dotted grey ;
+	border-right: 1px dotted grey;
+	border-left: 1px dotted grey;
+	border-bottom: 1px dotted grey	;
+	background-color: #d9ebff;
+*/
+}
+
+td
+{
+	font-size: 12px;
+	padding: 9px 8px 0px 8px;
+	/*
+	border-top: 1px dotted grey ;
+	border-right: 1px dotted grey;
+	border-left: 1px dotted grey;
+	border-bottom: 1px dotted grey	;
+	background-color: white;
+*/	
+}
+
+/* HOME  */
+
+#home table{
+	width: 500px;
+	float:right;
+
+}	
 #home td {
 
 	width:50%;
@@ -641,13 +207,9 @@ h2 {
 	vertical-align: bottom;
 	
 	}    
-#home table{
-	width: 100%;
 
-}	
 
 /* TARGETS */
-
 #targets
 {
 	font-size: 10px;
@@ -676,39 +238,48 @@ h2 {
 	color: #009;
 }
 
-/* DEFAULT */
-
-
-a {
-	color: #cf6914;
-	text-decoration: none;
+/* NEW NAVIGATION */
+navbox {
+	position: relative;
+	float: left;
 }
- th
-{
-	font-size: 14px;
-	font-weight: normal;
-	color: #039;
-	padding: 10px 8px;
-	border-bottom: 2px solid #6678b1;
+
+ul.nav {
+	list-style: none;
+	display: block;
+	width: 200px;
+	float: left;
+	position: relative;
+	top: 25px;
+	left: 25px;
+	padding: 0px 0 0px 0;
+	background: url(shad2.png) no-repeat;
+	-webkit-background-size: 50% 100%;
+}
+
+li {
+	margin: 5px 0 0 0;
+}
+
+ul.nav li a {
+	-webkit-transition: all 0.3s ease-out;
+	background: white url(border.png) no-repeat;
 /*
-	border-top: 1px dotted grey ;
-	border-right: 1px dotted grey;
-	border-left: 1px dotted grey;
-	border-bottom: 1px dotted grey	;
-	background-color: #d9ebff;
+	background: #cbcbcb url(border.png) no-repeat;
 */
+	color: #174867;
+	padding: 7px 15px 7px 15px;
+	-webkit-border-top-right-radius: 4px;
+ 	-webkit-border-bottom-right-radius: 4px;
+	width: 70px;
+	display: block;
+	text-decoration: none;
+	-webkit-box-shadow: 2px 2px 4px #888;
 }
 
-td
-{
-	font-size: 12px;
-	padding: 9px 8px 0px 8px;
-	/*
-	border-top: 1px dotted grey ;
-	border-right: 1px dotted grey;
-	border-left: 1px dotted grey;
-	border-bottom: 1px dotted grey	;
-	background-color: white;
-*/	
+ul.nav li a:hover {
+	background: #ebebeb url(border.png) no-repeat;
+	color: #67a5cd;
+	padding: 7px 15px 7px 30px;
 }
 

@@ -25,10 +25,7 @@
 	
 </td><td>  
 	<p><small><b><big>
-	<!--
-			<input type="image" src="i/button_search.gif" value="START" type="submit">
-	-->
-             <p><?php echo form_submit('submit', 'Search');?></p>
+			<input type="image" src="css/button_search.gif" value="START" type="submit">
 	</big></b> </small></p>
 
 </td></tr>
