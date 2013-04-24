@@ -234,10 +234,9 @@ td
 	font-size: 12px;
 	color: #669;
 	padding: 9px 8px 0px 8px;
-	vertical-align:bottom;
-
-	
+/* vertical-align:bottom; */	
 }
+
 #targets tbody tr:hover td
 {
 	color: #009;
@@ -247,9 +246,11 @@ td
 /* species in targets_results start hidden */
 
 tr.starthidden { 
-	display: none;
-	font-size:20px;
-}
+	display: inherit;
+/*
+	width: 200px;
+*/
+ }
 
 
 /* NEW NAVIGATION */
