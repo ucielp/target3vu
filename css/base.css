@@ -30,17 +30,18 @@ img {
 }
 
 #container {
-/*		margin: 10px;
-*/		
 	border: 1px solid #D0D0D0;
 	-webkit-box-shadow: 0 0 8px #D0D0D0;
+/*	-moz-box-shadow: 0 0 8px #D0D0D0;*/
+	box-shadow: 0 0 8px #D0D0D0;
 	width: 900px;
 	text-align: left; /*part 2 of centering hack*/
     font-family : Lucida Grande, Tahoma, Arial, Helvetica, sans-serif;
 	margin: 20px auto;
-	padding:  6px;
+	padding:  40px;
 	/*position: relative;*/
-	min-height: 100%;
+	/* min-height: 100%;*/
+	min-height: 600px;
 	height: 100%;
 	voice-family: "\"}\"";
     voice-family: inherit;
@@ -116,6 +117,7 @@ input {
   }
 
 /* NAVIGATION ELEMENTS */
+/* OLD NAVIGATION - deprecated */
 	
 #navigation ul {
     margin-top: 20;
@@ -212,7 +214,7 @@ td
 /* TARGETS */
 #targets
 {
-	font-size: 10px;
+	font-size: 16px;
 	background: #fff;
 	margin: 45px;
 	width: 480px;
@@ -221,7 +223,7 @@ td
 }
 #targets th
 {
-	font-size: 14px;
+	font-size: 24px;
 	font-weight: normal;
 	color: #039;
 	padding: 10px 8px;
@@ -229,14 +231,26 @@ td
 }
 #targets td
 {
+	font-size: 12px;
 	color: #669;
 	padding: 9px 8px 0px 8px;
+	vertical-align:bottom;
+
 	
 }
 #targets tbody tr:hover td
 {
 	color: #009;
+	
 }
+
+/* species in targets_results start hidden */
+
+tr.starthidden { 
+	display: none;
+	font-size:20px;
+}
+
 
 /* NEW NAVIGATION */
 navbox {
@@ -253,7 +267,7 @@ ul.nav {
 	top: 25px;
 	left: 25px;
 	padding: 0px 0 0px 0;
-	background: url(shad2.png) no-repeat;
+	/* background: url(shad2.png) no-repeat; */
 	-webkit-background-size: 50% 100%;
 }
 
@@ -263,22 +277,27 @@ li {
 
 ul.nav li a {
 	-webkit-transition: all 0.3s ease-out;
-	background: white url(border.png) no-repeat;
-/*
-	background: #cbcbcb url(border.png) no-repeat;
-*/
+		    transition: all 0.3s ease-out;
+
+	/* background: #cbcbcb url(border.png) no-repeat; */
 	color: #174867;
 	padding: 7px 15px 7px 15px;
 	-webkit-border-top-right-radius: 4px;
+			border-top-right-radius: 4px;
  	-webkit-border-bottom-right-radius: 4px;
+			border-bottom-right-radius: 4px;
 	width: 70px;
 	display: block;
 	text-decoration: none;
 	-webkit-box-shadow: 2px 2px 4px #888;
+		    box-shadow: 2px 2px 4px #888;
+
 }
 
 ul.nav li a:hover {
+/*
 	background: #ebebeb url(border.png) no-repeat;
+*/
 	color: #67a5cd;
 	padding: 7px 15px 7px 30px;
 }
