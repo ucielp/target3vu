@@ -7,15 +7,9 @@
 <script type="text/javascript" src="<?php echo base_url();?>js/jscripts/jquery-1.9.1.min.js"></script>
 -->
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/base.css" type="text/css" >
 
- 
- 
-  <title>Especies</title>
-  <style type="text/css">
-@import "css/base.css";
-@import "../css/base.css";
-@import "../../css/base.css";
-@import "../../../css/base.css";
+  <title>Target3vu</title>
 
   </style>
   </head>
