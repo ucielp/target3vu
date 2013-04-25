@@ -2,6 +2,14 @@
 <head> 
  <meta http-equiv="content-script-type" content="text/javascript">
  <meta http-equiv="content-style-type" content="text/css">
+ 
+<!--
+<script type="text/javascript" src="<?php echo base_url();?>js/jscripts/jquery-1.9.1.min.js"></script>
+-->
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+
+ 
+ 
   <title>Especies</title>
   <style type="text/css">
 @import "css/base.css";
