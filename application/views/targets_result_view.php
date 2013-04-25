@@ -34,12 +34,10 @@
 		}
 	echo "</table>";
   ?>
-</div >
 
-
+	
 <script>
 $('.starthidden').hide();
-
 
 $(function(){
   $("#targets").on({'click':function(event){
