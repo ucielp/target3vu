@@ -20,7 +20,7 @@ class Home_model extends CI_Model{
 		$this->db->order_by('name','asc');
 		$query = $this->db->get();
 		foreach($query->result_array() as $row){
-			$combo[$row['table_reference']]=$row['name'];	
+			$combo[$row['table_reference']] = $row['name'];	
 			}
 		return $combo;
 	}

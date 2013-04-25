@@ -8,6 +8,8 @@ class Targets extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->library('table');
+		$this->load->helper('text');
+
 	}
 
 	function index()
@@ -30,7 +32,6 @@ class Targets extends CI_Controller {
 		$min_species = $this->input->post('dropdown_num_species');
 		$mismatch    = $this->input->post('mismatch_targets');
 		$energy      = $this->input->post('dropdown_energy');
-		
 		$this->data['mirna_name']	= $mirna_name;
 		$this->data['targets']	    = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$energy);
 		

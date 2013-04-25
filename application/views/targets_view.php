@@ -5,8 +5,7 @@
 
 <div id='content'>
 <div id="home">
-<table>
-
+<table id = 'home_target'>
 <tr>
 	<td > 
 	<b><br>microRNAs</b> <br><br>
@@ -18,7 +17,7 @@
       <?php echo form_dropdown('dropdown_num_species', $nroSpecies, 3);?>
 	</td>
 </tr>
-<td><b>Filters<br><br></b> 
+<td><br><br>
 	 <b> Mismatch<?php echo form_checkbox('mismatch_targets', 'accept', TRUE);?></b>
      <br><br>
       <b>MFE:  <?php echo form_dropdown('dropdown_energy', $energies, PE);?> </b>

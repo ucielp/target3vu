@@ -184,8 +184,8 @@ input {
 
 td
 {
-	font-size: 12px;
-	padding: 9px 8px 0px 8px;
+	font-size: 14px;
+	padding: 20px;
 	/*
 	border-top: 1px dotted grey ;
 	border-right: 1px dotted grey;
@@ -253,6 +253,16 @@ tr.starthidden {
 */
  }
 
+/* HOME TARGETS */
+#home_target
+{
+	font-size: 16px;
+	background: #fff;
+	margin: 0px;
+	width: 600px;
+	border-collapse: collapse;
+	padding: 100px;
+}
 
 /* NEW NAVIGATION */
 navbox {

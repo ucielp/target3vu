@@ -57,5 +57,14 @@ define('SPECIES_SEPARATOR', '<br>');
 #define tabs
 define('tabEnergy', 'hyb_perf');
 
+#define links
+define('BEG_LINK_WMD3','http://wmd3.weigelworld.org/cgi-bin/webapp.cgi?page=TargetSearch&rm=showsequence&seq_id=');
+define('END_LINK_WMD3','&transcript_library=TAIR8_cdna_20080412');
+
+define('BEG_LINK_TAIR','http://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name=');
+define('END_LINK_TAIR','&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1');
+
+
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
