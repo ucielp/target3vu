@@ -1,7 +1,7 @@
 <div id='content'>
   
   <?php
-	echo "<table id='targets' align = center >";
+	echo "<table id='targets' align = center border = 0>";
 	echo "<tr align = center>
 			<th><P>Tag</th>
 			<th><P>Count</th>

@@ -3,7 +3,7 @@
  * #D0D0D0 Gris borde container y sombra
  * #30787e Verde de los links y punteado del menu y del header esa barra del titulo
  * #e78e35 Naranja del menu hover y link
- * 
+ * #009 azul hover en targets  
  * 
 */
 body {
@@ -234,9 +234,9 @@ td
 	font-size: 12px;
 	color: #669;
 	padding: 9px 8px 0px 8px;
-/* vertical-align:bottom; */	
-}
-
+	vertical-align:top; 	
+}	
+	
 #targets tbody tr:hover td
 {
 	color: #009;
@@ -247,6 +247,7 @@ td
 
 tr.starthidden { 
 	display: inherit;
+	
 /*
 	width: 200px;
 */
