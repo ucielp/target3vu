@@ -57,6 +57,11 @@ class Home_model extends CI_Model{
 			}
 		}
 		
+		else
+		{
+				$new_energy = $energy;
+		}
+		
 		if ($mismatch) { $filtro_mm = 1; } else { $filtro_mm = 0; }
 		
 		$this->db->select('similar1, count(distinct file) as contador, 
