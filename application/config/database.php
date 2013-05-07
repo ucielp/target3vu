@@ -49,9 +49,16 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
+
+#web
+//~ $db['default']['username'] = 'jforte_target3vu';
+//~ $db['default']['password'] = 'ucieluciel';
+//~ $db['default']['database'] = 'jforte_target3vu_db';
+#local
 $db['default']['username'] = 'uciel';
 $db['default']['password'] = 'ucieluciel';
 $db['default']['database'] = 'target3vu';
+
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

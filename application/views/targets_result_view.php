@@ -20,7 +20,6 @@
 					. " target='_blank'>" 
 					. $target->similar1 
 					. "</a></td>";
-				http://wmd3.weigelworld.org/cgi-bin/webapp.cgi?page=TargetSearch&rm=showsequence&seq_id=AT3G14120&transcript_library=TAIR8_cdna_20080412
 				echo "<td rowspan='	2'>" . $target->contador . "</td>";
 				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
 				echo "<td rowspan='	2'>" . $target->short_description . "</td>";

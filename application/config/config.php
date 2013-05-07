@@ -14,6 +14,10 @@
 | path to your installation.
 |
 */
+
+#web
+//~ $config['base_url']	= "http://target3vu.uciel.com.ar";
+#local
 $config['base_url']	= 'http://localhost/target3vu/';
 
 /*
