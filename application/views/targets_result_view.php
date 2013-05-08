@@ -12,7 +12,7 @@
 		</tr>";
 		foreach ($targets as $target){
 			echo "<tr class ='to_shown' >";
-				echo "<td rowspan='	2'>
+				echo "<td rowspan='2'>
 					<a href=" 
 					. BEG_LINK_TAIR #BEG_LINK_WMD3
 					. $target->similar1 
@@ -20,11 +20,11 @@
 					. " target='_blank'>" 
 					. $target->similar1 
 					. "</a></td>";
-				echo "<td rowspan='	2'>" . $target->contador . "</td>";
+				echo "<td rowspan='2'>" . $target->contador . "</td>";
 				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
-				echo "<td rowspan='	2'>" . $target->short_description . "</td>";
-				echo "<td rowspan='	2'>" . $target->family . "</td>";
-				echo "<td rowspan='	2'><a href=" . site_url('targets/view_alignment/' . $mirna_name . '/' . $target->similar1) . ">View</a></td>";
+				echo "<td rowspan='2'>" . $target->short_description . "</td>";
+				echo "<td rowspan='2'>" . $target->family . "</td>";
+				echo "<td rowspan='2'><a href=" . site_url('targets/view_alignment/' . $mirna_name . '/' . $target->similar1) . ">View</a></td>";
 
 			echo "</tr>";
 			echo "<tr class = 'starthidden'>"; #starthidden is defined in base.css
