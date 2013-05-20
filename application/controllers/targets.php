@@ -41,10 +41,6 @@ class Targets extends CI_Controller {
 	
 	function view_alignment($mirna_name,$similar1)
 	{
-		//~ if(!$mirna_name or !$similar1){
-			//~ echo "AAAAAAAA";
-			//~ return;
-		//~ }
 		
 		$this->data['title'] = "Targets";
 		//~ ,$mismatch,$energy

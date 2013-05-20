@@ -157,5 +157,56 @@ class Home_model extends CI_Model{
 		
 		return $plantilla;
 	}
+	
+	function get_targets_by_family($mirna_name,$min_species,$mismatch,$energy){
+		$new_energy = 0;
+		# saco la energía
+		if ($energy == PE){
+			$this->db->select('hyb_perf');
+			$this->db->from(tabEnergy);
+			$this->db->where('mirna',$mirna_name);
+			
+			$query = $this->db->get();
+			foreach ($query->result() as $row){
+				$new_energy = ($row->hyb_perf)*PE_VAL/100;
+			}
+		}
+		
+		else
+		{
+				$new_energy = $energy;
+		}
+		
+		if ($mismatch) { $filtro_mm = 1; } else { $filtro_mm = 0; }
+		
+		$this->db->select('count(distinct file) as contador, 
+		GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species,  
+		GROUP_CONCAT(distinct similar1  SEPARATOR " ") as similar1,  
+		short_description, family');
+		$this->db->from($mirna_name);
+		$this->db->join('description d', 'd.locus_id = similar1','left');
+		
+		### Esto no hace falta porque family esta dentro de MIRNA_...
+		### TODO: puedo sacarlo de mirna y hacer el join
+		### $this->db->join('families f', 'f.locus_id = similar1','left');
+
+		$this->db->where('similar1 !=', '');
+		$this->db->where('deltag <=', $new_energy);
+		$this->db->where('filtro_mm >=',$filtro_mm);
+		$this->db->where('family !=', '');
+		$this->db->group_by('family');
+		$this->db->having('contador >=', $min_species); 
+		$this->db->order_by('contador','desc');
+		$query = $this->db->get();		
+		
+		//~ echo $this->db->last_query() . "<br>";
+		return $query->result();
+		//~ 
+		# Esto si quiero armar la tabla directamente
+		//~ $plantilla = $this->generate_plantilla('2');
+		//~ $this->table->set_template($plantilla);
+		//~ $this->table->set_heading('Tag', 'Count','Species', 'Description' , 'Family' );
+		//~ return $this->table->generate($query);
+	}
 }
 		
