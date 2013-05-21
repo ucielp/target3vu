@@ -12,7 +12,7 @@ function __construct(){
 	{
 		#redirect('inscripcion', 'refresh');
 		$this->data['title'] = "Titulo";
-		$this->data['prueba'] = $this->home_model->get_algo();
+
 		$this->data['main_content'] = 'home_view';
 
 		$this->load->view('temp/template', $this->data);

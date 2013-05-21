@@ -55,7 +55,8 @@ define('PE_VAL',       72);
 define('SPECIES_SEPARATOR', '<br>');
 
 #define tabs
-define('tabEnergy', 'hyb_perf');
+define('tabEnergy', 'mirnas');
+define('tabDescription', 'functional_description');
 
 #define links
 define('BEG_LINK_WMD3','http://wmd3.weigelworld.org/cgi-bin/webapp.cgi?page=TargetSearch&rm=showsequence&seq_id=');

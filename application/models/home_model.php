@@ -7,13 +7,7 @@ class Home_model extends CI_Model{
 	{
 		parent::__construct();
 	}
-	
-	function get_algo(){
-		$this->db->from('description');
-		$query = $this->db->get();
-		return $query->result();
-	}
-	
+		
 	function get_microRNAs(){
 		$this->db->select('name, table_reference');	
 		$this->db->from('mirnas');
@@ -49,7 +43,7 @@ class Home_model extends CI_Model{
 		if ($energy == PE){
 			$this->db->select('hyb_perf');
 			$this->db->from(tabEnergy);
-			$this->db->where('mirna',$mirna_name);
+			$this->db->where('table_reference',$mirna_name);
 			
 			$query = $this->db->get();
 			foreach ($query->result() as $row){
@@ -67,7 +61,7 @@ class Home_model extends CI_Model{
 		$this->db->select('similar1, count(distinct file) as contador, 
 		GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species,  short_description, family');
 		$this->db->from($mirna_name);
-		$this->db->join('description d', 'd.locus_id = similar1','left');
+		$this->db->join(tabDescription . ' d', 'd.locus_tag = similar1','left');
 		
 		### Esto no hace falta porque family esta dentro de MIRNA_...
 		### TODO: puedo sacarlo de mirna y hacer el join
@@ -164,7 +158,7 @@ class Home_model extends CI_Model{
 		if ($energy == PE){
 			$this->db->select('hyb_perf');
 			$this->db->from(tabEnergy);
-			$this->db->where('mirna',$mirna_name);
+			$this->db->where('table_reference',$mirna_name);
 			
 			$query = $this->db->get();
 			foreach ($query->result() as $row){
@@ -183,13 +177,14 @@ class Home_model extends CI_Model{
 		GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species,  
 		GROUP_CONCAT(distinct similar1  SEPARATOR " ") as similar1,  
 		short_description, family');
-		$this->db->from($mirna_name);
-		$this->db->join('description d', 'd.locus_id = similar1','left');
 		
-		### Esto no hace falta porque family esta dentro de MIRNA_...
-		### TODO: puedo sacarlo de mirna y hacer el join
-		### $this->db->join('families f', 'f.locus_id = similar1','left');
-
+		#TENGO QUE VER SI QUIERO HACER ESTO con el avg de deltag
+		//~ $this->db->select('count(distinct file) as contador, 
+		//~ GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species,  
+		//~ GROUP_CONCAT(distinct similar1  SEPARATOR " ") as similar1,  
+		//~ short_description, family, ROUND(AVG(distinct deltag),2) as average_deltag', FALSE);
+		$this->db->from($mirna_name);
+		$this->db->join(tabDescription . ' d', 'd.locus_tag = similar1','left');
 		$this->db->where('similar1 !=', '');
 		$this->db->where('deltag <=', $new_energy);
 		$this->db->where('filtro_mm >=',$filtro_mm);
@@ -199,14 +194,8 @@ class Home_model extends CI_Model{
 		$this->db->order_by('contador','desc');
 		$query = $this->db->get();		
 		
-		//~ echo $this->db->last_query() . "<br>";
+		
 		return $query->result();
-		//~ 
-		# Esto si quiero armar la tabla directamente
-		//~ $plantilla = $this->generate_plantilla('2');
-		//~ $this->table->set_template($plantilla);
-		//~ $this->table->set_heading('Tag', 'Count','Species', 'Description' , 'Family' );
-		//~ return $this->table->generate($query);
 	}
 }
 		

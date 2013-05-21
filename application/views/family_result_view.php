@@ -8,7 +8,7 @@
 			<th><P>Species</th>
 			<th><P>Description</th>
 			<th><P>Family</th>
-			<th><P>Alignment</th>
+			<th><P>AVG (deltaG)</th>
 		</tr>";
 		foreach ($targets as $target){
 			echo "<tr class ='to_shown' >";
@@ -19,7 +19,7 @@
 				echo "<td rowspan='	2'>" . $target->short_description . "</td>";
 				echo "<td rowspan='	2'>" . $target->family . "</td>";
 				//~ echo "<td rowspan='	2'><a href=" . site_url('targets/view_alignment/' . $mirna_name . '/' . $target->similar1) . ">View</a></td>";
-				echo "<td rowspan='	2'>TO_DO</td>";
+				echo "<td rowspan='	2'>". "TO_DO". "</td>";
 
 			echo "</tr>";
 			echo "<tr class = 'starthidden'>"; #starthidden is defined in base.css
