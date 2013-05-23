@@ -20,7 +20,7 @@
 <td><br><br>
 	 <b> Mismatch<?php echo form_checkbox('mismatch_targets', 'accept', TRUE);?></b>
      <br><br>
-      <b>MFE:  <?php echo form_dropdown('dropdown_energy', $energies, PE);?> </b>
+      <b>MFE:  <?php echo form_dropdown('dropdown_energy', $energies, DEFAULT_PE);?> </b>
 	
 </td><td>  
 	<p><small><b><big>

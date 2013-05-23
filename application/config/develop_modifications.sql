@@ -4,13 +4,13 @@ ALTER TABLE families ADD INDEX (  `locus_id` );
 ALTER TABLE  `mirnas` ADD  `table_reference` VARCHAR( 30 ) NOT NULL;
 
 
-UPDATE `mirnas` SET `table_reference` = 'MIRNA_156_GACAGAAGAGAGTGAGCA' WHERE `mirnas`.`id` = 1; UPDATE `mirnas` SET `table_reference` = 'MIRNA_159_TTGGATTGAAGGGAGCTC' WHERE `mirnas`.`id` = 2; UPDATE `mirnas` SET `table_reference` = 'MIRNA_160_GCCTGGCTCCCTGTATGC' WHERE `mirnas`.`id` = 3; UPDATE `mirnas` SET `table_reference` = 'MIRNA_162_CGATAAACCTCTGCATCC' WHERE `mirnas`.`id` = 4; UPDATE `mirnas` SET `table_reference` = 'MIRNA_164_GGAGAAGCAGGGCACGTG' WHERE `mirnas`.`id` = 5; UPDATE `mirnas` SET `table_reference` = 'MIRNA_166_CGGACCAGGCTTCATTCC' WHERE `mirnas`.`id` = 6; UPDATE `mirnas` SET `table_reference` = 'MIRNA_167_GAAGCTGCCAGCATGATC' WHERE `mirnas`.`id` = 7; UPDATE `mirnas` SET `table_reference` = 'MIRNA_168_CGCTTGGTGCAGGTCGGG' WHERE `mirnas`.`id` = 8; UPDATE `mirnas` SET `table_reference` = 'MIRNA_169_AGCCAAGGATGACTTGCC' WHERE `mirnas`.`id` = 9; UPDATE `mirnas` SET `table_reference` = 'MIRNA_171_TTGAGCCGTGCCAATATC' WHERE `mirnas`.`id` = 10; UPDATE `mirnas` SET `table_reference` = 'MIRNA_172_GAATCTTGATGATGCTGC' WHERE `mirnas`.`id` = 11; UPDATE `mirnas` SET `table_reference` = 'MIRNA_319_TGGACTGAAGGGAGCTCC' WHERE `mirnas`.`id` = 12; UPDATE `mirnas` SET `table_reference` = 'MIRNA_390_AGCTCAGGAGGGATAGCG' WHERE `mirnas`.`id` = 13; UPDATE `mirnas` SET `table_reference` = 'MIRNA_393_CCAAAGGGATCGCATTGA' WHERE `mirnas`.`id` = 14; UPDATE `mirnas` SET `table_reference` = 'MIRNA_394_TGGCATTCTGTCCACCTC' WHERE `mirnas`.`id` = 15; UPDATE `mirnas` SET `table_reference` = 'MIRNA_395_TGAAGTGTTTGGGGGAAC' WHERE `mirnas`.`id` = 16; UPDATE `mirnas` SET `table_reference` = 'MIRNA_396_TCCACAGCTTTCTTGAAC' WHERE `mirnas`.`id` = 17; UPDATE `mirnas` SET `table_reference` = 'MIRNA_397_CATTGAGTGCAGCGTTGA' WHERE `mirnas`.`id` = 18; UPDATE `mirnas` SET `table_reference` = 'MIRNA_398_GTGTTCTCAGGTCACCCC' WHERE `mirnas`.`id` = 19; UPDATE `mirnas` SET `table_reference` = 'MIRNA_399_GCCAAAGGAGATTTGCCC' WHERE `mirnas`.`id` = 20; UPDATE `mirnas` SET `table_reference` = 'MIRNA_408_TGCACTGCCTCTTCCCTG' WHERE `mirnas`.`id` = 21; UPDATE `mirnas` SET `table_reference` = 'MIRNA_827_TAGATGACCATCAGCAAA' WHERE `mirnas`.`id` = 22;
+--~ UPDATE `mirnas` SET `table_reference` = 'MIRNA_156_GACAGAAGAGAGTGAGCA' WHERE `mirnas`.`id` = 1; UPDATE `mirnas` SET `table_reference` = 'MIRNA_159_TTGGATTGAAGGGAGCTC' WHERE `mirnas`.`id` = 2; UPDATE `mirnas` SET `table_reference` = 'MIRNA_160_GCCTGGCTCCCTGTATGC' WHERE `mirnas`.`id` = 3; UPDATE `mirnas` SET `table_reference` = 'MIRNA_162_CGATAAACCTCTGCATCC' WHERE `mirnas`.`id` = 4; UPDATE `mirnas` SET `table_reference` = 'MIRNA_164_GGAGAAGCAGGGCACGTG' WHERE `mirnas`.`id` = 5; UPDATE `mirnas` SET `table_reference` = 'MIRNA_166_CGGACCAGGCTTCATTCC' WHERE `mirnas`.`id` = 6; UPDATE `mirnas` SET `table_reference` = 'MIRNA_167_GAAGCTGCCAGCATGATC' WHERE `mirnas`.`id` = 7; UPDATE `mirnas` SET `table_reference` = 'MIRNA_168_CGCTTGGTGCAGGTCGGG' WHERE `mirnas`.`id` = 8; UPDATE `mirnas` SET `table_reference` = 'MIRNA_169_AGCCAAGGATGACTTGCC' WHERE `mirnas`.`id` = 9; UPDATE `mirnas` SET `table_reference` = 'MIRNA_171_TTGAGCCGTGCCAATATC' WHERE `mirnas`.`id` = 10; UPDATE `mirnas` SET `table_reference` = 'MIRNA_172_GAATCTTGATGATGCTGC' WHERE `mirnas`.`id` = 11; UPDATE `mirnas` SET `table_reference` = 'MIRNA_319_TGGACTGAAGGGAGCTCC' WHERE `mirnas`.`id` = 12; UPDATE `mirnas` SET `table_reference` = 'MIRNA_390_AGCTCAGGAGGGATAGCG' WHERE `mirnas`.`id` = 13; UPDATE `mirnas` SET `table_reference` = 'MIRNA_393_CCAAAGGGATCGCATTGA' WHERE `mirnas`.`id` = 14; UPDATE `mirnas` SET `table_reference` = 'MIRNA_394_TGGCATTCTGTCCACCTC' WHERE `mirnas`.`id` = 15; UPDATE `mirnas` SET `table_reference` = 'MIRNA_395_TGAAGTGTTTGGGGGAAC' WHERE `mirnas`.`id` = 16; UPDATE `mirnas` SET `table_reference` = 'MIRNA_396_TCCACAGCTTTCTTGAAC' WHERE `mirnas`.`id` = 17; UPDATE `mirnas` SET `table_reference` = 'MIRNA_397_CATTGAGTGCAGCGTTGA' WHERE `mirnas`.`id` = 18; UPDATE `mirnas` SET `table_reference` = 'MIRNA_398_GTGTTCTCAGGTCACCCC' WHERE `mirnas`.`id` = 19; UPDATE `mirnas` SET `table_reference` = 'MIRNA_399_GCCAAAGGAGATTTGCCC' WHERE `mirnas`.`id` = 20; UPDATE `mirnas` SET `table_reference` = 'MIRNA_408_TGCACTGCCTCTTCCCTG' WHERE `mirnas`.`id` = 21; UPDATE `mirnas` SET `table_reference` = 'MIRNA_827_TAGATGACCATCAGCAAA' WHERE `mirnas`.`id` = 22;
 
 DROP TABLE mirnas;
 
 CREATE TABLE IF NOT EXISTS `mirnas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(10) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `sequence` varchar(50) NOT NULL,
   `table_reference` varchar(100) NOT NULL,
   `hyb_perf` FLOAT NOT NULL,
@@ -49,3 +49,18 @@ DROP TABLE description;
 
 --~ Cargar la tabla DB/functional_description.sql (ONLINE YA LA CARGUÉ)
 --~ mysql -u uciel -p target3vu  < /home/uciel/lab/sitios/DB_and_old/functional_description.sql
+
+--~ ESTO ES PARA adapat
+--~ INSERT INTO `mirnas` (`name`, `sequence`, `table_reference`, hyb_perf) VALUES
+--~ ('miR156', 'GACAGAAGAGAGTGAGCA', '156_GACAGAAGAGAGTGAGCA', -37.5),
+--~ ('miR164', 'GGAGAAGCAGGGCACGTG', '164_GGAGAAGCAGGGCACGTG', -41.8),
+--~ ('miR166', 'CGGACCAGGCTTCATTCC', '166_CGGACCAGGCTTCATTCC', -39.7),
+--~ ('miR172', 'GAATCTTGATGATGCTGC', '172_GAATCTTGATGATGCTGC', -34.1),
+--~ ('miR319', 'TGGACTGAAGGGAGCTCC', '319_TGGACTGAAGGGAGCTCC', -41.9),
+--~ ('miR396', 'TCCACAGCTTTCTTGAAC', '396_TCCACAGCTTTCTTGAAC', -34.5),
+--~ ('miR396osa', 'CCACAGGCTTTCTTGAAC', '396_OSA_TCCACAGCTTTCTTGAAC', -35.89),
+--~ ('miR396shuffle', 'GATCTTCATTACGCTCCA', '396_SHUFFLE_GATCTTCATTACGCTCCA', -34.6);
+
+--~ Esto lo debo hacer pero ya lo cambie en la definicion
+ALTER TABLE  `mirnas` CHANGE  `name`  `name` VARCHAR( 50 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
+

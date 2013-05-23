@@ -229,6 +229,15 @@ td
 	padding: 10px 8px;
 	border-bottom: 2px solid #6678b1;
 }
+#targets td.replace_color
+{ 
+	color: red;
+}
+
+#targets td.default
+{ 
+	color: #669;
+}
 #targets td
 {
 	font-size: 12px;
@@ -236,7 +245,7 @@ td
 	padding: 9px 8px 0px 8px;
 	vertical-align:top; 	
 }	
-	
+
 #targets tbody tr:hover td
 {
 	color: #009;

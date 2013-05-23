@@ -50,13 +50,27 @@ define('MIN_SPECIES',   1);
 define('MAX_SPECIES',  10);
 define('ENERGY_FROM',  24);
 define('ENERGY_TO',    35);
-define('PE',       '72PE');
-define('PE_VAL',       72);
+define('PE',        serialize(array("70PE","72PE","74PE","80PE")));
+define('DEFAULT_PE','72PE');
 define('SPECIES_SEPARATOR', '<br>');
+define('REPLACE_A', serialize(array(  '(' ,   ')'  , ' ')));
+define('REPLACE_B', serialize(array('_PO_', '_PC_' , '_')));
+define('GU_RULE', '((mm<4) OR (mm=4 AND  gu>0))');
 
 #define tabs
 define('tabEnergy', 'mirnas');
 define('tabDescription', 'functional_description');
+
+#define table fields
+
+//~ ############## Debería ser uno o el otro
+//~ define('SIMILAR_field', 'similar1');
+define('SIMILAR_field', 'similar_ath');
+define('FAMILY_field', 'family');
+//~ Esto es solo para el mir396 que dice phyto al final
+//~ define('FAMILY_field', 'family_annotation');
+
+//~ ############## Debería ser uno o el otro
 
 #define links
 define('BEG_LINK_WMD3','http://wmd3.weigelworld.org/cgi-bin/webapp.cgi?page=TargetSearch&rm=showsequence&seq_id=');

@@ -11,20 +11,21 @@
 			<th><P>Alignment</th>
 		</tr>";
 		foreach ($targets as $target){
+			$similar = $target->{SIMILAR_field} ;
 			echo "<tr class ='to_shown' >";
 				echo "<td rowspan='2'>
 					<a href=" 
 					. BEG_LINK_TAIR #BEG_LINK_WMD3
-					. $target->similar1 
+					. $similar 
 					. END_LINK_TAIR #END_LINK_WMD3
 					. " target='_blank'>" 
-					. $target->similar1 
+					. $similar
 					. "</a></td>";
 				echo "<td rowspan='2'>" . $target->contador . "</td>";
 				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
 				echo "<td rowspan='2'>" . $target->short_description . "</td>";
-				echo "<td rowspan='2'>" . $target->family . "</td>";
-				echo "<td rowspan='2'><a href=" . site_url('targets/view_alignment/' . $mirna_name . '/' . $target->similar1) . ">View</a></td>";
+				echo "<td rowspan='2'>" . $target->{FAMILY_field} . "</td>";
+				echo "<td rowspan='2'><a href=" . site_url('targets/view_alignment/' . $mirna_name . '/' . $similar . '/' . $mismatch  . '/' . $energy) . ">View</a></td>";
 
 			echo "</tr>";
 			echo "<tr class = 'starthidden'>"; #starthidden is defined in base.css

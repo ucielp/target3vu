@@ -35,8 +35,31 @@ class Family extends CI_Controller {
 		$this->data['mirna_name']	= $mirna_name;
 		$this->data['targets']	    = $this->home_model->get_targets_by_family($mirna_name,$min_species,$mismatch,$energy);
 		
+		if ($mismatch){
+			$this->data['mismatch'] = 1;
+		}
+		else{
+			$this->data['mismatch'] = 0;
+		}
+		$this->data['energy']	    = $this->home_model->get_energy_by_perc($energy,$mirna_name);
+		
 		$this->data['main_content'] = 'family_result_view';
 		$this->load->view('temp/template', $this->data);
+	}
+	
+	function show_tags($mirna_name,$family,$mm,$energy)
+	{
+		$this->data['title'] = "Family";
+		$family = str_replace(unserialize(REPLACE_B) , unserialize(REPLACE_A), $family);
+
+		$this->data['family_targets']	= $this->home_model->get_similar_by_family($mirna_name,$family);
+		
+		$this->data['mismatch_filter']	= $mm;
+		$this->data['energy']	    	= $energy;
+		
+		$this->data['main_content'] = 'family_targets_view';
+		$this->load->view('temp/template', $this->data);
+		
 	}
 	
 }

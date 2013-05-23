@@ -12,13 +12,14 @@
 		</tr>";
 		foreach ($targets as $target){
 			echo "<tr class ='to_shown' >";
-				echo "<td rowspan='	2'>" . $target->similar1 . "</td>";
-				http://wmd3.weigelworld.org/cgi-bin/webapp.cgi?page=TargetSearch&rm=showsequence&seq_id=AT3G14120&transcript_library=TAIR8_cdna_20080412
+			 //~ 
+				echo "<td rowspan='	2'><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . str_replace(unserialize(REPLACE_A),unserialize(REPLACE_B),$target->{FAMILY_field})) . '/' . $mismatch  . '/' . $energy . ">View</a></td>";
+
+				//~ echo "<td rowspan='	2'>" . $target->similars . "</td>";
 				echo "<td rowspan='	2'>" . $target->contador . "</td>";
 				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
 				echo "<td rowspan='	2'>" . $target->short_description . "</td>";
-				echo "<td rowspan='	2'>" . $target->family . "</td>";
-				//~ echo "<td rowspan='	2'><a href=" . site_url('targets/view_alignment/' . $mirna_name . '/' . $target->similar1) . ">View</a></td>";
+				echo "<td rowspan='	2'>" . $target->{FAMILY_field} . "</td>";
 				echo "<td rowspan='	2'>". "TO_DO". "</td>";
 
 			echo "</tr>";
@@ -29,7 +30,15 @@
 	echo "</table>";
   ?>
 
-	
+
+<script type="text/javascript" language="javascript">// 
+$(document).ready(function() {  
+   $('#id_submit_form').click(function() {
+        get_form_data_and_submit();
+        return false;
+    });
+</script>
+
 <script>
 $('.starthidden').hide();
 

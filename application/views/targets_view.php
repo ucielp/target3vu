@@ -20,7 +20,7 @@
 <td><br><br>
 	 <b> Mismatch<?php echo form_checkbox('mismatch_targets', 'accept', TRUE);?></b>
      <br><br>
-      <b>MFE:  <?php echo form_dropdown('dropdown_energy', $energies, PE);?> </b>
+      <b>MFE:  <?php echo form_dropdown('dropdown_energy', $energies, DEFAULT_PE);?> </b>
 	
 </td><td>  
 	<p><small><b><big>
@@ -32,3 +32,20 @@
 </table>
 
 
+<select id='optgroup' multiple='multiple'>
+  <optgroup label='Friends'>
+    <option value='1'>Yoda</option>
+    <option value='2'>Obiwan</option>
+  </optgroup>
+  <optgroup label='Enemies'>
+    <option value='3'>Palpatine</option>
+    <option value='4'>Darth Vader</option>
+  </optgroup>
+</select>
+
+
+
+
+<script type="text/javascript" language="javascript">// 
+$('#optgroup').multiSelect({ selectableOptgroup: true });
+</script>

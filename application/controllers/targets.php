@@ -19,7 +19,6 @@ class Targets extends CI_Controller {
 		$this->data['microRNAs']  = $this->home_model->get_microRNAs(); //para el combo box
 		$this->data['nroSpecies'] = $this->home_model->get_nro_species(); //para el combo box
 		$this->data['energies']   = $this->home_model->get_energies(); //para el combo box
-
 		$this->data['main_content'] = 'targets_view';
 		$this->load->view('temp/template', $this->data);
 	}
@@ -34,17 +33,26 @@ class Targets extends CI_Controller {
 		$energy      = $this->input->post('dropdown_energy');
 		$this->data['mirna_name']	= $mirna_name;
 		$this->data['targets']	    = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$energy);
+		if ($mismatch){
+			$this->data['mismatch'] = 1;
+		}
+		else{
+			$this->data['mismatch'] = 0;
+		}
+		$this->data['energy']	    = $this->home_model->get_energy_by_perc($energy,$mirna_name);
 		
 		$this->data['main_content'] = 'targets_result_view';
 		$this->load->view('temp/template', $this->data);
 	}
 	
-	function view_alignment($mirna_name,$similar1)
+	function view_alignment($mirna_name,$similar,$mm,$energy)
 	{
 		
 		$this->data['title'] = "Targets";
-		//~ ,$mismatch,$energy
-		$this->data['alignments']	= $this->home_model->get_alginment($mirna_name,$similar1);
+		$this->data['alignments']	= $this->home_model->get_alginment($mirna_name,$similar,$mm,$energy);
+
+		$this->data['mismatch_filter']	= $mm;
+		$this->data['energy']	    = $energy;
 
 		$this->data['main_content'] = 'alginments_result_view';
 		$this->load->view('temp/template', $this->data);
