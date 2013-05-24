@@ -6,21 +6,17 @@
 			<th><P>Tag</th>
 			<th><P>Count</th>
 			<th><P>Species</th>
-			<th><P>Description</th>
 			<th><P>Family</th>
-			<th><P>AVG (deltaG)</th>
 		</tr>";
 		foreach ($targets as $target){
 			echo "<tr class ='to_shown' >";
 			 //~ 
-				echo "<td rowspan='	2'><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . str_replace(unserialize(REPLACE_A),unserialize(REPLACE_B),$target->{FAMILY_field})) . '/' . $mismatch  . '/' . $energy . ">View</a></td>";
+				echo "<td rowspan='	2'><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . str_replace(unserialize(REPLACE_A),unserialize(REPLACE_B),$target->{FAMILY_field})) . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)) .">Show</a></td>";
 
 				//~ echo "<td rowspan='	2'>" . $target->similars . "</td>";
 				echo "<td rowspan='	2'>" . $target->contador . "</td>";
 				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
-				echo "<td rowspan='	2'>" . $target->short_description . "</td>";
 				echo "<td rowspan='	2'>" . $target->{FAMILY_field} . "</td>";
-				echo "<td rowspan='	2'>". "TO_DO". "</td>";
 
 			echo "</tr>";
 			echo "<tr class = 'starthidden'>"; #starthidden is defined in base.css

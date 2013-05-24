@@ -28,7 +28,30 @@
 	</big></b> </small></p>
 
 </td></tr>
+
+<tr>
+
+	<?php 
+	$options = array(
+                  'small'  => 'Small Shirt',
+                  'med'    => 'Medium Shirt',
+                  'large'   => 'Large Shirt',
+                  'xlarge' => 'Extra Large Shirt',
+                );
+	?>
+	<td colspan = 2 >
+	<?php 
+
+	echo form_multiselect('multiselect_species[]', $plants,'','id = species_mult'); 
+?>
+
+	</td>
 </span>
 </table>
+
+<script>
+$('#species_mult').multiSelect();
+</script>
+
 
 

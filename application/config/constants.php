@@ -46,6 +46,11 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 |
 */
 
+//~ Databases and address
+define('BASE_URL_UPC',   '192.168.83.41'); 			#lab
+//~ define('BASE_URL_UPC',   'localhost'); 				#local
+//~ define('BASE_URL_UPC',   'target3vu.uciel.com.ar'); #web
+
 define('MIN_SPECIES',   1);
 define('MAX_SPECIES',  10);
 define('ENERGY_FROM',  24);
@@ -56,6 +61,7 @@ define('SPECIES_SEPARATOR', '<br>');
 define('REPLACE_A', serialize(array(  '(' ,   ')'  , ' ')));
 define('REPLACE_B', serialize(array('_PO_', '_PC_' , '_')));
 define('GU_RULE', '((mm<4) OR (mm=4 AND  gu>0))');
+define('DB_search','phytozome');
 
 #define tabs
 define('tabEnergy', 'mirnas');
