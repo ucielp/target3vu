@@ -34,18 +34,26 @@ class Targets extends CI_Controller {
 		$mismatch    = $this->input->post('mismatch_targets');
 		$energy      = $this->input->post('dropdown_energy');
 		$species     = $this->input->post('multiselect_species');
+		$input_mfe 	 = $this->input->post('input_mfe');
 		
+		$mfe	    = $this->home_model->get_energy_by_perc($input_mfe,$mirna_name);		
+
+		//~ $not_in_species = $this->home_model->not_in_species($species);
 		$this->data['mirna_name']	= $mirna_name;
-		$this->data['targets']	    = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$energy,$species);
-		$this->data['species'] = $species;
 		
+
+		
+		$this->data['energy'] = $mfe;
+		
+		$this->data['targets'] = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$mfe,$species);
+		$this->data['species'] = $species;
+
 		if ($mismatch){
 			$this->data['mismatch'] = 1;
 		}
 		else{
 			$this->data['mismatch'] = 0;
 		}
-		$this->data['energy']	    = $this->home_model->get_energy_by_perc($energy,$mirna_name);
 		
 		$this->data['main_content'] = 'targets_result_view';
 		$this->load->view('temp/template', $this->data);

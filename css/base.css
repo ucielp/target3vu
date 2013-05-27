@@ -196,17 +196,20 @@ td
 }
 
 /* HOME  */
+#home{
+position:relative;
+left:0px;
+top:0px;
+}
 
 #home table{
-	width: 500px;
-	float:right;
+	position:relative;
+	top:-50px;
 
 }	
 #home td {
 
-	width:50%;
 	text-align: center;
-	vertical-align: bottom;
 	
 	}    
 
@@ -263,10 +266,11 @@ tr.starthidden {
 {
 	font-size: 16px;
 	background: #fff;
-	margin: 0px;
+	margin: 100px 0px 0px 0px;
 	width: 600px;
-	border-collapse: collapse;
-	padding: 100px;
+}
+#home_target p{
+	font-size: 16px;
 }
 
 /* NEW NAVIGATION */
@@ -319,3 +323,20 @@ ul.nav li a:hover {
 	padding: 7px 15px 7px 30px;
 }
 
+/* MORE OPTIONS DISPLAY - TARGETS */
+.slidingDiv {
+/*
+    height:300px;
+    margin-top:10px;
+    border-bottom:5px solid #3399FF;
+
+ */
+    padding: 40px 10px 20px 0px;
+
+}
+ 
+.show_hide_options {
+    display:none;
+    font-size:20px;
+
+}

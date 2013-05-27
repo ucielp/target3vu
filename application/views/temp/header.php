@@ -7,6 +7,7 @@
 <script type="text/javascript" src="<?php echo base_url();?>js/jscripts/jsphylosvg-1.55/jsphylosvg-min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>js/jscripts/jsphylosvg-1.55/raphael-min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>js/jscripts/jquery.multi-select.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/jscripts/jquery-ui.js"></script>
 
 <!-- <script type="text/javascript" src="<?php echo base_url();?>js/jscripts/raphael-min.js"></script> -->
 <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script> -->

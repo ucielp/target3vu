@@ -75,6 +75,7 @@ class Home_model extends CI_Model{
 		
 		if(!empty($species)) {
 			$this->db->where_in('file',$species);
+			//~ $this->db->where_not_in('file',$not_in_species);
 		}
 		### TODO: GU Esto no va a andar para las db viejas!
 		$this->db->where(GU_RULE);
@@ -210,6 +211,26 @@ class Home_model extends CI_Model{
 		}
 
 		return $new_energy;
+	}
+	
+	function not_in_species($species){
+		$res;
+		$this->db->select('specie, aka');	
+		$this->db->from('plants');
+		$this->db->where('db',DB_search);
+		$this->db->order_by('specie','asc');
+		
+		if(!empty($species)) {
+			$this->db->where_not_in('specie',$species);
+		}
+		$query = $this->db->get();
+		
+		if($query->num_rows() > 0){
+            foreach($query->result() as $row){
+                $data[] = $row->specie;
+            }
+            return $data;
+        }
 	}
 	
 	
