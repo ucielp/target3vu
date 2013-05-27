@@ -40,9 +40,8 @@ class Targets extends CI_Controller {
 
 		//~ $not_in_species = $this->home_model->not_in_species($species);
 		$this->data['mirna_name']	= $mirna_name;
-		
+		$this->data['min_species']	= $min_species;
 
-		
 		$this->data['energy'] = $mfe;
 		
 		$this->data['targets'] = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$mfe,$species);

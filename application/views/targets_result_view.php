@@ -1,5 +1,13 @@
 <div id='content'>
-  
+  <div id = 'header_result'>
+	   <?php 
+			echo "<p>miRNA: " .  $mirna_name . "</p>" ;
+			echo "<p>Min Species: " .  $min_species . "</p>" ;
+			echo "<p>MFE cutoff " .  $energy . "</p>" ;
+			echo "<p> MM Filter:" .  $mismatch . "</p>" ;
+			?>
+	  
+  </div>
   <?php
 	echo "<table id='targets' align = center border = 0>";
 	echo "<tr align = center>
