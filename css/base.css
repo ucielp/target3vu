@@ -70,14 +70,28 @@ img {
 
 
 /*//////////////////////SETTINGS FOR FOOTER//////////////////////*/
-
 #footer {
-margin-top: 10px;
-text-align: center;
-color: #444;
-font-size: 11px;
-border: 5px solid #ddd;
-padding: 10px;
+	position:fixed;
+	left:0px;
+	bottom:0px;
+	height:50px;
+	width:100%;
+/* 	background-color: rgba(48, 120, 126, 0.2); */
+
+
+	} 
+* html #footer {
+   position:absolute;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
 }
 /*//////////////////////END SETTINGS FOR FOOTER//////////////////*/
 
@@ -180,6 +194,7 @@ ul.nav li a:hover {
     width: 100%;
     padding: 10px;
     margin: 30px 0 0 0;
+   	border-radius:10px;
     -moz-border-radius:10px;
 	-webkit-border-radius:10px;
 }
@@ -253,7 +268,7 @@ top:0px;
 	font-size: 16px;
 	background: #fff;
 	margin: 20px 0 0 10px;
-	width: 480px;
+	width: 620px;
 	border-collapse: collapse;
 	text-align: left;
 }
@@ -320,13 +335,14 @@ padding: 0px 0 0px 0;
 
 /* BOTONES SEARCH Y GO BACK */
 
-a.goback {text-align:center;
+a.goback {
+	text-align:center;
 	float:right;
 	font-size:13px;
 	color:#fff!important;
 	text-decoration:none;
-	margin-top:30px;
-	margin-right:30px;
+	margin-top:70px;
+	margin-right:0px;
 	background:#454545;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
@@ -350,4 +366,5 @@ input.search {
 	padding:10px;
 	cursor:pointer;
   }
+
 
