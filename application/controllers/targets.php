@@ -62,6 +62,11 @@ class Targets extends CI_Controller {
 	{
 		$species = unserialize(base64_decode($sp));
 		
+		
+		$this->data['mirna_name']	= $mirna_name;
+		$this->data['mismatch'] = $mm;
+		
+		
 		$this->data['title'] = "Targets";
 		$this->data['alignments']	= $this->home_model->get_alginment($mirna_name,$similar,$mm,$energy,$species);
 

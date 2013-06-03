@@ -37,12 +37,13 @@
 </td>
 <td>  
 	<p><small><b><big>
-			<input type="image" src="css/button_search.gif" value="START" type="submit">
+			<input  class  = "search" value="Search" type="submit">
 	</big></b> </small></p>
 </td>
 </tr>
 </table>
 
+  <div class="line-separator"></div>
 
 <a href="#" class="show_hide_options"> Advanced options</a>
 		<div class="slidingDiv">

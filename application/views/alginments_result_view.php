@@ -1,5 +1,18 @@
 <div id='content'>
- 
+	<div class = 'header_result'>
+		<a href="javascript:history.go(-1)" class="goback">Go Back</a>
+		<?php 
+	   		echo "<h1><b>$title</b></h1>" ;
+			echo "<p>miRNA:<b> " .  $mirna_name . "</b></p>" ;
+			echo "<p>MFE cutoff:<b> " .  $energy . "</b></p>" ;
+			if ($mismatch){
+				$show_mm = 'Yes';
+			}
+			else{
+				$show_mm = 'No';
+			} 
+			echo "<p>MM Filter:<b> " .  $show_mm . "</b></p>" ; ?>
+	</div>
   <?php
 	echo "<table id = 'targets' align = center>";
 	echo "<tr align = center>

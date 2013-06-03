@@ -40,6 +40,9 @@ class Family extends CI_Controller {
 		$this->data['mirna_name']	= $mirna_name;
 		$this->data['targets']	    = $this->home_model->get_targets_by_family($mirna_name,$min_species,$mismatch,$energy,$species);
 		$this->data['species'] = $species;
+		$this->data['min_species']	= $min_species;
+
+		
 
 		if ($mismatch){
 			$this->data['mismatch'] = 1;
@@ -63,6 +66,9 @@ class Family extends CI_Controller {
 		
 		$this->data['mismatch_filter']	= $mm;
 		$this->data['energy']	    	= $energy;
+		
+		$this->data['mirna_name']	= $mirna_name;
+		$this->data['mismatch'] = $mm;
 		
 		$this->data['main_content'] = 'family_targets_view';
 		$this->load->view('temp/template', $this->data);

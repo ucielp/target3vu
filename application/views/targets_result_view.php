@@ -1,15 +1,23 @@
+
 <div id='content'>
-  <div id = 'header_result'>
+	
+  <div class = 'header_result'>
+	  	<a href="<?php echo site_url('targets');?>" class="goback">Go Back</a>
 	   <?php 
-			echo "<p>miRNA: " .  $mirna_name . "</p>" ;
-			echo "<p>Min Species: " .  $min_species . "</p>" ;
-			echo "<p>MFE cutoff " .  $energy . "</p>" ;
-			echo "<p> MM Filter:" .  $mismatch . "</p>" ;
-			?>
-	  
+	   		echo "<h1><b>$title</b></h1>" ;
+			echo "<p>miRNA:<b> " .  $mirna_name . "</b></p>" ;
+			echo "<p>MFE cutoff:<b> " .  $energy . "</b></p>" ;
+			if ($mismatch){
+				$show_mm = 'Yes';
+			}
+			else{
+				$show_mm = 'No';
+			} 
+			echo "<p>MM Filter:<b> " .  $show_mm . "</b></p>" ; ?>
   </div>
+
   <?php
-	echo "<table id='targets' align = center border = 0>";
+	echo "<table id='targets'>";
 	echo "<tr align = center>
 			<th><P>Tag</th>
 			<th><P>Count</th>
