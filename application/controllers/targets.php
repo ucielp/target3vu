@@ -36,26 +36,37 @@ class Targets extends CI_Controller {
 		$species     = $this->input->post('multiselect_species');
 		$input_mfe 	 = $this->input->post('input_mfe');
 		
-		$mfe	    = $this->home_model->get_energy_by_perc($input_mfe,$mirna_name);		
-
-		//~ $not_in_species = $this->home_model->not_in_species($species);
-		$this->data['mirna_name']	= $mirna_name;
-		$this->data['min_species']	= $min_species;
-
-		$this->data['energy'] = $mfe;
-		
-		$this->data['targets'] = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$mfe,$species);
-		$this->data['species'] = $species;
-
-		if ($mismatch){
-			$this->data['mismatch'] = 1;
+		if ((sizeof($species) < $min_species) and !empty($species)){
+			
+			$this->data['mirna_name']	= $mirna_name;
+			$this->data['msg'] = "Error tal por x motivo";
+			$this->data['main_content'] = 'error_message';
+			$this->load->view('temp/template', $this->data);
 		}
+		
 		else{
-			$this->data['mismatch'] = 0;
+
+			$mfe = $this->home_model->get_energy_by_perc($input_mfe,$mirna_name);		
+
+			//~ $not_in_species = $this->home_model->not_in_species($species);
+			$this->data['mirna_name']	= $mirna_name;
+			$this->data['min_species']	= $min_species;
+
+			$this->data['energy'] = $mfe;
+			
+			$this->data['targets'] = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$mfe,$species);
+			$this->data['species'] = $species;
+
+			if ($mismatch){
+				$this->data['mismatch'] = 1;
+			}
+			else{
+				$this->data['mismatch'] = 0;
+			}
+			
+			$this->data['main_content'] = 'targets_result_view';
+			$this->load->view('temp/template', $this->data);
 		}
-		
-		$this->data['main_content'] = 'targets_result_view';
-		$this->load->view('temp/template', $this->data);
 	}
 	
 	function view_alignment($mirna_name,$similar,$mm,$energy,$sp)

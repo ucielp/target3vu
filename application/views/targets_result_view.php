@@ -1,6 +1,5 @@
 
 <div id='content'>
-	
   <div class = 'header_result'>
 	  	<a href="<?php echo site_url('targets');?>" class="goback">Go Back</a>
 	   <?php 
