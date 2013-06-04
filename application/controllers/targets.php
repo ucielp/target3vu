@@ -36,10 +36,12 @@ class Targets extends CI_Controller {
 		$species     = $this->input->post('multiselect_species');
 		$input_mfe 	 = $this->input->post('input_mfe');
 		
+		$this->data['mirna_name']	= $mirna_name;
+
+		
 		if ((sizeof($species) < $min_species) and !empty($species)){
 			
-			$this->data['mirna_name']	= $mirna_name;
-			$this->data['msg'] = "Error tal por x motivo";
+			$this->data['msg'] = "Failed to execute search request. You need to select at least $min_species species.";
 			$this->data['main_content'] = 'error_message';
 			$this->load->view('temp/template', $this->data);
 		}
@@ -49,12 +51,8 @@ class Targets extends CI_Controller {
 			$mfe = $this->home_model->get_energy_by_perc($input_mfe,$mirna_name);		
 
 			//~ $not_in_species = $this->home_model->not_in_species($species);
-			$this->data['mirna_name']	= $mirna_name;
 			$this->data['min_species']	= $min_species;
-
 			$this->data['energy'] = $mfe;
-			
-			$this->data['targets'] = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$mfe,$species);
 			$this->data['species'] = $species;
 
 			if ($mismatch){
@@ -64,6 +62,8 @@ class Targets extends CI_Controller {
 				$this->data['mismatch'] = 0;
 			}
 			
+			$this->data['targets'] = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$mfe,$species);
+						
 			$this->data['main_content'] = 'targets_result_view';
 			$this->load->view('temp/template', $this->data);
 		}
@@ -76,11 +76,25 @@ class Targets extends CI_Controller {
 		
 		$this->data['mirna_name']	= $mirna_name;
 		$this->data['mismatch'] = $mm;
+
+		#No tengo especies, por lo tanto hago la busqueda en todos
+		$empty_sp = 0;
+		#Quiero las que estan dentro de esas especies
+		$in_sp = 1;
+		#Quiero las que NO estan dentro de esas especies
+		$not_in_sp = 2;
 		
 		
 		$this->data['title'] = "Targets";
-		$this->data['alignments']	= $this->home_model->get_alginment($mirna_name,$similar,$mm,$energy,$species);
+		if (empty($species)){
+				$this->data['alignments']	= $this->home_model->get_alginment_in($mirna_name,$similar,$mm,$energy,$species,$empty_sp);
+				$this->data['alignments_not_in']	= "";
 
+		}
+		else{
+			$this->data['alignments']	= $this->home_model->get_alginment_in($mirna_name,$similar,$mm,$energy,$species,$in_sp);
+			$this->data['alignments_not_in']	= $this->home_model->get_alginment_in($mirna_name,$similar,$mm,$energy,$species,$not_in_sp);
+		}
 		$this->data['mismatch_filter']	= $mm;
 		$this->data['energy']	    = $energy;
 

@@ -77,9 +77,8 @@ class Home_model extends CI_Model{
 			$this->db->where_in('file',$species);
 			//~ $this->db->where_not_in('file',$not_in_species);
 		}
-		### TODO: GU Esto no va a andar para las db viejas!
-		$this->db->where(GU_RULE);
 
+		$this->db->where(GU_RULE);
 		$this->db->group_by(SIMILAR_field);
 
 
@@ -93,7 +92,7 @@ class Home_model extends CI_Model{
 	}
 	
 	
-	function get_alginment($mirna_name,$similar,$mm,$energy,$species){
+	function get_alginment_in($mirna_name,$similar,$mm,$energy,$species,$in){
 		
 		# my $query = "select file,gen,target,align,mirna,deltag,filtro_mm from $file where " . SIMILAR_field . " = '$similar' 
 		# group by file,target order by target";
@@ -101,14 +100,20 @@ class Home_model extends CI_Model{
 		$this->db->from($mirna_name);
 		$this->db->where(SIMILAR_field, $similar);
 		
-		if(!empty($species)) {
+		if ($in == 1){
 			$this->db->where_in('file',$species);
-		}
-		### TODO: GU Esto no va a andar para las db viejas!
+			}
+		elseif ($in == 2){
+			$this->db->where_not_in('file',$species);
+			}
+		else {
+			
+		}	
+
 		$this->db->where(GU_RULE);
 
 		## TODO: Ver si pongo el group by porque estoy ocultando targets
-		# POdria mostrar uno y al poner el mouse arriba ver el resto
+		# Podria mostrar uno y al poner el mouse arriba ver el resto
 		$this->db->group_by('file,target');
 		
 		//~ $this->db->where('deltag <=', $new_energy);
@@ -117,12 +122,11 @@ class Home_model extends CI_Model{
 		//~ $this->db->order_by('file','deltag');	
 
 		$query = $this->db->get();
+		
+		//~ echo $this->db->last_query() . "<br>";
+
 		return $query->result();
 	}	
-	
-	
-	
-	
 	
 	
 	function get_targets_by_family($mirna_name,$min_species,$mismatch,$energy,$species){
@@ -161,32 +165,28 @@ class Home_model extends CI_Model{
 		return $query->result();
 	}
 	
-	function get_similar_by_family($mirna_name,$family,$species){
+	function get_similar_by_family($mirna_name,$family,$species,$in){
 		
 		$this->db->select(SIMILAR_field. ',file,gen,target,align,mirna,deltag,filtro_mm');
 		$this->db->from($mirna_name);
 		$this->db->where(FAMILY_field, $family);
 		
-		if(!empty($species)) {
+		if ($in == 1){
 			$this->db->where_in('file',$species);
-		}
-		### TODO: GU Esto no va a andar para las db viejas!
+			}
+		elseif ($in == 2){
+			$this->db->where_not_in('file',$species);
+			}
+		else {
+			
+		}	
+		
 		$this->db->where(GU_RULE);
 		
 		$this->db->group_by('file,target');
 		$this->db->order_by(SIMILAR_field,'desc');
-		
-		
-
-		//~ $this->db->where_in(SIMILAR_field,$similars);
-		//~ $this->db->where('deltag <=', $new_energy);
-		//~ $this->db->where('filtro_mm >=',$filtro_mm);
-		//~ $this->db->order_by('file','desc');
-		//~ $this->db->order_by('file','deltag');	
-
+				
 		$query = $this->db->get();
-		//~ echo $this->db->last_query() . "<br>";
-
 		return $query->result();
 	}
 	

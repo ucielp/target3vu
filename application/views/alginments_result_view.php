@@ -31,13 +31,13 @@
 			if($mismatch_filter ){
 				# Si tiene el filtro cambio de color a los que no lo pasan
 				if (!$alignment->filtro_mm){
-					$class_alignment = 'replace_color';
+					$class_alignment = 'altert_color';
 					
 				}
 			}
 			
 			if($energy < $alignment->deltag){
-					$class_deltag = 'replace_color';
+					$class_deltag = 'altert_color';
 			}
 			
 			echo "<tr>";
@@ -50,6 +50,39 @@
 				echo "<td class = $class_deltag>" . $alignment->deltag . "</td>";
 			echo "</tr>";		
 		}
+		
+		# BEGIN alignments NOT IN
+		if ($alignments_not_in) {
+			foreach ($alignments_not_in as $alignment){
+
+				$class_alignment = 'not_in_color';
+				$class_deltag = 'not_in_color';
+
+				//~ if($mismatch_filter ){
+					//~ # Si tiene el filtro cambio de color a los que no lo pasan
+					//~ if (!$alignment->filtro_mm){
+						//~ $class_alignment = 'altert_color';
+						//~ 
+					//~ }
+				//~ }
+				//~ 
+				//~ if($energy < $alignment->deltag){
+						//~ $class_deltag = 'altert_color';
+				//~ }
+				
+				echo "<tr>";
+					echo "<td>" . $alignment->gen . "</td>";
+					echo "<td>" . $alignment->file . "</td>";
+					echo "<td class= $class_alignment ><PRE>" . $alignment->target . "</br>" 
+									 . $alignment->align  . "</br>"
+									 . $alignment->mirna  . 
+						"</PRE></td>";
+					echo "<td class = $class_deltag>" . $alignment->deltag . "</td>";
+				echo "</tr>";		
+			}
+		}
+		# End of alignments NOT IN
+		
 	echo "</table>";
   ?>
 

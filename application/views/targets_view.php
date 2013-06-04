@@ -1,10 +1,10 @@
  
- 
   <?php echo form_open_multipart("targets/search",'id = form_search');?>
-
 
 <div id='content'>
 <div id="home">
+<h1><?php echo $title?></h1>
+
 <table id = 'home_target' >
 
 <tr>

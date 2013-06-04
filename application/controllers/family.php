@@ -35,25 +35,36 @@ class Family extends CI_Controller {
 		$mismatch    = $this->input->post('mismatch_targets');
 		$energy      = $this->input->post('dropdown_energy');
 		$species     = $this->input->post('multiselect_species');
+		$input_mfe 	 = $this->input->post('input_mfe');
+
 		
 		
 		$this->data['mirna_name']	= $mirna_name;
-		$this->data['targets']	    = $this->home_model->get_targets_by_family($mirna_name,$min_species,$mismatch,$energy,$species);
 		$this->data['species'] = $species;
 		$this->data['min_species']	= $min_species;
 
-		
-
-		if ($mismatch){
-			$this->data['mismatch'] = 1;
+		if ((sizeof($species) < $min_species) and !empty($species)){
+			
+			$this->data['msg'] = "Failed to execute search request. You need to select at least $min_species species.";
+			$this->data['main_content'] = 'error_message';
+			$this->load->view('temp/template', $this->data);
 		}
+		
 		else{
-			$this->data['mismatch'] = 0;
-		}
-		$this->data['energy']	    = $this->home_model->get_energy_by_perc($energy,$mirna_name);
+			$mfe = $this->home_model->get_energy_by_perc($input_mfe,$mirna_name);		
 		
-		$this->data['main_content'] = 'family_result_view';
-		$this->load->view('temp/template', $this->data);
+			$this->data['targets']	    = $this->home_model->get_targets_by_family($mirna_name,$min_species,$mismatch,$energy,$species);
+			if ($mismatch){
+				$this->data['mismatch'] = 1;
+			}
+			else{
+				$this->data['mismatch'] = 0;
+			}
+			$this->data['energy']	    = $mfe;
+			
+			$this->data['main_content'] = 'family_result_view';
+			$this->load->view('temp/template', $this->data);
+		}
 	}
 	
 	function show_tags($mirna_name,$family,$mm,$energy,$sp)
@@ -61,12 +72,27 @@ class Family extends CI_Controller {
 		$this->data['title'] = "Family";
 		$family = str_replace(unserialize(REPLACE_B) , unserialize(REPLACE_A), $family);
 		$species = unserialize(base64_decode($sp));
+		
+		#No tengo especies, por lo tanto hago la busqueda en todos
+		$empty_sp = 0;
+		#Quiero las que estan dentro de esas especies
+		$in_sp = 1;
+		#Quiero las que NO estan dentro de esas especies
+		$not_in_sp = 2;
 
-		$this->data['family_targets']	= $this->home_model->get_similar_by_family($mirna_name,$family,$species);
+		if (empty($species)){
+				$this->data['family_targets']	= $this->home_model->get_similar_by_family($mirna_name,$family,$species,$empty_sp);
+				$this->data['family_targets_not_in']	= "";
+
+		}
+		else{
+			$this->data['family_targets']	= $this->home_model->get_similar_by_family($mirna_name,$family,$species,$in_sp);
+			$this->data['family_targets_not_in']	= $this->home_model->get_similar_by_family($mirna_name,$family,$species,$not_in_sp);
+		}
+
 		
 		$this->data['mismatch_filter']	= $mm;
 		$this->data['energy']	    	= $energy;
-		
 		$this->data['mirna_name']	= $mirna_name;
 		$this->data['mismatch'] = $mm;
 		
