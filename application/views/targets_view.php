@@ -54,7 +54,8 @@
 
 			
 <script>
-$('#species_mult').multiSelect();
+/* $('#species_mult').multiSelect();*/
+$('#species_mult').multiSelect({ selectableOptgroup: true });
 
 function getCount(){
 		return $("#species_mult :selected").length;

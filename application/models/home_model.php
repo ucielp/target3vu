@@ -45,14 +45,19 @@ class Home_model extends CI_Model{
 	
 	function get_plants(){
 		
-		$this->db->select('specie, aka');	
+		$this->db->select('specie, aka,grupo');	
 		$this->db->from('plants');
 		$this->db->where('db',DB_search);
 		$this->db->order_by('specie','asc');
 		$query = $this->db->get();
 		foreach($query->result_array() as $row){
-			$combo[$row['specie']] = $row['specie'];	
+			$combo[$row['grupo']][$row['specie']] = $row['specie'];	
+			//~ $combo[$row['specie']] = $row['specie'];	
 			}
+			
+		//~ $new_var['bla'] = $combo;
+		//~ $new_var['ble'] = $combo;
+		//~ return $new_var;
 		return $combo;
 	}
 	

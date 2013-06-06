@@ -97,6 +97,7 @@ class Targets extends CI_Controller {
 		}
 		$this->data['mismatch_filter']	= $mm;
 		$this->data['energy']	    = $energy;
+		$this->data['similar']	    = $similar;
 
 		$this->data['main_content'] = 'alginments_result_view';
 		$this->load->view('temp/template', $this->data);

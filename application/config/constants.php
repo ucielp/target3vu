@@ -71,6 +71,7 @@ define('tabDescription', 'functional_description');
 
 //~ ############## Debería ser uno o el otro
 //~ define('SIMILAR_field', 'similar1');
+//~ define('SIMILAR_field', 'similar_osa');
 define('SIMILAR_field', 'similar_ath');
 define('FAMILY_field', 'family');
 //~ Esto es solo para el mir396 que dice phyto al final
@@ -84,6 +85,9 @@ define('END_LINK_WMD3','&transcript_library=TAIR8_cdna_20080412');
 
 define('BEG_LINK_TAIR','http://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name=');
 define('END_LINK_TAIR','&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1');
+//~ 
+//~ define('BEG_LINK_TAIR','http://rice.plantbiology.msu.edu/cgi-bin/ORF_infopage.cgi?orf=');
+//~ define('END_LINK_TAIR','');
 
 
 
