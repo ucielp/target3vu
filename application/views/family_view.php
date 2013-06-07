@@ -1,9 +1,9 @@
- 
-   <?php echo form_open_multipart("family/search");?>
+  <?php echo form_open_multipart("family/search",'id = form_search');?>
 
 <div id='content'>
 <div id="home">
-	<h1><?php echo $title?></h1>
+<h1><?php echo $title?></h1>
+
 <table id = 'home_target' >
 
 <tr>
@@ -43,17 +43,18 @@
 </table>
 
   <div class="line-separator"></div>
-
-<a href="#" class="show_hide_options"> Advanced options</a>
-		<div class="slidingDiv">
-			<p> Select species</p>
-			<?php  echo form_multiselect('multiselect_species[]', $plants,'','id = species_mult'); 	?>
-		</div>
-
+<div class ="advance-options">
+	<a href="#" class="show_hide_options"> Advanced options</a>
+	<div class="slidingDiv">
+		<p> Select species</p>
+		<?php  echo form_multiselect('multiselect_species[]', $plants,'','id = species_mult'); 	?>
+	</div>
+</div>
 
 			
 <script>
-$('#species_mult').multiSelect();
+/* $('#species_mult').multiSelect();*/
+$('#species_mult').multiSelect({ selectableOptgroup: true });
 
 function getCount(){
 		return $("#species_mult :selected").length;

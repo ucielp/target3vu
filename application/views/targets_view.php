@@ -44,13 +44,13 @@
 </table>
 
   <div class="line-separator"></div>
-
-<a href="#" class="show_hide_options"> Advanced options</a>
-		<div class="slidingDiv">
-			<p> Select species</p>
-			<?php  echo form_multiselect('multiselect_species[]', $plants,'','id = species_mult'); 	?>
-		</div>
-
+<div class ="advance-options">
+	<a href="#" class="show_hide_options"> Advanced options</a>
+	<div class="slidingDiv">
+		<p> Select species</p>
+		<?php  echo form_multiselect('multiselect_species[]', $plants,'','id = species_mult'); 	?>
+	</div>
+</div>
 
 			
 <script>

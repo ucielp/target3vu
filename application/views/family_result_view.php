@@ -11,7 +11,21 @@
 			else{
 				$show_mm = 'No';
 			} 
-			echo "<p>MM Filter:<b> " .  $show_mm . "</b></p>" ; ?>
+			echo "<p>MM Filter:<b> " .  $show_mm . "</b></p>" ; 
+			if ($species){
+				$sp = '|| ';
+				foreach ($species as $specie){
+					$sp .= $specie . ' || ';
+				}
+				echo "<p>Species:<b> "?> 			
+				<a title="<?php echo $sp?>" getDbInfo="on" id="dbHelp" href="#"><span class="ui-ncbitoggler-master-text"><span>[?]</span></span></b></p>
+				<?php
+ 			}
+			else{
+				echo "<p>Species:<b> " .  'All' . "</b></p>" ; 				 
+			}
+			?>
+      <a class="" title="" id="" href="#">
   </div>
   <?php
 	echo "<table id='targets' align = center border = 0>";
@@ -59,5 +73,10 @@ $(function(){
    "a.show",null);
 });
 </script>
+ <script>
+  $(function() {
+    $( document ).tooltip();
+  });
+  </script>
 
 

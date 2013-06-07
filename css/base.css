@@ -260,6 +260,10 @@ top:0px;
 	
 	}    
 
+#home h1{
+font-size:18px;
+color:#30787e;
+}
 
 /* TARGETS */
 #targets
@@ -328,8 +332,12 @@ tr.starthidden {
 
 .show_hide_options {
     display:none;
-    font-size:20px;
+    font-size:18px;
 
+}
+
+.advance-options{
+padding:25px;
 }
 
 .line-separator{

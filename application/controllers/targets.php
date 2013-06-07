@@ -40,7 +40,9 @@ class Targets extends CI_Controller {
 
 		
 		if ((sizeof($species) < $min_species) and !empty($species)){
-			
+
+			$this->data['species'] = "";
+
 			$this->data['msg'] = "Failed to execute search request. You need to select at least $min_species species.";
 			$this->data['main_content'] = 'error_message';
 			$this->load->view('temp/template', $this->data);
