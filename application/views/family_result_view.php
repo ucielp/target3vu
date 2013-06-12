@@ -1,5 +1,32 @@
 <div id='content'>
-  
+  <div class = 'header_result'>
+	  	<a href="<?php echo site_url('family');?>" class="goback">Go Back</a>
+	   <?php 
+	   		echo "<h1><b>$title</b></h1>" ;
+			echo "<p>miRNA:<b> " .  $mirna_name . "</b></p>" ;
+			echo "<p>MFE cutoff:<b> " .  $energy . "</b></p>" ;
+			if ($mismatch){
+				$show_mm = 'Yes';
+			}
+			else{
+				$show_mm = 'No';
+			} 
+			echo "<p>MM Filter:<b> " .  $show_mm . "</b></p>" ; 
+			if ($species){
+				$sp = '|| ';
+				foreach ($species as $specie){
+					$sp .= $specie . ' || ';
+				}
+				echo "<p>Species:<b> "?> 			
+				<a title="<?php echo $sp?>" getDbInfo="on" id="dbHelp" href="#"><span class="ui-ncbitoggler-master-text"><span>[?]</span></span></b></p>
+				<?php
+ 			}
+			else{
+				echo "<p>Species:<b> " .  'All' . "</b></p>" ; 				 
+			}
+			?>
+      <a class="" title="" id="" href="#">
+  </div>
   <?php
 	echo "<table id='targets' align = center border = 0>";
 	echo "<tr align = center>
@@ -11,7 +38,7 @@
 		foreach ($targets as $target){
 			echo "<tr class ='to_shown' >";
 			 //~ 
-				echo "<td rowspan='	2'><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . str_replace(unserialize(REPLACE_A),unserialize(REPLACE_B),$target->{FAMILY_field})) . '/' . $mismatch  . '/' . $energy . ">View</a></td>";
+				echo "<td rowspan='	2'><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . str_replace(unserialize(REPLACE_A),unserialize(REPLACE_B),$target->{FAMILY_field})) . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)) .">Show</a></td>";
 
 				//~ echo "<td rowspan='	2'>" . $target->similars . "</td>";
 				echo "<td rowspan='	2'>" . $target->contador . "</td>";
@@ -45,5 +72,10 @@ $(function(){
    "a.show",null);
 });
 </script>
+ <script>
+  $(function() {
+    $( document ).tooltip();
+  });
+  </script>
 
 

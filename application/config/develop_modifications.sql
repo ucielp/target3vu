@@ -64,3 +64,12 @@ DROP TABLE description;
 --~ Esto lo debo hacer pero ya lo cambie en la definicion
 ALTER TABLE  `mirnas` CHANGE  `name`  `name` VARCHAR( 50 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
 
+--~ Le agrego group para poder elegirlas juntas
+ALTER TABLE  `plants` ADD  `grupo` VARCHAR( 30 ) NOT NULL DEFAULT  'none';
+--~ Chequear que sea OSativa, Bdistachyon, Pvirgatum, Sbicolor, Sitalica y Zmays
+UPDATE  `patmatch_2013`.`plants` SET  `grupo` =  'Monocots' WHERE  `plants`.`id` =67;
+UPDATE  `patmatch_2013`.`plants` SET  `grupo` =  'Monocots' WHERE  `plants`.`id` =88;
+UPDATE  `patmatch_2013`.`plants` SET  `grupo` =  'Monocots' WHERE  `plants`.`id` =92;
+UPDATE  `patmatch_2013`.`plants` SET  `grupo` =  'Monocots' WHERE  `plants`.`id` =95;
+UPDATE  `patmatch_2013`.`plants` SET  `grupo` =  'Monocots' WHERE  `plants`.`id` =96;
+UPDATE  `patmatch_2013`.`plants` SET  `grupo` =  'Monocots' WHERE  `plants`.`id` =104;
