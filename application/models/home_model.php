@@ -190,8 +190,11 @@ class Home_model extends CI_Model{
 		
 		$this->db->group_by('file,target');
 		$this->db->order_by(SIMILAR_field,'desc');
-				
+			
+	
 		$query = $this->db->get();
+		
+		echo $this->db->last_query() . "<br>";
 		return $query->result();
 	}
 	

@@ -70,7 +70,8 @@ class Family extends CI_Controller {
 	function show_tags($mirna_name,$family,$mm,$energy,$sp)
 	{
 		$this->data['title'] = "Family";
-		$family = str_replace(unserialize(REPLACE_B) , unserialize(REPLACE_A), $family);
+
+		$family = unserialize(base64_decode($family));
 		$species = unserialize(base64_decode($sp));
 		
 		#No tengo especies, por lo tanto hago la busqueda en todos

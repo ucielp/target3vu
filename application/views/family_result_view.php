@@ -38,7 +38,7 @@
 		foreach ($targets as $target){
 			echo "<tr class ='to_shown' >";
 			 //~ 
-				echo "<td rowspan='	2'><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . str_replace(unserialize(REPLACE_A),unserialize(REPLACE_B),$target->{FAMILY_field})) . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)) .">Show</a></td>";
+				echo "<td rowspan='	2'><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . base64_encode(serialize($target->{FAMILY_field}))) . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)) .">Show</a></td>";
 
 				//~ echo "<td rowspan='	2'>" . $target->similars . "</td>";
 				echo "<td rowspan='	2'>" . $target->contador . "</td>";
