@@ -9,6 +9,8 @@ class Targets extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('table');
 		$this->load->helper('text');
+		$this->load->helper('csv');
+
 
 	}
 
@@ -64,8 +66,12 @@ class Targets extends CI_Controller {
 				$this->data['mismatch'] = 0;
 			}
 			
-			$this->data['targets'] = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$mfe,$species);
-						
+			$query = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$mfe,$species);
+			$this->data['targets'] = $query->result();
+			
+			#si quiero guardar los datos en csv
+			//~ query_to_csv($query, TRUE, 'toto.csv');
+			
 			$this->data['main_content'] = 'targets_result_view';
 			$this->load->view('temp/template', $this->data);
 		}

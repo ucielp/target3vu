@@ -91,8 +91,10 @@ class Home_model extends CI_Model{
 		$this->db->order_by('contador','desc');
 		$query = $this->db->get();		
 		
+		//~ query_to_csv($query, TRUE, 'toto.csv');
+
 		//~ echo $this->db->last_query() . "<br>";
-		return $query->result();
+		return $query;
 
 	}
 	
@@ -238,6 +240,17 @@ class Home_model extends CI_Model{
             return $data;
         }
 	}
+	
+	function to_excel_model($print_result){
+		$array = array(
+			
+		);
+		$this->load->helper('csv');
+		array_to_csv($array,'results.csv');
+		echo $print_result;
+
+	}
+	
 	
 	
 }
