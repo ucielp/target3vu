@@ -73,3 +73,25 @@ UPDATE  `patmatch_2013`.`plants` SET  `grupo` =  'Monocots' WHERE  `plants`.`id`
 UPDATE  `patmatch_2013`.`plants` SET  `grupo` =  'Monocots' WHERE  `plants`.`id` =95;
 UPDATE  `patmatch_2013`.`plants` SET  `grupo` =  'Monocots' WHERE  `plants`.`id` =96;
 UPDATE  `patmatch_2013`.`plants` SET  `grupo` =  'Monocots' WHERE  `plants`.`id` =104;
+
+
+
+--
+-- Table structure for table `gene_families_pfam`
+--
+DROP TABLE gene_families_pfam;
+
+CREATE TABLE IF NOT EXISTS `gene_families_pfam` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `family` text NOT NULL,
+  `locus_tag` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `locus_tag` (`locus_tag`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--~ Esto lo hago para cargar la definicion de familia que saque de Pfam (con R)
+
+LOAD DATA INFILE 'pfam_families.csv' INTO TABLE gene_families_pfam
+  FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+  LINES TERMINATED BY '\n'
+  IGNORE 1 LINES;

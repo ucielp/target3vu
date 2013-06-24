@@ -20,7 +20,6 @@ class Targets extends CI_Controller {
 		
 		$this->data['microRNAs']  = $this->home_model->get_microRNAs(); //para el combo box
 		$this->data['nroSpecies'] = $this->home_model->get_nro_species(); //para el combo box
-		$this->data['energies']   = $this->home_model->get_energies(); //para el combo box
 		$this->data['plants']   = $this->home_model->get_plants(); //para el combo box
 
 		$this->data['main_content'] = 'targets_view';
@@ -34,7 +33,6 @@ class Targets extends CI_Controller {
 		$mirna_name  = $this->input->post('dropdown_microRNAs');
 		$min_species = $this->input->post('dropdown_num_species');
 		$mismatch    = $this->input->post('mismatch_targets');
-		$energy      = $this->input->post('dropdown_energy');
 		$species     = $this->input->post('multiselect_species');
 		$input_mfe 	 = $this->input->post('input_mfe');
 		

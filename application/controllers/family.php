@@ -18,7 +18,6 @@ class Family extends CI_Controller {
 		
 		$this->data['microRNAs']  = $this->home_model->get_microRNAs(); //para el combo box
 		$this->data['nroSpecies'] = $this->home_model->get_nro_species(); //para el combo box
-		$this->data['energies']   = $this->home_model->get_energies(); //para el combo box
 		$this->data['plants']   = $this->home_model->get_plants(); //para el combo box
 
 
@@ -33,11 +32,9 @@ class Family extends CI_Controller {
 		$mirna_name  = $this->input->post('dropdown_microRNAs');
 		$min_species = $this->input->post('dropdown_num_species');
 		$mismatch    = $this->input->post('mismatch_targets');
-		$energy      = $this->input->post('dropdown_energy');
 		$species     = $this->input->post('multiselect_species');
 		$input_mfe 	 = $this->input->post('input_mfe');
 
-		
 		
 		$this->data['mirna_name']	= $mirna_name;
 		$this->data['species'] = $species;
@@ -52,8 +49,8 @@ class Family extends CI_Controller {
 		
 		else{
 			$mfe = $this->home_model->get_energy_by_perc($input_mfe,$mirna_name);		
-		
-			$this->data['targets']	    = $this->home_model->get_targets_by_family($mirna_name,$min_species,$mismatch,$energy,$species);
+
+			$this->data['targets']	    = $this->home_model->get_targets_by_family($mirna_name,$min_species,$mismatch,$mfe,$species);
 			if ($mismatch){
 				$this->data['mismatch'] = 1;
 			}

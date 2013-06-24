@@ -26,23 +26,6 @@ class Home_model extends CI_Model{
 		return $combo;
 	}	
 	
-	function get_energies(){
-		$k = 0;
-		$combo[$k] = 'No filter';
-		$val = array("70PE","72PE","76PE");
-		foreach(unserialize(PE) as $perf_en){
-			$k = $perf_en;
-			$combo[$k]= $perf_en;
-		}
-
-		//~ $k = PE;
-		//~ $combo[$k]= PE;
-		for($i=ENERGY_FROM;$i<=ENERGY_TO;$i++){
-				$combo[-$i]= -$i;	
-		}
-		return $combo;
-	}
-	
 	function get_plants(){
 		
 		$this->db->select('specie, aka,grupo');	
@@ -65,22 +48,28 @@ class Home_model extends CI_Model{
 	
 	function get_targets($mirna_name,$min_species,$mismatch,$energy,$species){
 		
+		
 		$new_energy = $this->get_energy_by_perc($energy,$mirna_name);
 		
 		if ($mismatch) { $filtro_mm = 1; } else { $filtro_mm = 0; }
 		
 		$this->db->select(SIMILAR_field . ', count(distinct file) as contador, 
-		GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species,  short_description, ' . FAMILY_field);
+		GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species,  short_description, ' .  "gf.". FAMILY_field);
+		
+		//~ GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species,  short_description, ' . FAMILY_field);
+
 		$this->db->from($mirna_name);
 		$this->db->join(tabDescription . ' d', 'd.locus_tag = ' . SIMILAR_field ,'left');
 		
+		# Esto lo agrego porque quiero ver families de la tabla
+		$this->db->join(tabFamily . ' gf', 'gf.locus_tag = ' . SIMILAR_field ,'left');
+
 		$this->db->where(SIMILAR_field . ' !=', '');
 		$this->db->where('deltag <=', $new_energy);
 		$this->db->where('filtro_mm >=',$filtro_mm);
 		
 		if(!empty($species)) {
 			$this->db->where_in('file',$species);
-			//~ $this->db->where_not_in('file',$not_in_species);
 		}
 
 		$this->db->where(GU_RULE);
@@ -138,31 +127,33 @@ class Home_model extends CI_Model{
 	
 	function get_targets_by_family($mirna_name,$min_species,$mismatch,$energy,$species){
 	
-		
 		$new_energy = $this->get_energy_by_perc($energy,$mirna_name);
+			
 		
 		if ($mismatch) { $filtro_mm = 1; } else { $filtro_mm = 0; }
+		
 		
 		$this->db->select('count(distinct file) as contador, 
 		GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species,  
 		GROUP_CONCAT(distinct '. SIMILAR_field .'  SEPARATOR " ") as similars,  
-		short_description, ' . FAMILY_field);
+		short_description, ' .  "gf.". FAMILY_field);
 		
 		$this->db->from($mirna_name);
 		$this->db->join(tabDescription . ' d', 'd.locus_tag = ' . SIMILAR_field ,'left');
+		# Esto lo agrego porque quiero ver families de la tabla
+		$this->db->join(tabFamily . ' gf', 'gf.locus_tag = ' . SIMILAR_field ,'left');
+		
 		$this->db->where(SIMILAR_field . ' !=', '');
 		$this->db->where('deltag <=', $new_energy);
 		$this->db->where('filtro_mm >=',$filtro_mm);
-		$this->db->where(FAMILY_field . ' !=', '');
+		$this->db->where('gf.'. FAMILY_field . ' !=', '');
 		
 		if(!empty($species)) {
 			$this->db->where_in('file',$species);
 		}
 
-		### TODO: GU Esto no va a andar para las db viejas!
 		$this->db->where(GU_RULE);
-		
-		$this->db->group_by(FAMILY_field);
+		$this->db->group_by('gf.'. FAMILY_field );
 		$this->db->having('contador >=', $min_species); 
 		$this->db->order_by('contador','desc');
 		$query = $this->db->get();		
@@ -176,7 +167,11 @@ class Home_model extends CI_Model{
 		
 		$this->db->select(SIMILAR_field. ',file,gen,target,align,mirna,deltag,filtro_mm');
 		$this->db->from($mirna_name);
-		$this->db->where(FAMILY_field, $family);
+		# Esto lo agrego porque quiero ver families de la tabla
+		$this->db->join(tabFamily . ' gf', 'gf.locus_tag = ' . SIMILAR_field ,'left');
+		//~ $this->db->where(FAMILY_field, $family);
+		$this->db->where('gf.'. FAMILY_field , $family);
+
 		
 		if ($in == 1){
 			$this->db->where_in('file',$species);
