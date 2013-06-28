@@ -245,7 +245,36 @@ class Home_model extends CI_Model{
 		echo $print_result;
 
 	}
+	function get_targets_by_pare($mirna_name){
+		
+		$this->db->distinct();
+		$this->db->select('mirna,abundance,position,sequence,short_description,gen');
+		
+		$this->db->from('pare p');
+		$this->db->join('functional_description f', 'f.locus_tag =  substring(gen,1,9) ');
 	
+		$this->db->where('abundance >', '1');
+		$this->db->where('mirna', $mirna_name);
 	
+		$this->db->order_by('abundance','desc');
+		$query = $this->db->get();
+		
+		//~ echo $this->db->last_query() . "<br>";
+
+		return $query->result();
+	}
+	
+	function get_alginment_pare_in($mirna_name,$similar){
+		
+		$this->db->select('file,gen,target,align,mirna,deltag,filtro_mm');
+		$this->db->from($mirna_name);
+		$this->db->where(SIMILAR_field, $similar);
+		
+		$query = $this->db->get();
+		
+		//~ echo $this->db->last_query() . "<br>";
+
+		return $query->result();
+	}	
 	
 }

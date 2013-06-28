@@ -95,3 +95,20 @@ LOAD DATA INFILE 'pfam_families.csv' INTO TABLE gene_families_pfam
   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
   LINES TERMINATED BY '\n'
   IGNORE 1 LINES;
+
+
+--
+-- Table structure for table `pare`
+--
+
+DROP TABLE if EXISTS pare;
+
+CREATE TABLE IF NOT EXISTS `pare` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mirna` varchar(50) NOT NULL,
+  `gen` varchar(20) NOT NULL,
+  `position` varchar(10) NOT NULL,
+  `abundance` int(11) NOT NULL,
+  `sequence` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
