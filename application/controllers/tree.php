@@ -32,7 +32,8 @@ class Tree extends CI_Controller {
 		$input_mfe 	 = $this->input->post('input_mfe');
 		$species     = $this->input->post('multiselect_species');
 
-		
+		$mfe = $this->home_model->get_energy_by_perc($input_mfe,$mirna_name);		
+
 		$this->data['mirna_name']	= $mirna_name;
 		$this->data['targets']	    = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$input_mfe,$species);
 

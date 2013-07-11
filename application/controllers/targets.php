@@ -64,6 +64,7 @@ class Targets extends CI_Controller {
 				$this->data['mismatch'] = 0;
 			}
 			
+			
 			$query = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$mfe,$species);
 			$this->data['targets'] = $query->result();
 			

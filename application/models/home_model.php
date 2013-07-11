@@ -19,6 +19,17 @@ class Home_model extends CI_Model{
 		return $combo;
 	}
 	
+	
+	function get_microRNAs_list(){
+		$this->db->select('hyb_perf,table_reference');	
+		$this->db->from('mirnas');
+		$this->db->order_by('name','asc');
+		$query = $this->db->get();	
+		if ($query->num_rows() > 0 ) {
+			return $query->result();		
+		}		
+	}
+	
 	function get_nro_species(){
 		for($i=MIN_SPECIES;$i<=MAX_SPECIES;$i++){
 			$combo[$i]=$i;	
@@ -48,9 +59,6 @@ class Home_model extends CI_Model{
 	
 	function get_targets($mirna_name,$min_species,$mismatch,$energy,$species){
 		
-		
-		$new_energy = $this->get_energy_by_perc($energy,$mirna_name);
-		
 		if ($mismatch) { $filtro_mm = 1; } else { $filtro_mm = 0; }
 		
 		$this->db->select(SIMILAR_field . ', count(distinct file) as contador, 
@@ -65,7 +73,7 @@ class Home_model extends CI_Model{
 		$this->db->join(tabFamily . ' gf', 'gf.locus_tag = ' . SIMILAR_field ,'left');
 
 		$this->db->where(SIMILAR_field . ' !=', '');
-		$this->db->where('deltag <=', $new_energy);
+		$this->db->where('deltag <=', $energy);
 		$this->db->where('filtro_mm >=',$filtro_mm);
 		
 		if(!empty($species)) {
@@ -112,7 +120,7 @@ class Home_model extends CI_Model{
 		# Podria mostrar uno y al poner el mouse arriba ver el resto
 		$this->db->group_by('file,target');
 		
-		//~ $this->db->where('deltag <=', $new_energy);
+		//~ $this->db->where('deltag <=', $energy);
 		//~ $this->db->where('filtro_mm >=',$filtro_mm);
 		//~ $this->db->order_by('file','desc');
 		//~ $this->db->order_by('file','deltag');	
@@ -127,9 +135,7 @@ class Home_model extends CI_Model{
 	
 	function get_targets_by_family($mirna_name,$min_species,$mismatch,$energy,$species){
 	
-		$new_energy = $this->get_energy_by_perc($energy,$mirna_name);
-			
-		
+
 		if ($mismatch) { $filtro_mm = 1; } else { $filtro_mm = 0; }
 		
 		
@@ -144,7 +150,7 @@ class Home_model extends CI_Model{
 		$this->db->join(tabFamily . ' gf', 'gf.locus_tag = ' . SIMILAR_field ,'left');
 		
 		$this->db->where(SIMILAR_field . ' !=', '');
-		$this->db->where('deltag <=', $new_energy);
+		$this->db->where('deltag <=', $energy);
 		$this->db->where('filtro_mm >=',$filtro_mm);
 		$this->db->where('gf.'. FAMILY_field . ' !=', '');
 		
@@ -247,5 +253,41 @@ class Home_model extends CI_Model{
 	}
 	
 	
+	function get_targets_by_locus_id($locus_tag,$miR_name, $miR_hyb_perf,$min_species,$mismatch,$energy,$species){
+			
+		
+		if ($mismatch) { $filtro_mm = 1; } else { $filtro_mm = 0; }
+		
+		$this->db->select(SIMILAR_field . ', count(distinct file) as contador, 
+		GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species,  short_description, ' .  "gf.". FAMILY_field);
+		
+		//~ GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species,  short_description, ' . FAMILY_field);
+
+		$this->db->from($miR_name);
+		$this->db->join(tabDescription . ' d', 'd.locus_tag = ' . SIMILAR_field ,'left');
+		
+		# Esto lo agrego porque quiero ver families de la tabla
+		$this->db->join(tabFamily . ' gf', 'gf.locus_tag = ' . SIMILAR_field ,'left');
+
+		$this->db->where('similar_ath', $locus_tag);
+		$this->db->where('deltag <=', $energy);
+		$this->db->where('filtro_mm >=',$filtro_mm);
+		
+		if(!empty($species)) {
+			$this->db->where_in('file',$species);
+		}
+
+		$this->db->where(GU_RULE);
+		$this->db->group_by(SIMILAR_field);
+
+
+		$this->db->having('contador >=', $min_species); 
+		$this->db->order_by('contador','desc');
+		$query = $this->db->get();		
+
+		//~ echo $this->db->last_query() . "<br>";
+		return $query;
+
+	}
 	
 }

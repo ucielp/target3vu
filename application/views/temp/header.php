@@ -29,7 +29,7 @@
 			<li><a href="<?php echo base_url(); ?>home"><span>Home</span></a></li>
 			<li><a href="<?php echo base_url(); ?>targets"><span>Targets</span></a></li>
             <li><a href="<?php echo base_url(); ?>family"><span>Family</span></a></li>
-            <li><a href="<?php echo base_url(); ?>tree"><span>Tree</span></a></li>
+            <li><a href="<?php echo base_url(); ?>whereis"><span>Whereis</span></a></li>
 
 <!--
             <li><a href="<?php echo base_url(); ?>whereis"><span>Whereis</span></a></li>
