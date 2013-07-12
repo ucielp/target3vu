@@ -21,7 +21,7 @@ class Home_model extends CI_Model{
 	
 	
 	function get_microRNAs_list(){
-		$this->db->select('hyb_perf,table_reference');	
+		$this->db->select('name,sequence,hyb_perf,table_reference');	
 		$this->db->from('mirnas');
 		$this->db->order_by('name','asc');
 		$query = $this->db->get();	

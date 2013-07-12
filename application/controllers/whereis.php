@@ -14,8 +14,9 @@ class Whereis extends CI_Controller {
 
 	function index()
 	{
-		$this->data['title'] = "whereis";
-		
+		$this->data['title'] = "Whereis";
+		$this->data['subtitle'] = "Is this gene a potential target?";
+					
 		$this->data['microRNAs']  = $this->home_model->get_microRNAs(); //para el combo box
 		$this->data['nroSpecies'] = $this->home_model->get_nro_species(); //para el combo box
 		$this->data['main_content'] = 'whereis_view';
@@ -24,7 +25,7 @@ class Whereis extends CI_Controller {
 
 	function search()
 	{
-		$this->data['title'] = "whereis";
+		$this->data['title'] = "Whereis";
 		
 		$locus_tag  =  $this->input->post('input_tag');
 		$min_species = $this->input->post('dropdown_num_species');
@@ -32,9 +33,8 @@ class Whereis extends CI_Controller {
 		$input_mfe 	 = $this->input->post('input_mfe');
 		$species     = $this->input->post('multiselect_species');
 		
-		if (!preg_match('/^(AT|at|At|aT)[0-9.]+/', $locus_tag)){
-			print "no es un ATG valido";
-			redirect('whereis');
+		if (!preg_match('/^(AT|at|At|aT)[0-9.](g|G)[0-9.]+/', $locus_tag) || strlen($locus_tag) != 9){
+			redirect('whereis');			
 		}
 
 		

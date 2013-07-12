@@ -15,6 +15,7 @@ class Family extends CI_Controller {
 	function index()
 	{
 		$this->data['title'] = "Family";
+		$this->data['subtitle'] = "Find conserved microRNAs target families";
 		
 		$this->data['microRNAs']  = $this->home_model->get_microRNAs(); //para el combo box
 		$this->data['nroSpecies'] = $this->home_model->get_nro_species(); //para el combo box

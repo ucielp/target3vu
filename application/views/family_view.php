@@ -3,6 +3,7 @@
 <div id='content'>
 <div id="home">
 <h1><?php echo $title?></h1>
+<h2><?php echo $subtitle?></h2>
 
 <table id = 'home_target' >
 
