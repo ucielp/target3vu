@@ -19,6 +19,12 @@ body, p, h1, h2, h3, h4, h5, h6, address {
 	color: #444444;
 	font-size: 10px;
 }
+h6 { 
+	font-size: 10px; 
+	color: #D8000C; 
+	padding:0px;
+	}
+
 p2{
 	font-family: monospace, helvetica, verdana, sans-serif;
 	color: #444444;
@@ -142,7 +148,7 @@ ul.nav {
 	width: 200px;
 	float: left;
 	position: relative;
-	padding: 20px 0 0px 0px;
+	padding: 50px 0 0px 0px;
 	/* background: url(shad2.png) no-repeat; */
 	-webkit-background-size: 50% 100%;
 }
@@ -268,7 +274,6 @@ color:#30787e;
 /* TARGETS */
 #targets
 {
-
 	font-size: 16px;
 	background: #fff;
 	margin: 20px 0 0 10px;
@@ -303,8 +308,10 @@ color:#30787e;
 	font-size: 12px;
 	color: #669;
 	padding: 9px 8px 0px 8px;
-	vertical-align:top; 	
-}	
+	vertical-align:top;
+	text-align:center;
+
+	}	
 
 #targets tbody tr:hover td
 {

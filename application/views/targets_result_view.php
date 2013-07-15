@@ -7,7 +7,7 @@
 	   <?php 
 	   		echo "<h1><b>$title</b></h1>" ;
 			echo "<p>miRNA:<b> " .  $mirna_name . "</b></p>" ;
-			echo "<p>MFE cutoff:<b> " .  $energy . "</b></p>" ;
+			echo "<p>MFE cutoff:<b> " .  $energy . " kcal/mol</b></p>" ;
 			if ($mismatch){
 				$show_mm = 'Yes';
 			}
@@ -57,7 +57,7 @@
 				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
 				echo "<td rowspan='2'>" . $target->short_description . "</td>";
 				echo "<td rowspan='2'>" . $target->{FAMILY_field} . "</td>";
-				echo "<td rowspan='2'><a href=" . site_url('targets/view_alignment/' . $mirna_name . '/' . $similar . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species))) . ">View</a></td>";
+				echo "<td rowspan='2'><a href=" . site_url('targets/view_alignment/' . $mirna_name . '/' . $similar . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)). '/' . $title) . ">View</a></td>";
 
 			echo "</tr>";
 			echo "<tr class = 'starthidden'>"; #starthidden is defined in base.css

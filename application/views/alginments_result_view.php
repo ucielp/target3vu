@@ -5,7 +5,7 @@
 	   		echo "<h1><b>$title</b></h1>" ;
 			echo "<p>miRNA:<b> " .  $mirna_name . "</b></p>" ;
 			echo "<p>Tag:<b> " .  $similar . "</b></p>" ;
-			echo "<p>MFE cutoff:<b> " .  $energy . "</b></p>" ;
+			echo "<p>MFE cutoff:<b> " .  $energy . " kcal/mol</b></p>" ;
 			if ($mismatch){
 				$show_mm = 'Yes';
 			}

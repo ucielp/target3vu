@@ -16,10 +16,13 @@
               'value'     => '',
               'maxlength' => '9',
               'size'      => '15',
-              'title'     => 'LocusID?'
+              'title'     => 'ATG number?'
             );
 			echo form_input($tag); 	
    			?> 
+   			
+   			<h6> <?php echo "<br>" . $locus_id_error?> </h6>
+
 		</p>
 	</td>
     <td> 

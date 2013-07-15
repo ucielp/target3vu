@@ -1,6 +1,6 @@
 ﻿<html >
 <head> 
- <meta http-equiv="content-script-type" content="text/javascript">
+ <meta http-equiv="content-script-type" charset=utf-8 content="text/javascript">
  <meta http-equiv="content-style-type" content="text/css">
 
 <script type="text/javascript" src="<?php echo base_url();?>js/jscripts/jquery-1.9.1.min.js"></script>
@@ -26,15 +26,9 @@
 	</div>
 
 		<ul class="nav">
-			<li><a href="<?php echo base_url(); ?>home"><span>Home</span></a></li>
 			<li><a href="<?php echo base_url(); ?>targets"><span>Targets</span></a></li>
             <li><a href="<?php echo base_url(); ?>family"><span>Family</span></a></li>
-            <li><a href="<?php echo base_url(); ?>whereis"><span>Whereis</span></a></li>
-
-<!--
-            <li><a href="<?php echo base_url(); ?>whereis"><span>Whereis</span></a></li>
-            <li><a href="<?php echo base_url(); ?>family"><span>Family</span></a></li>
--->
+            <li><a href="<?php echo base_url(); ?>whereis/index/0"><span>Whereis</span></a></li>
 		</ul>
 
 

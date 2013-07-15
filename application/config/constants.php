@@ -46,6 +46,9 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 |
 */
 
+//~ Profiling
+define('PROFILING_CONST',TRUE);
+
 //~ Databases and address
 define('BASE_URL_UPC',   '192.168.83.41'); 			#lab
 //~ define('BASE_URL_UPC',   'localhost'); 				#local

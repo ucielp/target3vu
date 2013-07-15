@@ -1,7 +1,7 @@
 
 <div id='content'>
   <div class = 'header_result'>
-	  	<a href="<?php echo site_url('whereis');?>" class="goback">Go Back</a>
+	  	<a href="<?php echo site_url('whereis/index/0');?>" class="goback">Go Back</a>
 
 	   <?php 
 	   		echo "<h1><b>$title</b></h1>" ;
@@ -44,11 +44,12 @@
 		</tr>";
 		
 	foreach ($targets as $mir_name => $target_sp){
-		$energy =  $energy[$mir_name];
+		$deltag =  $energy[$mir_name];
+		$mirna_short_name = $short_name[$mir_name];
 		foreach ($target_sp as $target){
 			$similar = $target->{SIMILAR_field} ;
 			echo "<tr class ='to_shown' >";
-				echo "<td rowspan='2'>" . $mir_name . "</td>";
+				echo "<td rowspan='2'>" . $mirna_short_name . "</td>";
 
 				echo "<td rowspan='2'>
 					<a href=" 
@@ -62,7 +63,7 @@
 				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
 				echo "<td rowspan='2'>" . $target->short_description . "</td>";
 				echo "<td rowspan='2'>" . $target->{FAMILY_field} . "</td>";
-				echo "<td rowspan='2'><a href=" . site_url('targets/view_alignment/' . $mir_name . '/' . $similar . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species))) . ">View</a></td>";
+				echo "<td rowspan='2'><a href=" . site_url('targets/view_alignment/' . $mir_name . '/' . $similar . '/' . $mismatch  . '/' . $deltag . '/' . base64_encode(serialize($species)) . '/' . $title) . ">View</a></td>";
 
 			echo "</tr>";
 			echo "<tr class = 'starthidden'>"; #starthidden is defined in base.css

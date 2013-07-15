@@ -95,3 +95,7 @@ LOAD DATA INFILE 'pfam_families.csv' INTO TABLE gene_families_pfam
   FIELDS TERMINATED BY ',' ENCLOSED BY '"'
   LINES TERMINATED BY '\n'
   IGNORE 1 LINES;
+
+
+ALTER TABLE  `mirnas` ADD  `conservation` TEXT NOT NULL
+UPDATE mirnas SET conservation = 'Angiosperms';

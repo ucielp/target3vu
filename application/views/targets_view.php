@@ -10,7 +10,9 @@
 
 <tr>
 	<td> 
-	<p>microRNA</p>
+	<p>microRNA
+		<a title="<?php echo 'miRNA list'?>" getDbInfo="on" id="dbHelp" href=<?php echo site_url('targets/mirna_list');?>><span class="ui-ncbitoggler-master-text"><span>[?]</span></span></b></p></a>
+	</p>
       <?php echo form_dropdown('dropdown_microRNAs', $microRNAs);?>
 	</td>
     

@@ -29,6 +29,8 @@ class Family extends CI_Controller {
 	function search()
 	{
 		$this->data['title'] = "Family";
+		$this->output->enable_profiler(PROFILING_CONST);
+
 		
 		$mirna_name  = $this->input->post('dropdown_microRNAs');
 		$min_species = $this->input->post('dropdown_num_species');
@@ -51,24 +53,34 @@ class Family extends CI_Controller {
 		else{
 			$mfe = $this->home_model->get_energy_by_perc($input_mfe,$mirna_name);		
 
-			$this->data['targets']	    = $this->home_model->get_targets_by_family($mirna_name,$min_species,$mismatch,$mfe,$species);
 			if ($mismatch){
 				$this->data['mismatch'] = 1;
 			}
 			else{
 				$this->data['mismatch'] = 0;
 			}
-			$this->data['energy']	    = $mfe;
-			
-			$this->data['main_content'] = 'family_result_view';
-			$this->load->view('temp/template', $this->data);
+
+			$this->data['targets']	    = $this->home_model->get_targets_by_family($mirna_name,$min_species,$mismatch,$mfe,$species);
+				
+			if (!empty($this->data['targets'])) {
+				$this->data['energy']	    = $mfe;
+				$this->data['main_content'] = 'family_result_view';
+				$this->load->view('temp/template', $this->data);
+			}
+			else
+			{	
+				$this->data['msg'] = "No targets found.";
+				$this->data['main_content'] = 'error_message';
+				$this->load->view('temp/template', $this->data);
+			}
 		}
 	}
 	
 	function show_tags($mirna_name,$family,$mm,$energy,$sp)
 	{
 		$this->data['title'] = "Family";
-
+		$this->output->enable_profiler(PROFILING_CONST);
+		
 		$family = unserialize(base64_decode($family));
 		$species = unserialize(base64_decode($sp));
 		
@@ -80,9 +92,8 @@ class Family extends CI_Controller {
 		$not_in_sp = 2;
 
 		if (empty($species)){
-				$this->data['family_targets']	= $this->home_model->get_similar_by_family($mirna_name,$family,$species,$empty_sp);
-				$this->data['family_targets_not_in']	= "";
-
+			$this->data['family_targets']	= $this->home_model->get_similar_by_family($mirna_name,$family,$species,$empty_sp);
+			$this->data['family_targets_not_in']	= "";
 		}
 		else{
 			$this->data['family_targets']	= $this->home_model->get_similar_by_family($mirna_name,$family,$species,$in_sp);

@@ -21,7 +21,7 @@ class Home_model extends CI_Model{
 	
 	
 	function get_microRNAs_list(){
-		$this->db->select('name,sequence,hyb_perf,table_reference');	
+		$this->db->select('name,sequence,hyb_perf,table_reference,conservation');	
 		$this->db->from('mirnas');
 		$this->db->order_by('name','asc');
 		$query = $this->db->get();	
@@ -201,7 +201,6 @@ class Home_model extends CI_Model{
 	
 	function get_energy_by_perc($energy,$mirna_name){
 		
-		
 		# Chequeo que sea un numero o tenga un menos
 		if (!preg_match('/^[0-9.-]+$/', $energy)){
 			$this->db->select('hyb_perf');
@@ -253,7 +252,7 @@ class Home_model extends CI_Model{
 	}
 	
 	
-	function get_targets_by_locus_id($locus_tag,$miR_name, $miR_hyb_perf,$min_species,$mismatch,$energy,$species){
+	function get_targets_by_locus_id($locus_tag,$miR_name, $min_species,$mismatch,$energy,$species){
 			
 		
 		if ($mismatch) { $filtro_mm = 1; } else { $filtro_mm = 0; }
