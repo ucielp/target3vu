@@ -19,7 +19,7 @@ class Whereis extends CI_Controller {
 		$this->data['subtitle'] = "Is this gene a potential target?";
 		
 		if($locus_id_error){
-			$this->data['locus_id_error'] = 'Locus identifiers not found (e.g. At1g01030)';
+			$this->data['locus_id_error'] = 'Locus identifiers not found (e.g. AT2G22840)';
 		}
 		else{
 			$this->data['locus_id_error'] = '';
