@@ -11,6 +11,17 @@
 |
 */
 
+$config['benchmarks']          = TRUE;
+$config['get']         = TRUE;
+$config['memory_usage']         = TRUE;
+$config['post']         = TRUE;
+$config['uri_string']         = FALSE;
+$config['controller_info']         = TRUE;
+$config['queries']         = TRUE;
+$config['query_toggle_count']         = FALSE;
+$config['http_headers']         = TRUE; #The HTTP headers for the current request	
+$config['config']         = TRUE; #CodeIgniter Config variables
+
 
 
 /* End of file profiler.php */

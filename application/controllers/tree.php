@@ -18,8 +18,6 @@ class Tree extends CI_Controller {
 		
 		$this->data['microRNAs']  = $this->home_model->get_microRNAs(); //para el combo box
 		$this->data['nroSpecies'] = $this->home_model->get_nro_species(); //para el combo box
-		$this->data['energies']   = $this->home_model->get_energies(); //para el combo box
-
 		$this->data['main_content'] = 'tree_view';
 		$this->load->view('temp/template', $this->data);
 	}
@@ -31,9 +29,15 @@ class Tree extends CI_Controller {
 		$mirna_name  = $this->input->post('dropdown_microRNAs');
 		$min_species = $this->input->post('dropdown_num_species');
 		$mismatch    = $this->input->post('mismatch_targets');
-		$energy      = $this->input->post('dropdown_energy');
+		$input_mfe 	 = $this->input->post('input_mfe');
+		$species     = $this->input->post('multiselect_species');
+
+		$mfe = $this->home_model->get_energy_by_perc($input_mfe,$mirna_name);		
+
 		$this->data['mirna_name']	= $mirna_name;
-		$this->data['targets']	    = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$energy);
+		$this->data['targets']	    = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$input_mfe,$species);
+
+
 		
 		$this->data['main_content'] = 'tree_result_view';
 		$this->load->view('temp/template', $this->data);

@@ -9,16 +9,18 @@ class Targets extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('table');
 		$this->load->helper('text');
+		$this->load->helper('csv');
+
 
 	}
 
 	function index()
 	{
 		$this->data['title'] = "Targets";
-		
+		$this->data['subtitle'] = "Find conserved microRNAs targets";
+
 		$this->data['microRNAs']  = $this->home_model->get_microRNAs(); //para el combo box
 		$this->data['nroSpecies'] = $this->home_model->get_nro_species(); //para el combo box
-		$this->data['energies']   = $this->home_model->get_energies(); //para el combo box
 		$this->data['plants']   = $this->home_model->get_plants(); //para el combo box
 
 		$this->data['main_content'] = 'targets_view';
@@ -28,11 +30,11 @@ class Targets extends CI_Controller {
 	function search()
 	{
 		$this->data['title'] = "Targets";
-		
+		$this->output->enable_profiler(PROFILING_CONST);
+
 		$mirna_name  = $this->input->post('dropdown_microRNAs');
 		$min_species = $this->input->post('dropdown_num_species');
 		$mismatch    = $this->input->post('mismatch_targets');
-		$energy      = $this->input->post('dropdown_energy');
 		$species     = $this->input->post('multiselect_species');
 		$input_mfe 	 = $this->input->post('input_mfe');
 		
@@ -42,7 +44,6 @@ class Targets extends CI_Controller {
 		if ((sizeof($species) < $min_species) and !empty($species)){
 
 			$this->data['species'] = "";
-
 			$this->data['msg'] = "Failed to execute search request. You need to select at least $min_species species.";
 			$this->data['main_content'] = 'error_message';
 			$this->load->view('temp/template', $this->data);
@@ -64,17 +65,33 @@ class Targets extends CI_Controller {
 				$this->data['mismatch'] = 0;
 			}
 			
-			$this->data['targets'] = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$mfe,$species);
-						
-			$this->data['main_content'] = 'targets_result_view';
-			$this->load->view('temp/template', $this->data);
+			
+			$query = $this->home_model->get_targets($mirna_name,$min_species,$mismatch,$mfe,$species);
+			
+			if ($query->num_rows() > 0 ) {
+				$this->data['targets'] = $query->result();
+				#si quiero guardar los datos en csv
+				//~ query_to_csv($query, TRUE, 'toto.csv');
+				$this->data['main_content'] = 'targets_result_view';
+				$this->load->view('temp/template', $this->data);
+			}
+			else
+			{	
+				$this->data['msg'] = "No targets found.";
+				$this->data['main_content'] = 'error_message';
+				$this->load->view('temp/template', $this->data);
+			}
 		}
 	}
 	
-	function view_alignment($mirna_name,$similar,$mm,$energy,$sp)
+	function view_alignment($mirna_name,$similar,$mm,$energy,$sp,$title_var)
 	{
-		$species = unserialize(base64_decode($sp));
 		
+		$this->data['title'] = $title_var;
+
+		$this->output->enable_profiler(PROFILING_CONST);
+		
+		$species = unserialize(base64_decode($sp));
 		
 		$this->data['mirna_name']	= $mirna_name;
 		$this->data['mismatch'] = $mm;
@@ -87,7 +104,6 @@ class Targets extends CI_Controller {
 		$not_in_sp = 2;
 		
 		
-		$this->data['title'] = "Targets";
 		if (empty($species)){
 				$this->data['alignments']	= $this->home_model->get_alginment_in($mirna_name,$similar,$mm,$energy,$species,$empty_sp);
 				$this->data['alignments_not_in']	= "";
@@ -105,4 +121,14 @@ class Targets extends CI_Controller {
 		$this->load->view('temp/template', $this->data);
 	}
 	
+	function mirna_list(){
+		
+		$this->output->enable_profiler(PROFILING_CONST);
+		$this->data['mirnas_list']	 =  $this->home_model->get_microRNAs_list();
+		$this->data['title'] = 'List of conserved miRNAs';
+
+		$this->data['main_content'] = 'list_of_mirnas_view';
+		$this->load->view('temp/template', $this->data);
+		
+	}
 }

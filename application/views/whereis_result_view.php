@@ -1,17 +1,17 @@
+
 <div id='content'>
   <div class = 'header_result'>
-	  	<a href="<?php echo site_url('family');?>" class="goback">Go Back</a>
+	  	<a href="<?php echo site_url('whereis/index/0');?>" class="goback">Go Back</a>
+
 	   <?php 
 	   		echo "<h1><b>$title</b></h1>" ;
-			echo "<p>miRNA:<b> " .  $mirna_name . "</b></p>" ;
-			echo "<p>MFE cutoff:<b> " .  $energy . " kcal/mol</b></p>" ;
 			if ($mismatch){
 				$show_mm = 'Yes';
 			}
 			else{
 				$show_mm = 'No';
 			} 
-			echo "<p>MM Filter:<b> " .  $show_mm . "</b></p>" ; 
+			echo "<p>MM Filter:<b> " .  $show_mm . "</b></p>" ;
 			if ($species){
 				$sp = '|| ';
 				foreach ($species as $specie){
@@ -25,41 +25,55 @@
 				echo "<p>Species:<b> " .  'All' . "</b></p>" ; 				 
 			}
 			?>
+			<p></p>
+			<p></p>
       <a class="" title="" id="" href="#">
+
   </div>
+
   <?php
-	echo "<table id='targets' align = center border = 0>";
+	echo "<table id='targets'>";
 	echo "<tr align = center>
+			<th><P>miRNA</th>
 			<th><P>Tag</th>
 			<th><P>Count</th>
 			<th><P>Species</th>
+			<th><P>Description</th>
 			<th><P>Family</th>
+			<th><P>Alignment</th>
 		</tr>";
-		foreach ($targets as $target){
+		
+	foreach ($targets as $mir_name => $target_sp){
+		$deltag =  $energy[$mir_name];
+		$mirna_short_name = $short_name[$mir_name];
+		foreach ($target_sp as $target){
+			$similar = $target->{SIMILAR_field} ;
 			echo "<tr class ='to_shown' >";
-			 //~ 
-				echo "<td rowspan='	2'><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . base64_encode(serialize($target->{FAMILY_field}))) . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)) .">Show</a></td>";
+				echo "<td rowspan='2'>" . $mirna_short_name . "</td>";
 
-				//~ echo "<td rowspan='	2'>" . $target->similars . "</td>";
-				echo "<td rowspan='	2'>" . $target->contador . "</td>";
+				echo "<td rowspan='2'>
+					<a href=" 
+					. BEG_LINK_TAIR #BEG_LINK_WMD3
+					. $similar 
+					. END_LINK_TAIR #END_LINK_WMD3
+					. " target='_blank'>" 
+					. $similar
+					. "</a></td>";
+				echo "<td rowspan='2'>" . $target->contador . "</td>";
 				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
-				echo "<td rowspan='	2'>" . $target->{FAMILY_field} . "</td>";
+				echo "<td rowspan='2'>" . $target->short_description . "</td>";
+				echo "<td rowspan='2'>" . $target->{FAMILY_field} . "</td>";
+				echo "<td rowspan='2'><a href=" . site_url('targets/view_alignment/' . $mir_name . '/' . $similar . '/' . $mismatch  . '/' . $deltag . '/' . base64_encode(serialize($species)) . '/' . $title) . ">View</a></td>";
 
 			echo "</tr>";
 			echo "<tr class = 'starthidden'>"; #starthidden is defined in base.css
 				echo "<td>" . $target->species . "</td>"; #Species
 			echo "</tr>";
 		}
+	}
 	echo "</table>";
   ?>
-  
-<script type="text/javascript" language="javascript">// 
-$(document).ready(function() {  
-   $('#id_submit_form').click(function() {
-        get_form_data_and_submit();
-        return false;
-    });
-</script>
+
 
 <script>
 $('.starthidden').hide();
@@ -72,10 +86,11 @@ $(function(){
    "a.show",null);
 });
 </script>
+
+
  <script>
   $(function() {
     $( document ).tooltip();
   });
   </script>
-
 

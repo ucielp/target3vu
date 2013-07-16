@@ -46,26 +46,27 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 |
 */
 
+//~ Profiling
+define('PROFILING_CONST',TRUE);
+
 //~ Databases and address
 define('BASE_URL_UPC',   '192.168.83.41'); 			#lab
 //~ define('BASE_URL_UPC',   'localhost'); 				#local
 //~ define('BASE_URL_UPC',   'target3vu.uciel.com.ar'); #web
 
-define('MIN_SPECIES',   1);
+define('MIN_SPECIES',   2);
 define('MAX_SPECIES',  10);
-define('ENERGY_FROM',  24);
-define('ENERGY_TO',    35);
-define('PE',        serialize(array("70PE","72PE","74PE","80PE")));
 define('DEFAULT_PE','72PE');
 define('SPECIES_SEPARATOR', '<br>');
-define('REPLACE_A', serialize(array(  '(' ,   ')'  , ' ')));
-define('REPLACE_B', serialize(array('_PO_', '_PC_' , '_')));
 define('GU_RULE', '((mm<4) OR (mm=4 AND  gu>0))');
 define('DB_search','phytozome');
 
 #define tabs
 define('tabEnergy', 'mirnas');
 define('tabDescription', 'functional_description');
+define('tabFamily', 'gene_families');
+# pfam protein domains
+//~ define('tabFamily', 'gene_families_pfam');
 
 #define table fields
 

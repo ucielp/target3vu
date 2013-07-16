@@ -1,18 +1,30 @@
  
-  <?php echo form_open_multipart("tree/search",'id = form_search');?>
+  <?php echo form_open_multipart("whereis/search",'id = form_search');?>
 
 <div id='content'>
 <div id="home">
 <h1><?php echo $title?></h1>
+<h2><?php echo $subtitle?></h2>
 
 <table id = 'home_target' >
 
 <tr>
 	<td> 
-	<p>microRNA</p>
-      <?php echo form_dropdown('dropdown_microRNAs', $microRNAs);?>
+	<p>Locus ID</p>
+	<?php $tag = array(
+              'name'      => 'input_tag',
+              'value'     => '',
+              'maxlength' => '9',
+              'size'      => '15',
+              'title'     => 'ATG number?'
+            );
+			echo form_input($tag); 	
+   			?> 
+   			
+   			<h6> <?php echo "<br>" . $locus_id_error?> </h6>
+
+		</p>
 	</td>
-    
     <td> 
 	<p>Species (min)</p>
       <?php echo form_dropdown('dropdown_num_species', $nroSpecies, 3);?>
