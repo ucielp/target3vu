@@ -22,13 +22,13 @@
 <tr>
 <td>
 	 <p> Mismatch filter<?php echo form_checkbox('mismatch_targets', 'accept', TRUE);?></p>
-     <p> Minimum free energy cutoff <br>
+     <p> Minimum free energy cutoff
+     <a title="<?php echo MFE_FILTER_MSG?>" id="HelpMsg" href="#"><span>[?]</span></b></p></a>
      <?php $data = array(
               'name'          => 'input_mfe',
               'value'       => DEFAULT_PE,
               'maxlength'   => '10',
               'size'        => '5',
-              'title'      => 'Enter the mfe cutoff value in kcal/mol (ex: -26) or as a percentage of the perfect mfe (PE) between miRNA and target  (ex:72PE)'
             );
 			echo form_input($data); 
 			?> 
@@ -76,12 +76,7 @@ $(document).ready(function(){
  
 </script>
 
-<!-- text help  -->
- <script>
-  $(function() {
-    $( document ).tooltip();
-  });
-  </script>
+
   
 </head>
 <body>

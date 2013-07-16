@@ -10,10 +10,10 @@
   <?php
 	echo "<table id='targets'>";
 	echo "<tr align = center>
-			<th><P>MicroRNA name</th>
-			<th><P>Conservation</th>
-			<th><P>Consensus sequence</th>
-			<th><P>Perfect match dG</th>
+			<th>MicroRNA name</th>
+			<th>Conservation</th>
+			<th>Consensus sequence</th>
+			<th>Perfect match dG</th>
 		</tr>";
 	foreach ($mirnas_list as $mirna){
 		echo "<tr>";

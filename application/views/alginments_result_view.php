@@ -16,14 +16,23 @@
 	</div>
   <?php
 	echo "<table id = 'targets' align = center>";
-	echo "<tr align = center>
-			<th><P>EST Tag</th>
-			<th><P>Specie</th>
-			<th><P>5'-target-3'<br>
-					Alignment<br>
-					3'-miRNA-5'</th>			
-			<th><P>MFE</th>
-		</tr>";
+	echo '<tr align = center>
+			<th>
+				Sequence ID
+			</th>
+			<th>Specie
+			</th>
+			<th>
+				5\'-target-3\'<br>
+				    Alignment<br>
+					3\'-miRNA-5\'' . '<a href="#" class = "tooltip">[?]<span>
+				'. ALIGNMENT_MSG .'</span>
+			</th>
+			<th>
+				MFE' . '<a href="#" class = "tooltip">[?]<span>
+				'. MFE_MSG .'</span>
+			</th>
+		</tr>';
 		foreach ($alignments as $alignment){
 
 			$class_alignment = 'default';

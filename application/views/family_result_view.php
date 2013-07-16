@@ -18,7 +18,8 @@
 					$sp .= $specie . ' || ';
 				}
 				echo "<p>Species:<b> "?> 			
-				<a title="<?php echo $sp?>" getDbInfo="on" id="dbHelp" href="#"><span class="ui-ncbitoggler-master-text"><span>[?]</span></span></b></p>
+				<a title="<?php echo $sp?>" id="HelpMsg" href="#"><span>[?]</span></b></p></a>
+
 				<?php
  			}
 			else{
@@ -30,10 +31,10 @@
   <?php
 	echo "<table id='targets' align = center border = 0>";
 	echo "<tr align = center>
-			<th><P>Tag</th>
-			<th><P>Count</th>
-			<th><P>Species</th>
-			<th><P>Family</th>
+			<th>Tag</th>
+			<th>Count</th>
+			<th>Species</th>
+			<th>Family</th>
 		</tr>";
 		foreach ($targets as $target){
 			echo "<tr class ='to_shown' >";
@@ -72,10 +73,5 @@ $(function(){
    "a.show",null);
 });
 </script>
- <script>
-  $(function() {
-    $( document ).tooltip();
-  });
-  </script>
 
 

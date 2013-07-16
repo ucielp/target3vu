@@ -91,6 +91,35 @@ define('END_LINK_TAIR','&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1');
 //~ define('END_LINK_TAIR','');
 
 
+//~ Help Messages
+define('MIRNA_LIST_TITLE', 'miRNA list');
+define('MIRNA_LIST_MSG', 'Click to see the complete list of conserved miRNAs');
+define('MM_FILTER_TITLE','Mismatch filter');
+define('MM_FILTER_MSG','Only one mismatch is allowed between positions 1 and 11 of the miRNA consensus sequence.');
+define('MFE_FILTER_TITLE','MFE cutoff');
+define('MFE_FILTER_MSG','In kcal/mol (e.g. -26) or as a percentage of the perfect mfe (PE) between miRNA and target  (e.g. 72PE).');
+define('SPECIES_FILTER_TITLE','Number of species');
+define('SPECIES_FILTER_MSG','Minimum number of species where the same tag is present for a particular miRNA.');
+define('ATH_LOCUS_ID_TITLE','Arabidopsi Thaliana locus ID');
+define('ATH_LOCUS_ID_MSG','Locus ID (e.g. AT2G22840)');
+
+
+
+//~ Targets
+define('ATH_TAG_MSG','Candidate sequences were labeled with the locus ID of the best hit in Arabidopsis. Genes from different species having the same tag were grouped together as they have the same homolog gene in A. thaliana.');
+define('COUNT_MSG','Number of species where the same tag was present for a particular Arabidopsis locus ID');
+define('SPECIES_MSG','Species where the same tag was present for a particular Arabidopsis locus ID');
+define('DESCRIPTION_MSG','A brief description of the gene. Usually a brief summary about the gene written by TAIR curators based upon the literature.');
+define('FAMILY_MSG','Gene family definition (TAIR).');
+define('ALIGMENTS_MSG','Alignments of the miRNA–target pair in each present specie.');
+//~ View aligments
+define('ALIGNMENT_MSG','MiRNA–target alignment.');
+define('MFE_MSG','Minimum free energy (MFE) of the miRNA-target duplex calculated using RNAHybrid.');
+
+//~ Family
+
+
+//~ free energy compared to a perfectly complementary target
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

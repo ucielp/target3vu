@@ -35,6 +35,7 @@ img {
 	border: 0;
 }
 
+
 #container {
 	border: 1px solid #D0D0D0;
 	-webkit-box-shadow: 0 0 8px #D0D0D0;
@@ -283,9 +284,9 @@ color:#30787e;
 }
 #targets th
 {
-	font-size: 24px;
+	font-size: 14px;
 	font-weight: normal;
-	color: #039;
+	color:#30787e;
 	padding: 10px 8px;
 	border-bottom: 2px solid #6678b1;
 }
@@ -344,7 +345,9 @@ tr.starthidden {
 }
 
 .advance-options{
-padding:25px;
+/*	Esto es si quiero ocultar Advanced options */
+    display:none;
+	padding:25px;
 }
 
 .line-separator{
@@ -398,4 +401,46 @@ input.search {
 	background-image: url('error.png');
 
 }
+
+#HelpMsg{
+font-size:10px;
+}
+
+
+.tooltip{
+	font-size:10px;
+	cursor:help;
+	padding:0 0 0 5px;
+}
+
+a.tooltip {outline:none; 
+}
+a.tooltip strong {line-height:30px;}
+a.tooltip:hover {text-decoration:none;} 
+a.tooltip span {
+	font-size:10px;
+    z-index:10;display:none; padding:14px 20px;
+    margin-top:-30px; margin-left:28px;
+    width:240px; line-height:16px;
+}
+a.tooltip:hover span{
+    display:inline; position:absolute; color:#111;
+    border:1px solid #DCA; background:#fffAF0;}
+.callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;}
+    
+/*
+CSS3 extras
+a.tooltip span
+{
+    border-radius:4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+        
+    -moz-box-shadow: 5px 5px 8px #CCC;
+    -webkit-box-shadow: 5px 5px 8px #CCC;
+    box-shadow: 5px 5px 8px #CCC;
+}
+
+*/
+
 

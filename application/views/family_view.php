@@ -9,26 +9,47 @@
 
 <tr>
 	<td> 
-	<p>microRNA</p>
+	<p>microRNA
+		<a href=<?php echo site_url('targets/mirna_list');?> class="tooltip">[?]<span>
+		<img class="callout" src= "<?php echo site_url();?>/css/callout.gif" /><strong><?php echo MIRNA_LIST_TITLE ?><br/></strong><?php echo MIRNA_LIST_MSG?></span></a>
+
+	</p>
+	
       <?php echo form_dropdown('dropdown_microRNAs', $microRNAs);?>
 	</td>
     
-    <td> 
-	<p>Species (min)</p>
+  <td> 
+	<p>Species (min)
+		<a href='#' class="tooltip">[?]<span>
+			<img class="callout" src= "<?php echo site_url();?>/css/callout.gif" />
+			<strong><?php echo SPECIES_FILTER_TITLE ?><br/></strong><?php echo SPECIES_FILTER_MSG?></span>
+		</a>
+	</p>
       <?php echo form_dropdown('dropdown_num_species', $nroSpecies, 3);?>
+      
 	</td>
 </tr>
 
 <tr>
 <td>
-	 <p> Mismatch filter<?php echo form_checkbox('mismatch_targets', 'accept', TRUE);?></p>
-     <p> Minimum free energy cutoff <br>
+	 <p> 
+		Mismatch filter<?php echo form_checkbox('mismatch_targets', 'accept', TRUE);?>
+		<a href='#' class="tooltip">[?]<span>
+			<img class="callout" src= "<?php echo site_url();?>/css/callout.gif" />
+			<strong><?php echo MM_FILTER_TITLE ?><br/></strong><?php echo MM_FILTER_MSG?></span>
+		</a>
+	 </p>
+     <p> Minimum free energy cutoff 
+		<a href='#' class="tooltip">[?]<span>
+			<img class="callout" src= "<?php echo site_url();?>/css/callout.gif" />
+			<strong><?php echo MFE_FILTER_TITLE ?><br/></strong><?php echo MFE_FILTER_MSG?></span>
+		</a>
+	</p>
      <?php $data = array(
               'name'          => 'input_mfe',
               'value'       => DEFAULT_PE,
               'maxlength'   => '10',
               'size'        => '5',
-               'title'      => 'Enter the mfe cutoff value in kcal/mol (ex: -26) or as a percentage of the perfect mfe (PE) between miRNA and target  (ex:72PE)'
             );
 			echo form_input($data); 
 			?> 
@@ -76,12 +97,6 @@ $(document).ready(function(){
  
 </script>
 
-<!-- text help  -->
- <script>
-  $(function() {
-    $( document ).tooltip();
-  });
-  </script>
-  
+
 </head>
 <body>

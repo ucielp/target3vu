@@ -18,7 +18,7 @@
 					$sp .= $specie . ' || ';
 				}
 				echo "<p>Species:<b> "?> 			
-				<a title="<?php echo $sp?>" getDbInfo="on" id="dbHelp" href="#"><span class="ui-ncbitoggler-master-text"><span>[?]</span></span></b></p>
+				<a title="<?php echo $sp?>" id="HelpMsg" href="#"><span>[?]</span></b></p></a>
 				<?php
  			}
 			else{
@@ -33,15 +33,33 @@
 
   <?php
 	echo "<table id='targets'>";
-	echo "<tr align = center>
-			<th><P>miRNA</th>
-			<th><P>Tag</th>
-			<th><P>Count</th>
-			<th><P>Species</th>
-			<th><P>Description</th>
-			<th><P>Family</th>
-			<th><P>Alignment</th>
-		</tr>";
+	echo '<tr align = center>
+			<th>miRNA</th>
+			<th>
+				Arabidopsis Tag' . '<a href="#" class = "tooltip">[?]<span>
+				'. ATH_TAG_MSG .'</span>
+			</th>
+			<th>
+				Count' . '<a href="#" class = "tooltip">[?]<span>
+				'. COUNT_MSG .'</span>
+			</th>
+			<th>Species' . '<a href="#" class = "tooltip">[?]<span>
+				'. SPECIES_MSG .'</span>
+			</th>
+			<th>
+				Description' . '<a href="#" class = "tooltip">[?]<span>
+				'. DESCRIPTION_MSG .'</span>
+			</th>
+			<th>
+				Family' . '<a href="#" class = "tooltip">[?]<span>
+				'. FAMILY_MSG .'</span>
+			</th>
+						
+			<th>
+				Alignment' . '<a href="#" class = "tooltip">[?]<span>
+				'. ALIGMENTS_MSG .'</span>
+			</th>
+		</tr>';
 		
 	foreach ($targets as $mir_name => $target_sp){
 		$deltag =  $energy[$mir_name];
@@ -88,9 +106,4 @@ $(function(){
 </script>
 
 
- <script>
-  $(function() {
-    $( document ).tooltip();
-  });
-  </script>
 
