@@ -55,10 +55,6 @@ $db['default']['hostname'] = 'localhost';
 //~ $db['default']['password'] = 'jforte_passwd';
 //~ $db['default']['database'] = 'jforte_targets_db';
 
-jforte_targets
-jforte_passwd
-jforte_targets_db
-
 
 
 #local
