@@ -38,6 +38,10 @@ class Targets extends CI_Controller {
 		$species     = $this->input->post('multiselect_species');
 		$input_mfe 	 = $this->input->post('input_mfe');
 		
+		if (empty($mirna_name)){
+			redirect('targets');			
+		}
+		
 		$this->data['mirna_name']	= $mirna_name;
 
 		

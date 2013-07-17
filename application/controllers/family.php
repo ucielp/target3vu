@@ -31,6 +31,9 @@ class Family extends CI_Controller {
 		$this->data['title'] = "Family";
 		$this->output->enable_profiler(PROFILING_CONST);
 
+		if (empty($mirna_name)){
+			redirect('family');			
+		}
 		
 		$mirna_name  = $this->input->post('dropdown_microRNAs');
 		$min_species = $this->input->post('dropdown_num_species');
