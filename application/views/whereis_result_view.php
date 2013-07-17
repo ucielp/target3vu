@@ -27,7 +27,6 @@
 			?>
 			<p></p>
 			<p></p>
-      <a class="" title="" id="" href="#">
 
   </div>
 

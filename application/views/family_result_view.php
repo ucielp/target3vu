@@ -26,7 +26,6 @@
 				echo "<p>Species:<b> " .  'All' . "</b></p>" ; 				 
 			}
 			?>
-      <a class="" title="" id="" href="#">
   </div>
   <?php
 	echo "<table id='targets' align = center border = 0>";
