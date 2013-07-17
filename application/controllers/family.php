@@ -31,9 +31,6 @@ class Family extends CI_Controller {
 		$this->data['title'] = "Family";
 		$this->output->enable_profiler(PROFILING_CONST);
 
-		if (empty($mirna_name)){
-			redirect('family');			
-		}
 		
 		$mirna_name  = $this->input->post('dropdown_microRNAs');
 		$min_species = $this->input->post('dropdown_num_species');
@@ -41,6 +38,9 @@ class Family extends CI_Controller {
 		$species     = $this->input->post('multiselect_species');
 		$input_mfe 	 = $this->input->post('input_mfe');
 
+		if (empty($mirna_name)){
+			redirect('family');			
+		}
 		
 		$this->data['mirna_name']	= $mirna_name;
 		$this->data['species'] = $species;
