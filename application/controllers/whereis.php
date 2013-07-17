@@ -47,7 +47,7 @@ class Whereis extends CI_Controller {
 		$species     = $this->input->post('multiselect_species');
 
 		
-		if (!preg_match('/^(AT|at|At|aT)[0-9.](g|G)[0-9.]+/', $locus_tag) || strlen($locus_tag) != 9){
+		if (!preg_match('/^(AT|at|At|aT)[0-9.](g|G)[0-9.]+$/', $locus_tag) || strlen($locus_tag) != 9){
 			redirect('whereis/index/1');			
 		}
 		
