@@ -37,14 +37,10 @@
 		</tr>";
 		foreach ($targets as $target){
 			echo "<tr class ='to_shown' >";
-			 //~ 
-				echo "<td rowspan='	2'><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . base64_encode(serialize($target->{FAMILY_field}))) . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)) .">Show</a></td>";
-
-				//~ echo "<td rowspan='	2'>" . $target->similars . "</td>";
-				echo "<td rowspan='	2'>" . $target->contador . "</td>";
+				echo "<td><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . base64_encode(serialize($target->{FAMILY_field}))) . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)) .">Show</a></td>";
+				echo "<td>" . $target->contador . "</td>";
 				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
-				echo "<td rowspan='	2'>" . $target->{FAMILY_field} . "</td>";
-
+				echo "<td>" . $target->{FAMILY_field} . "</td>";
 			echo "</tr>";
 			echo "<tr class = 'starthidden'>"; #starthidden is defined in base.css
 				echo "<td>" . $target->species . "</td>"; #Species

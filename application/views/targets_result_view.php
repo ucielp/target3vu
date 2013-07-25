@@ -62,7 +62,7 @@
 		foreach ($targets as $target){
 			$similar = $target->{SIMILAR_field} ;
 			echo "<tr class ='to_shown' >";
-				echo "<td rowspan='2'>
+				echo "<td>
 					<a href=" 
 					. BEG_LINK_TAIR #BEG_LINK_WMD3
 					. $similar 
@@ -70,11 +70,11 @@
 					. " target='_blank'>" 
 					. $similar
 					. "</a></td>";
-				echo "<td rowspan='2'>" . $target->contador . "</td>";
+				echo "<td>" . $target->contador . "</td>";
 				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
-				echo "<td rowspan='2'>" . $target->short_description . "</td>";
-				echo "<td rowspan='2'>" . $target->{FAMILY_field} . "</td>";
-				echo "<td rowspan='2'><a href=" . site_url('targets/view_alignment/' . $mirna_name . '/' . $similar . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)). '/' . $title) . ">View</a></td>";
+				echo "<td>" . $target->short_description . "</td>";
+				echo "<td>" . $target->{FAMILY_field} . "</td>";
+				echo "<td><a href=" . site_url('targets/view_alignment/' . $mirna_name . '/' . $similar . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)). '/' . $title) . ">View</a></td>";
 
 			echo "</tr>";
 			echo "<tr class = 'starthidden'>"; #starthidden is defined in base.css
