@@ -27,6 +27,13 @@
 			}
 			?>
   </div>
+  	<div class="loading">
+		<img src="<?php echo base_url(); ?>css/loading.gif" border="0">
+		<p> Loading, please wait. </p>
+	</div>
+	
+	<div class='query_result'>
+		
   <?php
 	echo "<table id='targets' align = center border = 0>";
 	echo "<tr align = center>
@@ -48,6 +55,9 @@
 		}
 	echo "</table>";
   ?>
+  </div>
+
+</div>
   
 <script type="text/javascript" language="javascript">// 
 $(document).ready(function() {  
@@ -56,6 +66,7 @@ $(document).ready(function() {
         return false;
     });
 </script>
+
 
 <script>
 $('.starthidden').hide();
@@ -69,4 +80,10 @@ $(function(){
 });
 </script>
 
+<script>
+jQuery(window).load(function () {
+    $(".loading").hide();
+    $(".query_result").show();
+});
+</script>
 

@@ -150,7 +150,6 @@ ul.nav {
 	float: left;
 	position: relative;
 	padding: 50px 0 0px 0px;
-	/* background: url(shad2.png) no-repeat; */
 	-webkit-background-size: 50% 100%;
 }
 
@@ -445,4 +444,17 @@ a.tooltip span
 
 */
 
+/* Esto es para loading y results*/
+.query_result {
+    display:none;
+}
+
+.loading{
+	padding: 50px;
+	text-align:center;
+	
+}
+.loading p{
+	font-size:20px;
+}
 

@@ -3,6 +3,7 @@
   <div class = 'header_result'>
 	  	<a href="<?php echo site_url('targets');?>" class="goback">Go Back</a>
 
+
 	   <?php 
 	   		echo "<h1><b>$title</b></h1>" ;
 			echo "<p>miRNA:<b> " .  $mirna_name . "</b></p>" ;
@@ -29,7 +30,14 @@
 			?>
 
   </div>
+  
+  
+ <div class="loading">
+	 <img src="<?php echo base_url(); ?>css/loading.gif" border="0">
+	<p> Loading, please wait. </p>
+</div>
 
+<div class='query_result'>
   <?php
 	echo "<table id='targets'>";
 	echo '<tr align = center>
@@ -83,7 +91,9 @@
 		}
 	echo "</table>";
   ?>
+</div>
 
+</div>
 
 <script>
 $('.starthidden').hide();
@@ -97,3 +107,10 @@ $(function(){
 });
 </script>
 
+<script>
+jQuery(window).load(function () {
+    $(".loading").hide();
+    $(".query_result").show();
+
+});
+</script>
