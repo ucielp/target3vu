@@ -39,24 +39,24 @@
 			</th>
 			<th>
 				Count' . '<a href="#" class = "tooltip">[?]<span>
-				'. COUNT_MSG .'</span>
+				'. COUNT_MSG .'</a></span>
 			</th>
 			<th>
 				Species' . '<a href="#" class = "tooltip">[?]<span>
-				'. SPECIES_MSG .'</span>
+				'. SPECIES_MSG .'</a></span>
 			</th>
 			<th>
 				Description' . '<a href="#" class = "tooltip">[?]<span>
-				'. DESCRIPTION_MSG .'</span>
+				'. DESCRIPTION_MSG .'</a></span>
 			</th>
 			<th>
 				Family' . '<a href="#" class = "tooltip">[?]<span>
-				'. FAMILY_MSG .'</span>
+				'. FAMILY_MSG .'</a></span>
 			</th>
 						
 			<th>
 				Alignment' . '<a href="#" class = "tooltip">[?]<span>
-				'. ALIGMENTS_MSG .'</span>
+				'. ALIGMENTS_MSG .'</a></span>
 			</th>
 		</tr>';
 		foreach ($targets as $target){

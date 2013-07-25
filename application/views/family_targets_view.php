@@ -18,7 +18,7 @@
 	echo '<tr align = center>
 			<th>
 				Arabidopsis Tag' . '<a href="#" class = "tooltip">[?]<span>
-				'. ATH_TAG_MSG .'</span>
+				'. ATH_TAG_MSG .'</a></span>
 			</th>
 			<th>
 				Sequence ID
@@ -29,11 +29,11 @@
 				5\'-target-3\'<br>
 				    Alignment<br>
 					3\'-miRNA-5\'' . '<a href="#" class = "tooltip">[?]<span>
-				'. ALIGNMENT_MSG .'</span>
+				'. ALIGNMENT_MSG .'</a></span>
 			</th>
 			<th>
 				MFE' . '<a href="#" class = "tooltip">[?]<span>
-				'. MFE_MSG .'</span>
+				'. MFE_MSG .'</a></span>
 			</th>
 		</tr>';
 		
