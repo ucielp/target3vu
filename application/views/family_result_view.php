@@ -42,8 +42,8 @@
 				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
 				echo "<td>" . $target->{FAMILY_field} . "</td>";
 			echo "</tr>";
-			echo "<tr class = 'starthidden'>"; #starthidden is defined in base.css
-				echo "<td>" . $target->species . "</td>"; #Species
+			echo "<tr class = 'starthidden'>"; 
+				echo "<td></td><td></td> <td>" . $target->species . "</td><td></td>"; #Species
 			echo "</tr>";
 		}
 	echo "</table>";

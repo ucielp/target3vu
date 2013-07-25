@@ -83,8 +83,8 @@
 				echo "<td><a href=" . site_url('targets/view_alignment/' . $mir_name . '/' . $similar . '/' . $mismatch  . '/' . $deltag . '/' . base64_encode(serialize($species)) . '/' . $title) . ">View</a></td>";
 
 			echo "</tr>";
-			echo "<tr class = 'starthidden'>"; #starthidden is defined in base.css
-				echo "<td>" . $target->species . "</td>"; #Species
+			echo "<tr class = 'starthidden'>"; 
+				echo "<td></td> <td></td> <td></td> <td>" . $target->species . "</td> <td></td> <td></td> <td></td>"; #Species
 			echo "</tr>";
 		}
 	}

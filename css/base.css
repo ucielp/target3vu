@@ -322,9 +322,11 @@ color:#30787e;
 
 /* species in targets_results start hidden */
 
+/*
 tr.starthidden { 
 	display: inherit;
  }
+*/
 
 /* HOME TARGETS */
 #home_target
