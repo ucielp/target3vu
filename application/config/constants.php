@@ -86,7 +86,8 @@ define('END_LINK_WMD3','&transcript_library=TAIR8_cdna_20080412');
 
 define('BEG_LINK_TAIR','http://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name=');
 define('END_LINK_TAIR','&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1');
-//~ 
+
+define('PHYTOZOME_LINK','http://phytozome.net/Phytozome_info.php');
 //~ define('BEG_LINK_TAIR','http://rice.plantbiology.msu.edu/cgi-bin/ORF_infopage.cgi?orf=');
 //~ define('END_LINK_TAIR','');
 
@@ -102,7 +103,8 @@ define('SPECIES_FILTER_TITLE','Number of species');
 define('SPECIES_FILTER_MSG','Minimum number of species where the same tag is present for a particular miRNA.');
 define('ATH_LOCUS_ID_TITLE','Arabidopsi Thaliana locus ID');
 define('ATH_LOCUS_ID_MSG','Locus ID (e.g. AT2G22840)');
-
+define('PHYTOZOME_ID_TITLE','Phytozome title');
+define('PHYTOZOME_ID_MSG','Phytozome message');
 
 
 //~ Targets

@@ -288,5 +288,39 @@ class Home_model extends CI_Model{
 		return $query;
 
 	}
+	function get_targets_by_gene_id($locus_tag,$miR_name,$mismatch,$energy,$species){
 	
+		if ($mismatch) { $filtro_mm = 1; } else { $filtro_mm = 0; }
+		
+		$this->db->select(SIMILAR_field . ', count(distinct file) as contador, 
+		GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species, target,mirna,align,deltag, short_description, ' .  "gf.". FAMILY_field);
+		
+		//~ GROUP_CONCAT(distinct file ORDER BY file ASC SEPARATOR "'. SPECIES_SEPARATOR .'") as species,  short_description, ' . FAMILY_field);
+
+		$this->db->from($miR_name);
+		$this->db->join(tabDescription . ' d', 'd.locus_tag = ' . SIMILAR_field ,'left');
+		
+		# Esto lo agrego porque quiero ver families de la tabla
+		$this->db->join(tabFamily . ' gf', 'gf.locus_tag = ' . SIMILAR_field ,'left');
+
+		$this->db->where('gen', $locus_tag);
+		$this->db->where('deltag <=', $energy);
+		$this->db->where('filtro_mm >=',$filtro_mm);
+		
+		if(!empty($species)) {
+			$this->db->where_in('file',$species);
+		}
+
+		$this->db->where(GU_RULE);
+		//~ $this->db->group_by(SIMILAR_field);
+		$this->db->having('contador >=', 1); 
+		$this->db->order_by('contador','desc');
+		$query = $this->db->get();		
+
+		//~ echo $this->db->last_query() . "<br>";
+		return $query;
+
+	}
 }
+	
+	
