@@ -1,4 +1,3 @@
-<div id='content'>
   <div class = 'header_result'>
 		<a href="javascript:history.go(-1)" class="goback">Go Back</a>
 		<?php 
@@ -6,6 +5,7 @@
 		echo "<br><br><br><br><br><br>";
 	  ?>
   </div>
+</div> <!--End of header_container-->
 
   <?php
 	echo "<table id='targets'>";

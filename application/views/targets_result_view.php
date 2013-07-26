@@ -1,5 +1,3 @@
-
-<div id='content'>
   <div class = 'header_result'>
 	  	<a href="<?php echo site_url('targets');?>" class="goback">Go Back</a>
 
@@ -30,7 +28,7 @@
 			?>
 
   </div>
-  
+</div> <!--End of header_container-->
   
  <div class="loading">
 	 <img src="<?php echo base_url(); ?>css/loading.gif" border="0">

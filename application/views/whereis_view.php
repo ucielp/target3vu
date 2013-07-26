@@ -1,10 +1,11 @@
- 
+
   <?php echo form_open_multipart("whereis/search",'id = form_search');?>
 
-<div id='content'>
 <div id="home">
 <h1><?php echo $title?></h1>
 <h2><?php echo $subtitle?></h2>
+ </div>
+</div> <!--End of header_container-->
 
 <table id = 'home_target' >
 
@@ -44,14 +45,14 @@
 
 <tr>
 <td>
-	 <p> Mismatch filter<?php echo form_checkbox('mismatch_targets', 'accept', TRUE);?></p>
-     <p> Minimum free energy cutoff 
-		<a href='#' class="tooltip">[?]<span>
+	 <p> Mismatch filter<?php echo form_checkbox('mismatch_targets', 'accept', TRUE);?>
+	 <a href='#' class="tooltip">[?]<span>
 			<img class="callout" src= "<?php echo site_url();?>/css/callout.gif" />
-			<strong><?php echo MFE_FILTER_TITLE ?><br/></strong><?php echo MFE_FILTER_MSG?></span>
+			<strong><?php echo MM_FILTER_TITLE ?><br/></strong><?php echo MM_FILTER_MSG?></span>
 		</a>
 	</p>
-     <?php $data = array(
+     <p> Minimum free energy cutoff 
+		    <?php $data = array(
               'name'          => 'input_mfe',
               'value'       => DEFAULT_PE,
               'maxlength'   => '10',
@@ -59,8 +60,13 @@
             );
 			echo form_input($data); 
 			?> 
-		</p>
+			
+		<a href='#' class="tooltip">[?]<span>
+			<img class="callout" src= "<?php echo site_url();?>/css/callout.gif" />
+			<strong><?php echo MFE_FILTER_TITLE ?><br/></strong><?php echo MFE_FILTER_MSG?></span>
+		</a>
 
+	</p>
 </td>
 <td>  
 	<p><small><b><big>

@@ -24,11 +24,13 @@
 		<img src="<?php echo base_url(); ?>css/banner.jpg" border="0">
 -->
 	</div>
-
+	
+	<div id = "header_container" >
 		<ul class="nav">
 			<li><a href="<?php echo base_url(); ?>targets"><span>Targets</span></a></li>
             <li><a href="<?php echo base_url(); ?>family"><span>Family</span></a></li>
             <li><a href="<?php echo base_url(); ?>whereis/index/0"><span>Whereis</span></a></li>
+            <li><a href="<?php echo base_url(); ?>whereis/index/0"><span>Whereis2</span></a></li>
 		</ul>
 
 

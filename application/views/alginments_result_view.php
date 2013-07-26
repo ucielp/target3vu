@@ -1,4 +1,3 @@
-<div id='content'>
 	<div class = 'header_result'>
 		<a href="javascript:history.go(-1)" class="goback">Go Back</a>
 		<?php 
@@ -14,6 +13,7 @@
 			} 
 			echo "<p>MM Filter:<b> " .  $show_mm . "</b></p>" ; ?>
 	</div>
+</div> <!--End of header_container-->
   <?php
 	echo "<table id = 'targets' align = center>";
 	echo '<tr align = center>
