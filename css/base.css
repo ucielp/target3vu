@@ -179,7 +179,10 @@ ul.nav li a:hover {
 /*  HEADER RESULTS  */
 .header_result{
 	background-color: rgba(48, 120, 126, 0.2);
-/* 	background-color: rgba(0, 0, 0, 0.1);*/
+/*
+background: rgba(255,100,0,0.5);
+*/
+
     width: 80%;
     padding: 10px;
     float:right;
@@ -234,9 +237,8 @@ td
 
 /* HOME  */
 #home{
-position:relative;
-left:50px;
-top:20px;
+margin:0 0 0 60px;
+float:left;
 }
 
 #home table{

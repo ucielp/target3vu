@@ -1,10 +1,10 @@
-  <?php echo form_open_multipart("family/search",'id = form_search');?>
-
 <div id="home">
 <h1><?php echo $title?></h1>
 <h2><?php echo $subtitle?></h2>
  </div>
 </div> <!--End of header_container-->
+
+<?php echo form_open_multipart("family/search",'id = form_search');?>
 
 <table id = 'home_target' >
 

@@ -1,7 +1,7 @@
 
+  <div class = 'header_result'>
 
 
-<div id='content'>
 		<a href="javascript:history.go(-1)" class="goback">Go Back</a>
 		<?php 
 			echo "<br>";
@@ -12,3 +12,4 @@
 
 			?>
 </div>
+</div> <!--End of header_container-->
