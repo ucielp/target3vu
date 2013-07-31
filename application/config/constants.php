@@ -103,8 +103,8 @@ define('SPECIES_FILTER_TITLE','Number of species');
 define('SPECIES_FILTER_MSG','Minimum number of species where the same tag is present for a particular miRNA.');
 define('ATH_LOCUS_ID_TITLE','Arabidopsi Thaliana locus ID');
 define('ATH_LOCUS_ID_MSG','Locus ID (e.g. AT2G22840)');
-define('PHYTOZOME_ID_TITLE','Phytozome title');
-define('PHYTOZOME_ID_MSG','Phytozome message');
+define('PHYTOZOME_ID_TITLE','Phytozome. Gene identifier examples');
+define('PHYTOZOME_ID_MSG','Bradi1g09900.1 (Brachypodium distachyon), Glyma14g10090.1 (Glycine max), GRMZM2G178261_T05 (Zea mays).');
 
 
 //~ Targets

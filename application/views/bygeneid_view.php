@@ -11,7 +11,7 @@
 <tr>
 	<td> 
 	<p>Gene Phytozome identifier
-	<a href='#' class="tooltip">[?]<span>
+	<a href='<?php echo PHYTOZOME_LINK;?>' class="tooltip" target="_blank" >[?]<span>
 			<img class="callout" src= "<?php echo site_url();?>/css/callout.gif" />
 			<strong><?php echo PHYTOZOME_ID_TITLE ?><br/></strong><?php echo PHYTOZOME_ID_MSG?></span>
 		</a>
@@ -19,7 +19,7 @@
 	<?php $tag = array(
               'name'      => 'input_tag',
               'value'     => '',
-              'maxlength' => '30',
+              'maxlength' => '40',
               'size'      => '20',
             );
 			echo form_input($tag); 	
