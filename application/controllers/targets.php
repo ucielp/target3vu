@@ -129,7 +129,7 @@ class Targets extends CI_Controller {
 		
 		$this->output->enable_profiler(PROFILING_CONST);
 		$this->data['mirnas_list']	 =  $this->home_model->get_microRNAs_list();
-		$this->data['title'] = 'List of conserved miRNAs';
+		$this->data['title'] = 'List of conserved miRNAs from Angiosperms';
 
 		$this->data['main_content'] = 'list_of_mirnas_view';
 		$this->load->view('temp/template', $this->data);

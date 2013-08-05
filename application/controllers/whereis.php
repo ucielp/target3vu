@@ -11,11 +11,22 @@ class Whereis extends CI_Controller {
 		$this->load->helper('text');
 
 	}
-
+	
 	function index($locus_id_error)
 	{
 		
-		$this->data['title'] = "Whereis";
+		$this->data['title'] = "Potential miRNA target";
+		$this->data['subtitle'] = "";
+		
+		
+		$this->data['main_content'] = 'potential_target_view';
+		$this->load->view('temp/template', $this->data);
+	}
+
+	function by_ath_id($locus_id_error)
+	{
+		
+		$this->data['title'] = "Potential miRNA target";
 		$this->data['subtitle'] = "Is this gene a potential target?";
 		
 		if($locus_id_error){
@@ -36,7 +47,7 @@ class Whereis extends CI_Controller {
 
 	function search()
 	{
-		$this->data['title'] = "Whereis";
+		$this->data['title'] = "Potential miRNA target";
 		
 		$this->output->enable_profiler(PROFILING_CONST);
 
@@ -48,7 +59,7 @@ class Whereis extends CI_Controller {
 
 		
 		if (!preg_match('/^(AT|at|At|aT)[0-9.](g|G)[0-9.]+$/', $locus_tag) || strlen($locus_tag) != 9){
-			redirect('whereis/index/1');			
+			redirect('whereis/by_ath_id/1');			
 		}
 		
 		if ($mismatch){

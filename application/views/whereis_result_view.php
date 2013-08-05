@@ -1,6 +1,6 @@
   <div class = 'header_result'>
 
-<a href="<?php echo site_url('whereis/index/0');?>" class="goback">Go Back</a>
+<a href="<?php echo site_url('whereis/by_ath_id/0');?>" class="goback">Go Back</a>
 
 	   <?php 
 	   		echo "<h1><b>$title</b></h1>" ;
@@ -51,16 +51,16 @@
 				'. SPECIES_MSG .'</span>
 			</th>
 			<th>
-				Description' . '<a href="#" class = "tooltip">[?]<span>
+				Target description' . '<a href="#" class = "tooltip">[?]<span>
 				'. DESCRIPTION_MSG .'</span>
 			</th>
 			<th>
-				Family' . '<a href="#" class = "tooltip">[?]<span>
+				Gene family' . '<a href="#" class = "tooltip">[?]<span>
 				'. FAMILY_MSG .'</span>
 			</th>
 						
 			<th>
-				Alignment' . '<a href="#" class = "tooltip">[?]<span>
+				Alignments' . '<a href="#" class = "tooltip">[?]<span>
 				'. ALIGMENTS_MSG .'</span>
 			</th>
 		</tr>';

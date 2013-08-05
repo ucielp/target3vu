@@ -52,16 +52,16 @@
 				'. SPECIES_MSG .'</a></span>
 			</th>
 			<th>
-				Description' . '<a href="#" class = "tooltip">[?]<span>
+				Target description' . '<a href="#" class = "tooltip">[?]<span>
 				'. DESCRIPTION_MSG .'</a></span>
 			</th>
 			<th>
-				Family' . '<a href="#" class = "tooltip">[?]<span>
+				Gene family' . '<a href="#" class = "tooltip">[?]<span>
 				'. FAMILY_MSG .'</a></span>
 			</th>
 						
 			<th>
-				Alignment' . '<a href="#" class = "tooltip">[?]<span>
+				Alignments' . '<a href="#" class = "tooltip">[?]<span>
 				'. ALIGMENTS_MSG .'</a></span>
 			</th>
 		</tr>';
@@ -100,6 +100,10 @@ $(function(){
   $("#targets").on({'click':function(event){
     event.preventDefault();
     $(this).closest(".to_shown").nextUntil(".to_shown").toggle("fast");
+    /*
+    $(this).closest(".td_show").nextUntil(".td_show").toggle("fast");
+    $(this).closest(".td_hide").nextUntil(".td_hide").toggle("fast");
+	*/
    }},
    "a.show",null);
 });

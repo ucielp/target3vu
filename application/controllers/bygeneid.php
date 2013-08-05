@@ -15,7 +15,7 @@ class Bygeneid extends CI_Controller {
 	function index()
 	{
 		
-		$this->data['title'] = "Phytozome";
+		$this->data['title'] = "Potential miRNA target";
 		$this->data['subtitle'] = "Is this gene a potential target?";
 		
 		
@@ -30,7 +30,7 @@ class Bygeneid extends CI_Controller {
 
 	function search()
 	{
-		$this->data['title'] = "Phytozome";
+		$this->data['title'] = "Potential miRNA target";
 		
 		$this->output->enable_profiler(PROFILING_CONST);
 

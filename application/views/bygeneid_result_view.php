@@ -45,14 +45,17 @@
 			</th>
 			<th>Specie</th>
 			<th>
-				Description' . '<a href="#" class = "tooltip">[?]<span>
+				Target description' . '<a href="#" class = "tooltip">[?]<span>
 				'. DESCRIPTION_MSG .'</span>
 			</th>
 			<th>
-				Family' . '<a href="#" class = "tooltip">[?]<span>
+				Gene family' . '<a href="#" class = "tooltip">[?]<span>
 				'. FAMILY_MSG .'</span>
 			</th>
-			<th>DeltaG</th>
+			<th>
+				MFE' . '<a href="#" class = "tooltip">[?]<span>
+				'. MFE_MSG .'</span>
+			</th>
 			<th>Alignment</th>
 
 		</tr>';

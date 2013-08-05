@@ -11,14 +11,12 @@
 	echo "<table id='targets'>";
 	echo "<tr align = center>
 			<th>MicroRNA name</th>
-			<th>Conservation</th>
 			<th>Consensus sequence</th>
 			<th>Perfect match dG</th>
 		</tr>";
 	foreach ($mirnas_list as $mirna){
 		echo "<tr>";
 			echo "<td>" . $mirna->name . "</td>";
-			echo "<td>" . $mirna->conservation . "</td>";
 			echo "<td><PRE>" . $mirna->sequence . "</PRE></td>";
 			echo "<td>" . $mirna->hyb_perf . "</td>";
 			echo "</tr>";

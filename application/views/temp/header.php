@@ -19,18 +19,16 @@
 <body>
 
 <div id ="container">
-	<div id="header" align="center">
-<!--
-		<img src="<?php echo base_url(); ?>css/banner.jpg" border="0">
--->
+	<div id="header">
+
+		 <a href="<?php echo site_url('targets');?>"><img src="<?php echo base_url(); ?>css/logo7.png" border="0"> </a>
 	</div>
 	
 	<div id = "header_container" >
 		<ul class="nav">
-			<li><a href="<?php echo base_url(); ?>targets"><span>Targets</span></a></li>
-            <li><a href="<?php echo base_url(); ?>family"><span>Family</span></a></li>
-            <li><a href="<?php echo base_url(); ?>whereis/index/0"><span>Whereis</span></a></li>
-            <li><a href="<?php echo base_url(); ?>bygeneid"><span>ByGeneId</span></a></li>
+			<li><a href="<?php echo base_url(); ?>targets"><span>Find miRNA targets</span></a></li>
+            <li><a href="<?php echo base_url(); ?>family"><span>Find miRNA target families</span></a></li>
+            <li><a href="<?php echo base_url(); ?>whereis/index/0"><span>Is this gene a potential miRNA target?</span></a></li>
 		</ul>
 
 

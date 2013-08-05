@@ -117,8 +117,8 @@ A:active {text-decoration: none; color: #30787e}
 /* HEADER ELEMENTS */ 
 		
 #header {
-    border-bottom: 2px solid #30787e;
-    padding-top: 5px;
+    border-bottom: 2px solid #D0D0D0;
+    padding:20px 0 30px 0;
     clear: both;
     
   }
@@ -451,5 +451,30 @@ a.tooltip span
 }
 .loading p{
 	font-size:20px;
+}
+
+.choose_where_is{
+	margin: 250px 0 0 150px;
+}
+.choose_where_is p{
+	padding-bottom:10px;
+	margin: 0 0 30px 0 ;
+}
+
+a.whereis_button {
+	text-align:center;
+	font-size:13px;
+	color:#30787e!important;
+	text-decoration:none;
+	margin:0px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	padding:12px;
+}
+
+a.whereis_button:hover{
+	color:#fff!important;
+	background:#afafaf
 }
 
