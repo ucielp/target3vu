@@ -317,7 +317,10 @@ tr.starthidden {
 	display: inherit;
  }
 */
-
+.button_show{
+	cursor:pointer;
+	color:#30787E;
+}
 /* HOME TARGETS */
 #home_target
 {	

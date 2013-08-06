@@ -65,6 +65,7 @@
 				'. ALIGMENTS_MSG .'</a></span>
 			</th>
 		</tr>';
+		$k =1 ;
 		foreach ($targets as $target){
 			$similar = $target->{SIMILAR_field} ;
 			echo "<tr class ='to_shown' >";
@@ -77,15 +78,20 @@
 					. $similar
 					. "</a></td>";
 				echo "<td>" . $target->contador . "</td>";
-				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
+				echo "<td>";
+					echo '<div>
+							<a  class="button_show" aShow="'.$k.'">Show/Hide</a>
+						  </div>';
+					echo '<div id="div'.$k.'" class="species_hidden">' .
+							$target->species .  '</div>';
+				echo "</td>";
 				echo "<td>" . $target->short_description . "</td>";
 				echo "<td>" . $target->{FAMILY_field} . "</td>";
 				echo "<td><a href=" . site_url('targets/view_alignment/' . $mirna_name . '/' . $similar . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)). '/' . $title) . ">View</a></td>";
 
 			echo "</tr>";
-			echo "<tr class = 'starthidden'>"; 
-				echo "<td></td> <td></td> <td>" . $target->species . "</td> <td></td> <td></td> <td></td>"; #Species
-			echo "</tr>";
+			$k++;
+
 		}
 	echo "</table>";
   ?>
@@ -93,21 +99,6 @@
 
 </div>
 
-<script>
-$('.starthidden').hide();
-
-$(function(){
-  $("#targets").on({'click':function(event){
-    event.preventDefault();
-    $(this).closest(".to_shown").nextUntil(".to_shown").toggle("fast");
-    /*
-    $(this).closest(".td_show").nextUntil(".td_show").toggle("fast");
-    $(this).closest(".td_hide").nextUntil(".td_hide").toggle("fast");
-	*/
-   }},
-   "a.show",null);
-});
-</script>
 
 <script>
 jQuery(window).load(function () {
@@ -116,3 +107,15 @@ jQuery(window).load(function () {
 
 });
 </script>
+
+
+<script>
+$('.species_hidden').hide();
+
+jQuery(function(){
+	jQuery('.button_show').click(function(){
+		jQuery('#div'+$(this).attr('aShow')).toggle();
+	});
+});
+</script>
+

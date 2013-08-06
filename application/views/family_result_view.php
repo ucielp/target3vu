@@ -42,16 +42,20 @@
 			<th>Species</th>
 			<th>Family</th>
 		</tr>";
+		$k =1 ;
 		foreach ($targets as $target){
 			echo "<tr class ='to_shown' >";
-				echo "<td><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . base64_encode(serialize($target->{FAMILY_field}))) . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)) .">Show</a></td>";
+				echo "<td><a href=" . site_url('family/show_tags/' . $mirna_name . '/' . base64_encode(serialize($target->{FAMILY_field}))) . '/' . $mismatch  . '/' . $energy . '/' . base64_encode(serialize($species)) .">View</a></td>";
 				echo "<td>" . $target->contador . "</td>";
-				echo "<td>" . "<a class='show' href=#>Show/Hide species</a>" . "</td>";
-				echo "<td>" . $target->{FAMILY_field} . "</td>";
+				echo "<td>";
+					echo '<div>
+							<a  class="button_show" aShow="'.$k.'">Show/Hide</a>
+						  </div>';
+					echo '<div id="div'.$k.'" class="species_hidden">' .
+							$target->species .  '</div>';
+				echo "</td>";				echo "<td>" . $target->{FAMILY_field} . "</td>";
 			echo "</tr>";
-			echo "<tr class = 'starthidden'>"; 
-				echo "<td></td><td></td> <td>" . $target->species . "</td><td></td>"; #Species
-			echo "</tr>";
+			$k++;
 		}
 	echo "</table>";
   ?>
@@ -68,15 +72,14 @@ $(document).ready(function() {
 </script>
 
 
-<script>
-$('.starthidden').hide();
 
-$(function(){
-  $("#targets").on({'click':function(event){
-    event.preventDefault();
-    $(this).closest(".to_shown").nextUntil(".to_shown").toggle("fast");
-   }},
-   "a.show",null);
+<script>
+$('.species_hidden').hide();
+
+jQuery(function(){
+	jQuery('.button_show').click(function(){
+		jQuery('#div'+$(this).attr('aShow')).toggle();
+	});
 });
 </script>
 
