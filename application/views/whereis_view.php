@@ -108,6 +108,5 @@ $(document).ready(function(){
  
 </script>
 
-</head>
 <body>
 

@@ -1,5 +1,4 @@
 
-</head>
 <body>
 	<div id="svgCanvas"> </div>
 </body>
