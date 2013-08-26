@@ -50,7 +50,7 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 define('PROFILING_CONST',FALSE);
 
 //~ Databases and address
-define('BASE_URL_UPC',   '192.168.83.41'); 			#lab
+define('BASE_URL_UPC',   '192.168.83.89'); 			#lab
 //~ define('BASE_URL_UPC',   'localhost'); 				#local
 //~ define('BASE_URL_UPC',   'target3vu.uciel.com.ar'); #web
 
