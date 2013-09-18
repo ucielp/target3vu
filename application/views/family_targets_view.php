@@ -23,7 +23,7 @@
 			<th>
 				Sequence ID
 			</th>
-			<th>Specie
+			<th>Species
 			</th>
 			<th>
 				5\'-target-3\'<br>

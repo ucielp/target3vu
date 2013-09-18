@@ -43,7 +43,7 @@
 				Arabidopsis Tag' . '<a href="#" class = "tooltip">[?]<span>
 				'. ATH_TAG_MSG .'</span>
 			</th>
-			<th>Specie</th>
+			<th>Species</th>
 			<th>
 				Target description' . '<a href="#" class = "tooltip">[?]<span>
 				'. DESCRIPTION_MSG .'</span>

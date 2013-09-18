@@ -191,11 +191,13 @@ class Home_model extends CI_Model{
 		
 		$this->db->where(GU_RULE);
 		
-		$this->db->group_by('file,target');
-		$this->db->order_by(SIMILAR_field,'desc');
+		$this->db->group_by('gen');
+		$this->db->order_by('file asc');
 			
 	
 		$query = $this->db->get();
+   		//~ echo $this->db->last_query() . "<br>";
+
 		return $query->result();
 	}
 	

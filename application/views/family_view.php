@@ -57,16 +57,7 @@
 		</a>
 
 	</p>
-     <?php $data = array(
-              'name'          => 'input_mfe',
-              'value'       => DEFAULT_PE,
-              'maxlength'   => '10',
-              'size'        => '5',
-            );
-			echo form_input($data); 
-			?> 
-		</p>
-
+  
 </td>
 <td>  
 	<p><small><b><big>
