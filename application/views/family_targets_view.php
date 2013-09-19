@@ -36,7 +36,8 @@
 				'. MFE_MSG .'</a></span>
 			</th>
 		</tr>';
-		
+        $match_ant = "";
+
 		foreach ($family_targets as $target){
 			
 			$class_alignment = 'default';
@@ -56,15 +57,26 @@
 			
 			
 			echo "<tr>";
-				echo "<td>" . $target->{SIMILAR_field} . "</td>";
-				echo "<td>" . $target->gen . "</td>";
+                //~ Me fijo que no sea igual al anterior y tenga forma de xxxx.xxxx
+                if ($match_ant == substr($target->gen,0,-1) &&  preg_match('/(.*)?\.(\d)/',$target->gen,$matches) ){
+                        //~ No lo muestro
+                }
+                else
+                {
+   				echo "<td>" . $target->{SIMILAR_field} . "</td>";
+                echo "<td>" . $target->gen . "</td>";
 				echo "<td>" . $target->file . "</td>";
 				echo "<td class= $class_alignment ><PRE>" . $target->target . "</br>" 
 								 . $target->align  . "</br>"
 								 . $target->mirna  . 
 					"</PRE></td>";
 				echo "<td class = $class_deltag>" . $target->deltag . "</td>";
-			echo "</tr>";		
+                echo "</tr>";
+            
+                }
+                $match_ant = substr($target->gen,0,-1);
+                 
+		
 		}
 		
 		
