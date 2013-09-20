@@ -191,8 +191,7 @@ class Home_model extends CI_Model{
 		
 		$this->db->where(GU_RULE);
 		
-		$this->db->group_by('gen');
-		$this->db->order_by('file asc,gen,mm');
+		$this->db->order_by('file asc,gen,deltaG asc');
 			
 	
 		$query = $this->db->get();

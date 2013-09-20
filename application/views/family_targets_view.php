@@ -37,6 +37,7 @@
 			</th>
 		</tr>';
         $match_ant = "";
+        $match_ant_entero = "";
 
 		foreach ($family_targets as $target){
 			
@@ -59,8 +60,12 @@
 			echo "<tr>";
                 //~ Me fijo que no sea igual al anterior y tenga forma de xxxx.xxxx
                 if ($match_ant == substr($target->gen,0,-1) &&  preg_match('/(.*)?\.(\d)/',$target->gen,$matches) ){
-                        //~ No lo muestro
+                    //~ No lo muestro
                 }
+                //~ Me fijo que no sea exactamente igual
+                elseif($match_ant_entero == $target->gen ){
+					//~ No lo muestro
+				}	
                 else
                 {
    				echo "<td>" . $target->{SIMILAR_field} . "</td>";
@@ -75,7 +80,7 @@
             
                 }
                 $match_ant = substr($target->gen,0,-1);
-                 
+                $match_ant_entero = $target->gen;
 		
 		}
 		
