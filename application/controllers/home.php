@@ -10,7 +10,12 @@ function __construct(){
 	}
 	public function index()
 	{
-		redirect('targets', 'refresh');
+        $this->data['title'] = "Home";
+		$this->data['subtitle'] = "Subtitle";
+
+		$this->data['main_content'] = 'home_view';
+		$this->load->view('temp/template_home', $this->data);
+        
 	}
 }
 

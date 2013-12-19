@@ -109,13 +109,13 @@ class Targets extends CI_Controller {
 		
 		
 		if (empty($species)){
-				$this->data['alignments']	= $this->home_model->get_alginment_in($mirna_name,$similar,$mm,$energy,$species,$empty_sp);
+				$this->data['alignments']	= $this->home_model->get_alignment_in($mirna_name,$similar,$mm,$energy,$species,$empty_sp);
 				$this->data['alignments_not_in']	= "";
 
 		}
 		else{
-			$this->data['alignments']	= $this->home_model->get_alginment_in($mirna_name,$similar,$mm,$energy,$species,$in_sp);
-			$this->data['alignments_not_in']	= $this->home_model->get_alginment_in($mirna_name,$similar,$mm,$energy,$species,$not_in_sp);
+			$this->data['alignments']	= $this->home_model->get_alignment_in($mirna_name,$similar,$mm,$energy,$species,$in_sp);
+			$this->data['alignments_not_in']	= $this->home_model->get_alignment_in($mirna_name,$similar,$mm,$energy,$species,$not_in_sp);
 		}
 		$this->data['mismatch_filter']	= $mm;
 		$this->data['energy']	    = $energy;

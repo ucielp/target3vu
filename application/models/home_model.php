@@ -96,7 +96,7 @@ class Home_model extends CI_Model{
 	}
 	
 	
-	function get_alginment_in($mirna_name,$similar,$mm,$energy,$species,$in){
+	function get_alignment_in($mirna_name,$similar,$mm,$energy,$species,$in){
 		
 		# my $query = "select file,gen,target,align,mirna,deltag,filtro_mm from $file where " . SIMILAR_field . " = '$similar' 
 		# group by file,target order by target";
@@ -322,6 +322,22 @@ class Home_model extends CI_Model{
 		return $query;
 
 	}
+    
+    function is_a_conserved_mirna($sequence){
+        
+		$this->db->select('name');
+        $this->db->where('sequence',$sequence);
+        $query = $this->db->get('mirnas');
+        if ($query->num_rows() > 0){
+            foreach($query->result() as $row){
+               return $row->name;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+    
 }
 	
 	

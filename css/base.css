@@ -19,12 +19,14 @@ body, p, h1, h2, h3, h4, h5, h6, address {
 	color: #444444;
 	font-size: 10px;
 }
-h6 { 
+h2 { 
 	font-size: 10px; 
 	color: #D8000C; 
 	padding:0px;
 	}
-
+a.h2{
+	color: #yellow; 
+}
 p2{
 	font-family: monospace, helvetica, verdana, sans-serif;
 	color: #444444;
@@ -267,7 +269,7 @@ color:#444444;
 {
 	font-size: 16px;
 	background: #fff;
-	margin: 150px 0 0 10px;
+	margin: 180px 0 0 10px;
 	width: 100%;
 	border-collapse: collapse;
 	text-align: left;
@@ -317,6 +319,7 @@ tr.starthidden {
 	display: inherit;
  }
 */
+
 .button_show{
 	cursor:pointer;
 	color:#30787E;
@@ -481,3 +484,70 @@ a.whereis_button:hover{
 	background:#afafaf
 }
 
+/*
+ Home Home
+*/
+#home_home h1{
+font-size:18px;
+color:#30787e;
+}
+
+#home_home h2{
+font-size:14px;
+color:#444444;
+}
+
+#home_home h3{
+font-size:10px;
+color:#444444;
+}
+
+.button_more {
+   background: white;
+   padding: 5px 5px;
+   -webkit-border-radius: 82px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   color: #30787e;
+   font-size: 10px;
+   text-decoration: none;
+   vertical-align: middle;
+   	cursor:pointer;
+
+}
+.button_more:hover {
+    background: #30787e;
+   color: #ccc;
+   
+}
+.button_more:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+}
+
+/*
+Bysequence
+*/
+input[type="sequence"] { width: 250px; }
+
+input.error {
+  width: 200px;
+  background-color:#FFEBEF;
+  background-image: url('icon-fail.png');
+  background-position:100% 50%;
+  background-repeat:no-repeat no-repeat;
+  color:#480000;
+  padding:3px;
+
+}
+
+#formsucess h1{
+padding:50px 0 50px 0;
+font-size:16px;
+
+}
+
+#formsucess a{
+font-size:16px;
+color:#30787e;
+}

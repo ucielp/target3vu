@@ -115,10 +115,12 @@ define('DESCRIPTION_MSG','A brief description of the gene. Usually a brief summa
 define('FAMILY_MSG','Gene family definition (TAIR).');
 define('ALIGMENTS_MSG','Alignments of the miRNA–target pair in each present specie.');
 //~ View aligments
-define('ALIGNMENT_MSG','MiRNA–target alignment.');
-define('MFE_MSG','Minimum free energy (MFE) of the miRNA-target duplex calculated using RNAHybrid.');
+define('ALIGNMENT_MSG','MiRNA–target alignment. <br> <font color="red">Red color</font>  means that this alignment does not satisfy the mismatch filter.');
+define('MFE_MSG','Minimum free energy (MFE) of the miRNA-target duplex calculated using RNAHybrid.<br> <font color="red">Red color</font>  means that this value is below the MFE filter cut-off.');
 
-//~ Family
+
+
+
 
 
 //~ free energy compared to a perfectly complementary target
