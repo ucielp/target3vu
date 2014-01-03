@@ -17,7 +17,7 @@
 
 	</p>
 	
-      <?php echo form_dropdown('dropdown_microRNAs', $microRNAs);?>
+      <?php echo form_dropdown('dropdown_microRNAs', $microRNAs, $selected_mirna);?>
 	</td>
     
     <td> 

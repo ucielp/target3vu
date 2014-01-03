@@ -325,17 +325,12 @@ class Home_model extends CI_Model{
     
     function is_a_conserved_mirna($sequence){
         
-		$this->db->select('name');
+		$this->db->select('name,table_reference');
         $this->db->where('sequence',$sequence);
         $query = $this->db->get('mirnas');
-        if ($query->num_rows() > 0){
-            foreach($query->result() as $row){
-               return $row->name;
-            }
-        }
-        else{
-            return false;
-        }
+        
+        return $query;
+        
     }
     
 }

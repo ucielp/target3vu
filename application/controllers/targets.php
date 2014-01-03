@@ -14,7 +14,7 @@ class Targets extends CI_Controller {
 
 	}
 
-	function index()
+	function index($selected_mirna = NULL)
 	{
 		$this->data['title'] = "Targets";
 		$this->data['subtitle'] = "Find conserved microRNAs targets";
@@ -23,6 +23,8 @@ class Targets extends CI_Controller {
 		$this->data['nroSpecies'] = $this->home_model->get_nro_species(); //para el combo box
 		$this->data['plants']   = $this->home_model->get_plants(); //para el combo box
 
+		$this->data['selected_mirna'] = $selected_mirna;
+        
 		$this->data['main_content'] = 'targets_view';
 		$this->load->view('temp/template', $this->data);
 	}

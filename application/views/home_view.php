@@ -23,15 +23,15 @@
     <h2>Advanced features</h2>
     <ul>
         <li><h1><a href="<?php echo base_url(); ?>bysequence">Search your own sequences </a><span class='own_button'><a  class="button_more">Read more &#9654;</span></a></span></h2></li>
-        <p class='own'>Allows users to introduce their own sequence. Sequence must be of 18 nt<a href='#'class="tooltip">[?]<span><img class="callout" src= "<?php echo site_url();?>/css/callout.gif" />
+        <p class='own'>Allows users to introduce their own sequence to search for potential miRNA targets. Sequence must be 18 nt long<a href='#'class="tooltip">[?]<span><img class="callout" src= "<?php echo site_url();?>/css/callout.gif" />
 			<strong>18 nt<br/></strong>As miRNA sequences can vary in different species, specially positions 1, 20 and 21, we used sequences 2-19 (18 nt) for the search.</span>
-         </a>miRNA sequence (positions 2–19).</p>
+         </a>(positions 2–19).</p>
 
     </ul>
 
    <h2>Help</h2>
     <h3>
-    Comtar contains precomputed data for <a href="<?php echo base_url(); ?>targets/mirna_list">22 conserved miRNAs.</a> You can browse the results, and change the input parameters. By contrast, query your own sequences are time consuming and results will be delivered within 1 day. You have to enter your email in order to get the results.
+    Comtar contains precomputed data for <a href="<?php echo base_url(); ?>targets/mirna_list">22 conserved miRNAs</a> where you can browse the results, and change the input parameters. By contrast, query your own sequences are time consuming and results will be delivered within 1 day. You have to enter your email in order to get the results.
     </h3>
 
     <h3>Got any doubts? Check out the question mark<a href='#'class="tooltip">[?]<span>
@@ -44,10 +44,13 @@
    <h2>Target search options</h2>
    
    <h3>
-    You can define two parameters for each search: the mismatch filter and the minimum free energy cutoff.
+    You can define several parameters for each search, such as the mismatch filter, the minimum free energy cutoff and the minimum number of species.
    <ul>
    <li>Mismatch filter: only one mismatch is allowed between position 1 and 11 of the miRNA consensus sequence.</li>
    <li>The minimum free energy cutoff: We defined a target as predicted if its minimum free energy is below the chosen cutoff. </li>
+   <li>The minimum number of species where the same tag is present for a particular miRNA. </li>
+   
+
    </ul>
    </h3>
 

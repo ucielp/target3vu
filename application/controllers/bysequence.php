@@ -20,8 +20,10 @@ class Bysequence extends CI_Controller {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('sequence', 'Sequence', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-		//~ $this->form_validation->set_rules('tel', 'Teléfono', 'required');
-		//~ $this->form_validation->set_rules('asunto', 'Asunto', 'required');
+
+
+        $this->data['title'] = 'Search your own sequences';
+        $this->data['subtitle'] = 'Search conserved microRNAs targets by introducing your own sequence';
 
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -46,8 +48,19 @@ class Bysequence extends CI_Controller {
         $ip = $this->input->ip_address();
         $user_agent = $this->input->user_agent();
         
-        if($mirna_name = $this->home_model->is_a_conserved_mirna($sequence)){
-            $this->data['mirna_name'] = $mirna_name;
+        
+               
+        $query = $this->home_model->is_a_conserved_mirna($sequence);
+        $result = $query->result();
+        
+                   
+		if ($query->num_rows() > 0 ) {
+            
+            foreach ($query->result() as $row){
+                $this->data['mirna_name'] = $row->name;
+                $this->data['table_reference'] = $row->table_reference;
+            }
+            
              
             $this->data['main_content'] = 'formsuccess_conserved_mirna';
             $this->load->view('temp/template_home', $this->data);

@@ -1,10 +1,13 @@
 <div id="bysequence">
 
+
 <!--form action="/bysequence" method="POST"-->
 <p><?php echo form_open('bysequence/success');?></p>
 
-
-
+<div id="myform">
+    <h1><?php echo $title;?></h1>
+    <h2><?php echo $subtitle;?></h2>
+</div>
 <h1>Name</h1>
     <p>    <input name="name"  type="text" data-validation="length" data-validation-length="min3"   </p>
     
@@ -14,7 +17,8 @@
 <h1>Country</h1>
     <p>     <input name="user_country" data-validation="country" >    </p>
     
-<h1>18nt miRNA sequence (position 2-19)</h1>
+<h1>18nt miRNA sequence (position 2-19) <a href='#'class="tooltip">[?]<span><img class="callout" src= "<?php echo site_url();?>/css/callout.gif" />
+			<strong>18 nt<br/></strong>As miRNA sequences can vary in different species, specially positions 1, 20 and 21, we used sequences 2-19 (18 nt) for the search.</span></a>
     <p>    <input name="sequence"  type="sequence" data-validation="rna_validation">   </p>
   
     <p>    <input type="submit">    </p>
@@ -37,14 +41,6 @@ $.formUtils.addValidator({
 });
 
 $.validate({
-/*
-    validateOnBlur : false, // disable validation when input looses focus
-    errorMessagePosition : 'top', // Instead of 'element' which is default
-    onSuccess : function() {
-      alert('The form is valid!');
-      return false; // Will stop the submission of the form
-    },
-*/
   modules : 'location',
   onModulesLoaded : function() {
     $('input[name="user_country"]').suggestCountry();
