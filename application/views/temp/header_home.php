@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/base.css" type="text/css" >
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/multi-select.css" type="text/css" >
 
-  <title>Target3vu</title>
+  <title>comTAR</title>
 
   </style>
  

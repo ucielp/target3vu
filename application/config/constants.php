@@ -51,8 +51,8 @@ define('PROFILING_CONST',FALSE);
 
 //~ Databases and address
 define('BASE_URL_UPC',   '192.168.83.89'); 			#lab
-//~ define('BASE_URL_UPC',   'localhost'); 				#local
-//~ define('BASE_URL_UPC',   'target3vu.uciel.com.ar'); #web
+# Defino la url para el cluster
+define('BASE_URL_CLUSTER',   '/cluster_comtar/');
 
 define('MIN_SPECIES',   2);
 define('MAX_SPECIES',  10);

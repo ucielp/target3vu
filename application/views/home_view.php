@@ -22,7 +22,7 @@
   
     <h2>Advanced features</h2>
     <ul>
-        <li><h1><a href="<?php echo base_url(); ?>bysequence">Search your own sequences </a><span class='own_button'><a  class="button_more">Read more &#9654;</span></a></span></h2></li>
+        <li><h1><a href="<?php echo BASE_URL_CLUSTER; ?>">Search your own sequences </a><span class='own_button'><a  class="button_more">Read more &#9654;</span></a></span></h2></li>
         <p class='own'>Allows users to introduce their own sequence to search for potential miRNA targets. Sequence must be 18 nt long<a href='#'class="tooltip">[?]<span><img class="callout" src= "<?php echo site_url();?>/css/callout.gif" />
 			<strong>18 nt<br/></strong>As miRNA sequences can vary in different species, specially positions 1, 20 and 21, we used sequences 2-19 (18 nt) for the search.</span>
          </a>(positions 2–19).</p>
