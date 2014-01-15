@@ -29,10 +29,6 @@ class Bysequence extends CI_Controller {
 		{
             $this->data['main_content'] = 'myform';
 		}
-		else
-		{
-            $this->data['main_content'] = 'formsuccess';
-		}
 
        $this->load->view('temp/template_home', $this->data);
 
@@ -45,11 +41,12 @@ class Bysequence extends CI_Controller {
 		$email = $this->input->post('email');
 		$user_country    = $this->input->post('user_country');
 		$sequence     = $this->input->post('sequence');
-        $ip = $this->input->ip_address();
-        $user_agent = $this->input->user_agent();
         
-        
-               
+        if (strlen($sequence) != 18){
+            # aca quizas deberia dejar un mensaje de error. 
+            # Igual esto no deberia pasar nunca porque lo estoy chequeando con jquery.
+            redirect('bysequence');
+        }
         $query = $this->home_model->is_a_conserved_mirna($sequence);
         $result = $query->result();
         
@@ -61,23 +58,21 @@ class Bysequence extends CI_Controller {
                 $this->data['table_reference'] = $row->table_reference;
             }
             
-             
             $this->data['main_content'] = 'formsuccess_conserved_mirna';
             $this->load->view('temp/template_home', $this->data);
 
         }
         else{
+            $job = 'perl /home/uciel/lab/programas/patmatch_2013/patmatch_cluster.pl ';
+            $params = $sequence . ' ' . $name . ' ' . $email . ' ' . $user_country;
+            $exec = $job . $params . ' >> /tmp/comtar.log 2>&1 & echo $! ';
+            
+            exec($exec,$op,$retval);
+            //~ $this->pid = (int)$op[0];
+            
+
             $this->data['main_content'] = 'formsuccess';
 
-            $job = 'perl patmatch   _cluster.pl ';
-            $params = $sequence . ' ' . $name;
-            $exec = $job . $params;
-        
-            //~ echo $exec;
-            exec($exec,$output);
-            
-            # Es un array de resultados
-            //~ echo $output[5];
             $this->load->view('temp/template_home', $this->data);
         
         }
