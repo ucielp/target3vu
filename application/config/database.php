@@ -50,17 +50,10 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 
-#web
-//~ $db['default']['username'] = 'jforte_targets';
-//~ $db['default']['password'] = 'jforte_passwd';
-//~ $db['default']['database'] = 'jforte_targets_db';
-
-
-
-#local
-$db['default']['username'] = 'uciel';
-$db['default']['password'] = 'ucieluciel';
-$db['default']['database'] = 'patmatch_2013';
+# web
+$db['default']['username'] = 'comtar_user';
+$db['default']['password'] = 'comtar_lt500';
+$db['default']['database'] = 'comtar_db';
 
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
