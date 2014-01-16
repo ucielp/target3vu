@@ -8,7 +8,6 @@
 <script type="text/javascript" src="<?php echo base_url();?>js/jscripts/jsphylosvg-1.55/raphael-min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>js/jscripts/jquery.multi-select.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>js/jscripts/jquery-ui.js"></script>
-
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/base.css" type="text/css" >
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/multi-select.css" type="text/css" >
 
