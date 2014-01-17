@@ -49,10 +49,8 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 //~ Profiling
 define('PROFILING_CONST',FALSE);
 
-//~ Databases and address
-define('BASE_URL_UPC',   '192.168.83.89'); 			#lab
 # Defino la url para el cluster
-define('BASE_URL_CLUSTER',   '/cluster_comtar/');
+define('BASE_URL_CLUSTER',   'http://piluso.rosario-conicet.gov.ar/comtar/');
 
 define('MIN_SPECIES',   2);
 define('MAX_SPECIES',  10);
