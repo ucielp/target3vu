@@ -27,7 +27,7 @@
 			<strong><?php echo SPECIES_FILTER_TITLE ?><br/></strong><?php echo SPECIES_FILTER_MSG?></span>
 		</a>
 	</p>
-      <?php echo form_dropdown('dropdown_num_species', $nroSpecies, 3);?>
+      <?php echo form_dropdown('dropdown_num_species', $nroSpecies, 1);?>
       
 	</td>
 </tr>
@@ -35,7 +35,7 @@
 <tr>
 <td>
 	 <p> 
-		Mismatch filter<?php echo form_checkbox('mismatch_targets', 'accept', TRUE);?>
+		Mismatch filter<?php echo form_checkbox('mismatch_targets', 'accept', FALSE);?>
 		<a href='#' class="tooltip">[?]<span>
 			<img class="callout" src= "<?php echo site_url();?>/css/callout.gif" />
 			<strong><?php echo MM_FILTER_TITLE ?><br/></strong><?php echo MM_FILTER_MSG?></span>

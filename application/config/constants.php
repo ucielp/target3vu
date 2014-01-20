@@ -54,8 +54,8 @@ define('BASE_URL_UPC',   '192.168.83.89'); 			#lab
 # Defino la url para el cluster
 define('BASE_URL_CLUSTER',   '/cluster_comtar/');
 
-define('MIN_SPECIES',   2);
-define('MAX_SPECIES',  10);
+define('MIN_SPECIES', 1);
+define('MAX_SPECIES', 1);
 define('DEFAULT_PE','72PE');
 define('SPECIES_SEPARATOR', '<br>');
 define('GU_RULE', '((mm<4) OR (mm=4 AND  gu>0))');

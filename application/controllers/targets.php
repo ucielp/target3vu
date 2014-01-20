@@ -21,7 +21,6 @@ class Targets extends CI_Controller {
 
 		$this->data['microRNAs']  = $this->home_model->get_microRNAs(); //para el combo box
 		$this->data['nroSpecies'] = $this->home_model->get_nro_species(); //para el combo box
-		$this->data['plants']   = $this->home_model->get_plants(); //para el combo box
 
 		$this->data['selected_mirna'] = $selected_mirna;
         

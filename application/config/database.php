@@ -60,7 +60,7 @@ $db['default']['hostname'] = 'localhost';
 #local
 $db['default']['username'] = 'uciel';
 $db['default']['password'] = 'ucieluciel';
-$db['default']['database'] = 'patmatch_2013';
+$db['default']['database'] = 'patmatch_intron_2013';
 
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

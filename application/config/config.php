@@ -15,7 +15,7 @@
 |
 */ 	
 
-$config['base_url']	= 'http://'. BASE_URL_UPC . '/target3vu/';
+$config['base_url']	= 'http://'. BASE_URL_UPC . '/target_intrones/';
 /*
 |--------------------------------------------------------------------------
 | Index File

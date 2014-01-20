@@ -32,14 +32,13 @@
 <div id ="container">
 	<div id="header">
 
-		 <a href="<?php echo site_url('home');?>"><img src="<?php echo base_url(); ?>css/logo_comtar.png" border="0"> </a>
+		 <h1><a href="<?php echo site_url('targets');?>">TARGETS INTRON</a></h1>
 	</div>
 	
 	<div id = "header_container" >
 		<ul class="nav">
 			<li><a href="<?php echo base_url(); ?>targets"><span>Find potential miRNA targets</span></a></li>
-            <li><a href="<?php echo base_url(); ?>family"><span>Find potential miRNA target families</span></a></li>
-            <li><a href="<?php echo base_url(); ?>whereis/index/0"><span>Is this gene a potential miRNA target?</span></a></li>
+
 		</ul>
 
 
