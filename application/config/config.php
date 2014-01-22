@@ -15,7 +15,7 @@
 |
 */ 	
 
-$config['base_url']	= 'http://rnabiology.ibr-conicet.gov.ar/';
+$config['base_url']	= 'http://rnabiology.ibr-conicet.gov.ar/comtar';
 
 /*
 |--------------------------------------------------------------------------
