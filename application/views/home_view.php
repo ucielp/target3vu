@@ -31,7 +31,7 @@
 
    <h2>Help</h2>
     <h3>
-    Comtar contains precomputed data for <a href="<?php echo base_url(); ?>targets/mirna_list">22 conserved miRNAs</a> where you can browse the results, and change the input parameters. By contrast, query your own sequences are time consuming and results will be delivered within 1 day. You have to enter your email in order to get the results.
+    Comtar contains precomputed data for <a href="<?php echo base_url(); ?>targets/mirna_list">22 conserved miRNAs</a> where you can browse the results, and change the input parameters. By contrast, query your own sequences are time consuming and results will be delivered within 1 day.
     </h3>
 
     <h3>Got any doubts? Check out the question mark<a href='#'class="tooltip">[?]<span>
